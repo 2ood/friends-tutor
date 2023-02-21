@@ -9,6 +9,7 @@ class ModularRequest extends React.Component{
     	super(props);
       
       	this.state = {
+            host : props.host?props.host:HOST.address,
             path : props.path,
           	method : props.method,
             headers : props.headers,
@@ -18,7 +19,7 @@ class ModularRequest extends React.Component{
 
     async send(){
         try {
-            const url = `${HOST.address}/${this.props.path}`;
+            const url = `${this.props.address?this.props.address:HOST.address}/${this.props.path}`;
             //const url = `${HOST.address}:${HOTS.port}/${this.props.path}`;
             let response = await axios({
                 method : this.props.method,

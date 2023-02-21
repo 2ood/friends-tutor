@@ -1,9 +1,18 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AxiosTest from './util/AxiosTest';
+import LoginTest from './util/LoginTest';
 
 function App() {
   return (
-      <AxiosTest />
+      <div className='App'>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/axios-test" element={<AxiosTest />}></Route>
+          <Route path="/login-test" element={<LoginTest />}></Route>
+				</Routes>
+			</BrowserRouter>
+		</div>
   );
 }
 
