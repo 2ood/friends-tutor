@@ -10,11 +10,17 @@
     --font-primary-color : black;
     --font-placeholder-color : var(--gray2);
     --font-color-over-primary : var(--secondary-color);
-    
+
     --button-background-primary-color : var(--primary-color);
     --button-background-secondary-color : var(--secondary-color);
+    --button-background-accent-color : var(--accent-color);
     --button-font-primary-color : var(--secondary-color);
     --button-font-secondary-color : var(--primary-color);
+    --button-font-accent-color : var(--secondary-color);
+    --button-border-primary-color : var(--primary-color);
+    --button-border-secondary-color : var(--primary-color);
+    --button-border-accent-color : var(--accent-color);
+
 
 
     --font-size-h1 : 20px;

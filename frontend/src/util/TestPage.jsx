@@ -10,7 +10,7 @@ function TestPage(){
         <Styled.MainBodyFrame>
             <Component.VerticalInput type="text" placeholder="type in name" label="name"></Component.VerticalInput>
             <Component.HorizontalInput type="text" placeholder="type in name" label="name"></Component.HorizontalInput>
-            <Styled.FullWidthButton theme="primary">Click me</Styled.FullWidthButton>
+            <Styled.ThemedButton size="100%" theme="secondary">Click me</Styled.ThemedButton>
         </Styled.MainBodyFrame>
     </>);
 }
