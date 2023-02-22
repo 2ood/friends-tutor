@@ -1,15 +1,17 @@
 import React from "react";
 import * as Component from "components/Components";
-import * as styled from "styles/ComponentStyles";
+import * as Styled from "styles/ComponentStyles";
+
 
 
 function TestPage(){
     return (<>
         <Component.Topbar />
-        <styled.MainBodyFrame>
+        <Styled.MainBodyFrame>
             <Component.VerticalInput type="text" placeholder="type in name" label="name"></Component.VerticalInput>
             <Component.HorizontalInput type="text" placeholder="type in name" label="name"></Component.HorizontalInput>
-        </styled.MainBodyFrame>
+            <Styled.FullWidthButton theme="primary">Click me</Styled.FullWidthButton>
+        </Styled.MainBodyFrame>
     </>);
 }
 

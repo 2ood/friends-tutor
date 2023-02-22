@@ -10,6 +10,13 @@
     --font-primary-color : black;
     --font-placeholder-color : var(--gray2);
     --font-color-over-primary : var(--secondary-color);
+    
+    --button-background-primary-color : var(--primary-color);
+    --button-background-secondary-color : var(--secondary-color);
+    --button-font-primary-color : var(--secondary-color);
+    --button-font-secondary-color : var(--primary-color);
+
+
     --font-size-h1 : 20px;
     --font-size-h2 : 17px;
     --font-size-h3 : 15px;
