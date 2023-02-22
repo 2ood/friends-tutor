@@ -8,6 +8,7 @@ function TestPage(){
         <Component.Topbar />
         <styled.MainBodyFrame>
             <Component.VerticalInput type="text" placeholder="type in name" label="name"></Component.VerticalInput>
+            <Component.HorizontalInput type="text" placeholder="type in name" label="name"></Component.HorizontalInput>
         </styled.MainBodyFrame>
     </>);
 }

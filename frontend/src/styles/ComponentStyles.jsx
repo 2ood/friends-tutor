@@ -32,6 +32,32 @@ const UnderlinedInput = styled.input`
     border-bottom : 2px var(--gray1) solid; 
 `;
 
+//HorizontalInput.jsx
+const HorizontalInput = styled.div`
+    display : inline-grid;
+    width  :100%;
+    min-height : 40px;
+    padding : var(--round-border-padding);
+    grid-template : 1fr /1fr 4fr;
+    border : var(--default-border-size) var(--primary-color) solid;
+    border-radius : var(--default-border-radius);
+
+    label {
+        display : inline-flex;
+        color : var(--primary-color);
+        font-size : var(--font-size-h3);
+        align-items : center;
+    }
+`;
+
+const NoBorderInput = styled.input`
+    display : inline-flex;
+    height : var(--input-height);
+    border : none;
+    outline : none;
+    align-items : center;
+`;
+
 //Topbar.jsx
 const Topbar = styled.div`
     display : inline-flex;
@@ -91,6 +117,7 @@ const Log = styled.textarea`
 `;
 
 export {MainBodyFrame};
+export {HorizontalInput, NoBorderInput};
 export {VerticalInput, UnderlinedInput};
 export {Topbar, NavButton};
 export {Wrapper, Input, Log};

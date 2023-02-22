@@ -22,7 +22,9 @@
     --body-padding-top : 20px;
 
     --outmost-padding : min(5vw,30px);
-    
+    --default-border-size : 2px;
+    --default-border-radius : 15px;
+    --round-border-padding : 5px;
 }
 
 * {
