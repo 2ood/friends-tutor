@@ -1,10 +1,10 @@
 import React from "react";
-import Topbar from "components/TopBar";
+import * as Component from "components/Components";
 
 
 function TestPage(){
     return (
-        <Topbar />
+        <Component.Topbar />
     );
 }
 
