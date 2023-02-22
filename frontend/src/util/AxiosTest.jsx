@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import ModularRequest from "./ModularRequest";
+import ModularRequest from "util/ModularRequest";
 
 
 function AxiosTest(){

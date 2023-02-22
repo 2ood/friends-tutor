@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 
-import {HOST} from "./Enums";
+import {HOST} from "util/Enums";
 
 
 class ModularRequest extends React.Component{

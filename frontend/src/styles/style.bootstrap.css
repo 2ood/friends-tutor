@@ -1,0 +1,30 @@
+:root {
+    --primary-color : #40A7D7;
+    --secondary-color : white;
+    --base-color : white;
+    --accent-color : coral;
+    --gray0 : #CFCFCF;
+    --gray1 : #D2D2D2;
+    --gray2 : #8B8B8B;
+    --gray3 : #595959;
+    --font-primary-color : black;
+    --font-placeholder-color : var(--gray2);
+    --font-color-over-primary : var(--secondary-color);
+    --font-size-h1 : 20px;
+    --font-size-h2 : 17px;
+    --font-size-h3 : 15px;
+
+    --full-width : 100vw;
+    --full-height : 100vh;
+    --top-bar-height : 75px;
+
+    --outmost-padding : min(5vw,30px);
+    
+}
+
+* {
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+}
+
