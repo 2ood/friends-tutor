@@ -3,19 +3,24 @@ import "styles/style.bootstrap.css";
 
 //HorizontalInput.jsx
 const HorizontalInput = styled.div`
-    display : inline-grid;
+    display : inline-flex;
     width  :100%;
     min-height : 40px;
     padding : var(--round-border-padding);
-    grid-template : 1fr /1fr 4fr;
     border : var(--default-border-size) var(--primary-color) solid;
     border-radius : var(--default-border-radius);
 
     label {
+        flex-shrink : 0;
         display : inline-flex;
         color : var(--primary-color);
         font-size : var(--font-size-h3);
         align-items : center;
+    }
+
+    input {
+        flex-shrink : 4;
+        margin : 0 var(--round-border-padding);
     }
 `;
 

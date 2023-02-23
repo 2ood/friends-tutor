@@ -19,6 +19,7 @@ const Topbar = styled.div`
 
     #logo {
         font-size : var(--font-size-h1);
+        color : var(--font-color-over-primary);
         font-weight : bold;
     }
 `;
