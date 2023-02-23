@@ -14,7 +14,9 @@ const Topbar = styled.div`
 
     #navgroup {
         display : inline-flex;
+        position : relative;
         flex-direction : row;
+
     }
 
     #logo {
@@ -31,9 +33,11 @@ const NavButton = styled.div`
     justify-content : center;
     align-items : center;
 
-    image {
+    img {
+        display : inline-block;
         width : 100%;
         height : 100%;
+        object-fit: cover;
     }
 `;
 
