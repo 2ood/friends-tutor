@@ -1,61 +1,18 @@
-import styled from "styled-components";
 import "styles/style.bootstrap.css";
 
-const Topbar = styled.div`
-    display : inline-flex;
-    height : var(--top-bar-height);
-    width : var(--full-width);
-    justify-content : space-between;
-    align-items : center;
-    padding : var(--outmost-padding);
-    background-color : var(--primary-color);
-    color : var(--font-color-over-primary);
+import {HorizontalInput, NoBorderInput} from "styles/styled-components/HorizontalInput.style";
+import { MainBodyFrame } from "styles/styled-components/MainBodyFrame.style";
+import { VerticalInput, UnderlinedInput } from "styles/styled-components/VerticalInput.style";
+import { Topbar, NavButton } from "styles/styled-components/Topbar.style";
+import { Wrapper, Input, Log } from "styles/styled-components/LoginTest.style";
+import { ThemedButton } from "styles/styled-components/ThemedButton.style";
+import { UnderlinedTitle } from "styles/styled-components/UnderlinedTitle.style";
 
-    #navgroup {
-        display : inline-flex;
-        flex-direction : row;
-    }
 
-    #logo {
-        font-size : var(--font-size-h1);
-        font-weight : bold;
-    }
-`;
-
-const NavButton = styled.div`
-    display : inline-flex;
-    height : calc(var(--top-bar-height) - 2 * var(--outmost-padding));
-    aspect-ratio : 1 / 1;
-    justify-content : center;
-    align-items : center;
-
-    image {
-        width : 100%;
-        height : 100%;
-    }
-`;
-
-const Wrapper = styled.div`
-    display : flex;
-    flex-direction : column;
-    align-items : center;
-    margin : 0 10vw;
-    gap : 10px;
-`;
-
-const Input = styled.input`
-    display : inline-block;
-    width : 100%;
-    min-height : 50px;
-    padding : 10px;
-`;
-
-const Log = styled.textarea`
-    display : inline-block;
-    width : 100%;
-    min-height: 200px;
-    resize : none;
-`;
-
+export {MainBodyFrame};
+export {HorizontalInput, NoBorderInput};
+export {VerticalInput, UnderlinedInput};
 export {Topbar, NavButton};
 export {Wrapper, Input, Log};
+export {ThemedButton};
+export {UnderlinedTitle};

@@ -10,6 +10,19 @@
     --font-primary-color : black;
     --font-placeholder-color : var(--gray2);
     --font-color-over-primary : var(--secondary-color);
+
+    --button-background-primary-color : var(--primary-color);
+    --button-background-secondary-color : var(--secondary-color);
+    --button-background-accent-color : var(--accent-color);
+    --button-font-primary-color : var(--secondary-color);
+    --button-font-secondary-color : var(--primary-color);
+    --button-font-accent-color : var(--secondary-color);
+    --button-border-primary-color : var(--primary-color);
+    --button-border-secondary-color : var(--primary-color);
+    --button-border-accent-color : var(--accent-color);
+
+
+
     --font-size-h1 : 20px;
     --font-size-h2 : 17px;
     --font-size-h3 : 15px;
@@ -17,14 +30,20 @@
     --full-width : 100vw;
     --full-height : 100vh;
     --top-bar-height : 75px;
+    --input-height : 30px;
+    --body-padding : 10vw;
+    --body-padding-top : 20px;
 
     --outmost-padding : min(5vw,30px);
-    
+    --default-border-size : 2px;
+    --default-border-radius : 15px;
+    --round-border-padding : 5px;
 }
 
 * {
     padding : 0;
     margin : 0;
     box-sizing: border-box;
+    color : var(--font-primary-color);
 }
 
