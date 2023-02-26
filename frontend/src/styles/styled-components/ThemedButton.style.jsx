@@ -10,12 +10,13 @@ const ThemedButton = styled.button`
     display : inline-block;
     min-width : ${(props) => ((!props.size)?"0px":props.size)};
     min-height : 20px;
-    padding : var(--round-border-padding);
+    padding : var(--round-border-padding) 10px;
     border : var(--default-border-size) var(${(props) => ((props.theme==="secondary")?"--button-border-secondary-color":(props.theme==="accent")?"--button-border-accent-color":"--button-border-primary-color")}) solid;
     color : var(${(props) => ((props.theme==="secondary")?"--button-font-secondary-color":(props.theme==="accent")?"--button-font-accent-color":"--button-font-primary-color")});
     background-color : var(${(props) => ((props.theme==="secondary")?"--button-background-secondary-color":(props) => ((props.theme==="accent")?"--button-background-accent-color":"--button-background-primary-color"))});
     border-radius : var(--default-border-radius);
     font-weight : bold;
+    font-size : var(--default-button-font-size);
 `;
 
 export {ThemedButton};

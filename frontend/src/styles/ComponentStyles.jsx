@@ -10,6 +10,7 @@ import { UnderlinedTitle } from "styles/styled-components/UnderlinedTitle.style"
 import { ThemedTextarea } from "styles/styled-components/ThemedTextarea.style";
 import {ThemedTitle} from "styles/styled-components/ThemedTitle.style";
 import { Buttongroup } from "styles/styled-components/ButtonGroup.style";
+import { LecturePlayer } from "styles/styled-components/LecturePlayer.style";
 
 
 export {MainBodyFrame};
@@ -22,3 +23,4 @@ export {UnderlinedTitle};
 export {ThemedTextarea};
 export {ThemedTitle};
 export {Buttongroup};
+export {LecturePlayer};
