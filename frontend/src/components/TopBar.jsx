@@ -1,14 +1,16 @@
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as Styled from "styles/ComponentStyles";
 import home from "img/home.png";
 import profile from "img/profile.png";
 
-//const navigate = useNavigate();
+
 
 function Topbar(){
+    const navigate = useNavigate();
+    
     return (
         <Styled.Topbar>
-            <div id="logo">FriendsMentor</div>
+            <div id="logo" onClick={()=>{navigate("/")}}>FriendsMentor</div>
             <div id="navgroup">
                 <Styled.NavButton id="nav-home">
                     <img src={home} alt="home"></img>
