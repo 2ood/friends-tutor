@@ -21,6 +21,10 @@ const UnderlinedInput = styled.input`
     border : none;
     outline : none;
     border-bottom : 2px var(--gray1) solid; 
+
+    ::placeholder {
+        color :var(--font-placeholder-color);
+    }
 `;
 
 export {VerticalInput, UnderlinedInput};

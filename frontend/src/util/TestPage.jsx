@@ -12,6 +12,7 @@ function TestPage(){
             <Component.VerticalInput type="text" placeholder="type here" label="VerticalInput"></Component.VerticalInput>
             <Component.HorizontalInput type="text" placeholder="type here" label="HorizontalInput"></Component.HorizontalInput>
             <Styled.ThemedButton size="100%" theme="secondary">This is ThemedButton</Styled.ThemedButton>
+            <Styled.ThemedTextarea size="100%">This is ThemedTextarea</Styled.ThemedTextarea>
         </Styled.MainBodyFrame>
     </>);
 }

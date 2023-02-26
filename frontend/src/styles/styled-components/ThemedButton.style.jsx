@@ -9,7 +9,7 @@ import "styles/style.bootstrap.css";
 const ThemedButton = styled.button`
     display : inline-block;
     min-width : ${(props) => ((!props.size)?"0px":props.size)};
-    min-height : 40px;
+    min-height : 20px;
     padding : var(--round-border-padding);
     border : var(--default-border-size) var(${(props) => ((props.theme==="secondary")?"--button-border-secondary-color":(props.theme==="accent")?"--button-border-accent-color":"--button-border-primary-color")}) solid;
     color : var(${(props) => ((props.theme==="secondary")?"--button-font-secondary-color":(props.theme==="accent")?"--button-font-accent-color":"--button-font-primary-color")});
