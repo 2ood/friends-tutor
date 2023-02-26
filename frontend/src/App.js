@@ -12,6 +12,7 @@ function App() {
 				<Routes>
 					<Route path="/axios-test" element={<AxiosTest />}></Route>
           			<Route path="/login-test" element={<LoginTest />}></Route>
+					<Route path="/certificate" element={<Pages.CertificatePage />}></Route>
 					<Route path="/lecture/upload" element={<Pages.LectureUploadPage />}></Route>
 					<Route path="/lecture/view" element={<Pages.LectureViewPage/>}></Route>
 					<Route path="/" element={<TestPage />}></Route>
