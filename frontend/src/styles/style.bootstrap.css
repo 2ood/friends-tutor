@@ -11,6 +11,10 @@
     --font-placeholder-color : var(--gray2);
     --font-color-over-primary : var(--secondary-color);
 
+    --font-size-h1 : 20px;
+    --font-size-h2 : 17px;
+    --font-size-h3 : 15px;
+
     --button-background-primary-color : var(--primary-color);
     --button-background-secondary-color : var(--secondary-color);
     --button-background-accent-color : var(--accent-color);
@@ -20,12 +24,7 @@
     --button-border-primary-color : var(--primary-color);
     --button-border-secondary-color : var(--primary-color);
     --button-border-accent-color : var(--accent-color);
-
-
-
-    --font-size-h1 : 20px;
-    --font-size-h2 : 17px;
-    --font-size-h3 : 15px;
+    --button-font-size : var(--font-size-h3);
 
     --full-width : 100vw;
     --full-height : 100vh;
