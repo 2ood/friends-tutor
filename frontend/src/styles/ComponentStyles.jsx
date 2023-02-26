@@ -7,6 +7,9 @@ import { Topbar, NavButton } from "styles/styled-components/Topbar.style";
 import { Wrapper, Input, Log } from "styles/styled-components/LoginTest.style";
 import { ThemedButton } from "styles/styled-components/ThemedButton.style";
 import { UnderlinedTitle } from "styles/styled-components/UnderlinedTitle.style";
+import { ThemedTextarea } from "styles/styled-components/ThemedTextarea.style";
+import {ThemedTitle} from "styles/styled-components/ThemedTitle.style";
+import { Buttongroup } from "styles/styled-components/ButtonGroup.style";
 
 
 export {MainBodyFrame};
@@ -16,3 +19,6 @@ export {Topbar, NavButton};
 export {Wrapper, Input, Log};
 export {ThemedButton};
 export {UnderlinedTitle};
+export {ThemedTextarea};
+export {ThemedTitle};
+export {Buttongroup};

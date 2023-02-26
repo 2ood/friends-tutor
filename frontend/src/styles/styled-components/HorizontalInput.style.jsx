@@ -30,6 +30,10 @@ const NoBorderInput = styled.input`
     border : none;
     outline : none;
     align-items : center;
+
+    ::placeholder {
+        color :var(--font-placeholder-color);
+    }
 `;
 
 export {HorizontalInput, NoBorderInput};
