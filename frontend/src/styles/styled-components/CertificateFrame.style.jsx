@@ -20,6 +20,18 @@ const CertificateFrame = styled.div`
         color : var(--yellow);
     }
 
+    #publisher {
+        display : inline-flex;
+        align-items : center;
+        justify-content : center;
+        gap : 5px;
+    }
+
+    #signature {
+        display : inline-block;
+        width : 30px;
+        height : 30px;
+    }
 `;
 
 export {CertificateFrame};

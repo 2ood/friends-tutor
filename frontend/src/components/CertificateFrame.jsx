@@ -1,4 +1,5 @@
 import * as Styled from "styles/ComponentStyles";
+import signature from "img/signature.png";
 
 function CertificateFrame(props){
     return (
@@ -10,7 +11,7 @@ function CertificateFrame(props){
             <div>Uploaded Lectures : {props.dat.number_of_lectures}</div>
             <div>Number of Referrals : {props.dat.number_of_referrals}</div>
             <div class="center">{props.dat.issued_on}</div>
-            <div class="center">FriendsMentor</div>
+            <div id="publisher" class="center">FriendsMentor<img id="signature" src={signature} alt="signature"></img></div>
         </Styled.CertificateFrame>
     )
 }
