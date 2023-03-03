@@ -6,6 +6,7 @@ const MainBodyFrame = styled.div`
     display : inline-flex;
     flex-direction : column;
     gap : ${(props)=>(props.gap)};
+    background-color: ${(props)=>(props.bgcolor)};
     width : var(--full-width);
     height : calc(var(--full-height) - var(--top-bar-height));
     padding : 0 var(--body-padding);
