@@ -19,7 +19,7 @@ import {MypageButton} from "styles/styled-components/MypageButton.style";
 import { MypageText } from "styles/styled-components/MypageText.style";
 import {MypageTitle} from "styles/styled-components/MypageTitle.style";
 import {MypageName} from "styles/styled-components/MypageName.style";
-import { MypageGrade} from "styles/styled-components/MypageGrade.style copy";
+import {MypageGrade} from "styles/styled-components/MypageGrade.style";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
