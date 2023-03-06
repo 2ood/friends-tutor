@@ -16,7 +16,9 @@ function LectureUploadPage(){
             <Styled.Buttongroup>
                 <Styled.ThemedButton size="10px" theme="primary">submit</Styled.ThemedButton>
                 <Styled.ThemedButton size="10px" theme="accent">cancel</Styled.ThemedButton>
+                
             </Styled.Buttongroup>
+            <Styled.ThemedButton size="50px" theme="secondary">Check the video subtitles here! 🔽</Styled.ThemedButton>
         </Styled.MainBodyFrame>
     </>);
 }

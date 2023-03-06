@@ -12,7 +12,14 @@ import {ThemedTitle} from "styles/styled-components/ThemedTitle.style";
 import { Buttongroup } from "styles/styled-components/ButtonGroup.style";
 import { LecturePlayer } from "styles/styled-components/LecturePlayer.style";
 import { CertificateFrame } from "styles/styled-components/CertificateFrame.style";
-
+import { ThemedBox } from "styles/styled-components/ThemedBox.style";
+import {ThemedBoxUnder} from "styles/styled-components/ThemedBoxUnder.style";
+import {ThemedBoxRound} from "styles/styled-components/ThemedBoxRound.style";
+import {MypageButton} from "styles/styled-components/MypageButton.style";
+import { MypageText } from "styles/styled-components/MypageText.style";
+import {MypageTitle} from "styles/styled-components/MypageTitle.style";
+import {MypageName} from "styles/styled-components/MypageName.style";
+import {MypageGrade} from "styles/styled-components/MypageGrade.style";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -26,3 +33,11 @@ export {ThemedTitle};
 export {Buttongroup};
 export {LecturePlayer};
 export {CertificateFrame};
+export {ThemedBox};
+export {ThemedBoxUnder};
+export {ThemedBoxRound};
+export {MypageButton};
+export {MypageText};
+export {MypageTitle};
+export {MypageName};
+export {MypageGrade};
