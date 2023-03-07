@@ -16,6 +16,7 @@ function TestPage(){
             <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/certificate")}}>Certificate Page</Styled.ThemedButton>
             <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/lecture/upload")}}>Lecture Upload Page</Styled.ThemedButton>
             <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/lecture/view")}}>Lecture View Page</Styled.ThemedButton>
+            <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/lecture/list")}}>Lecture Rooms Page</Styled.ThemedButton>
             <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/mypage")}}>Mypage</Styled.ThemedButton>
         </Styled.MainBodyFrame>
     </>);

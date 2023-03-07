@@ -20,6 +20,9 @@ import { MypageText } from "styles/styled-components/MypageText.style";
 import {MypageTitle} from "styles/styled-components/MypageTitle.style";
 import {MypageName} from "styles/styled-components/MypageName.style";
 import {MypageGrade} from "styles/styled-components/MypageGrade.style";
+import { LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer } from "styles/styled-components/LectureBoxComponents.style";
+import { LectureGroupScrollWrapper, LectureGroup } from "styles/styled-components/Lecturegroup.style";
+
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -41,3 +44,5 @@ export {MypageText};
 export {MypageTitle};
 export {MypageName};
 export {MypageGrade};
+export {LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer};
+export {LectureGroupScrollWrapper, LectureGroup};
