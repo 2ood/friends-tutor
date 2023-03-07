@@ -10,11 +10,13 @@ function App() {
       <div className='App'>
 			<BrowserRouter>
 				<Routes>
+					<Route path="/" element={<Pages.MainPage />}></Route>
+					<Route path="/sign-in" element={<Pages.SignInPage />}></Route>
+					<Route path="/sign-up" element={<Pages.SignUpPage />}></Route>
 					<Route path="/axios-test" element={<AxiosTest />}></Route>
           			<Route path="/login-test" element={<LoginTest />}></Route>
 					<Route path="/lecture/upload" element={<Pages.LectureUploadPage />}></Route>
 					<Route path="/lecture/view" element={<Pages.LectureViewPage/>}></Route>
-					<Route path="/" element={<TestPage />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

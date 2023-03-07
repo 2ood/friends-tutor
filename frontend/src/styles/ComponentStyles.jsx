@@ -11,7 +11,7 @@ import { ThemedTextarea } from "styles/styled-components/ThemedTextarea.style";
 import {ThemedTitle} from "styles/styled-components/ThemedTitle.style";
 import { Buttongroup } from "styles/styled-components/ButtonGroup.style";
 import { LecturePlayer } from "styles/styled-components/LecturePlayer.style";
-
+import { SignInUpBar } from "styles/styled-components/SignInUpBar.style";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -24,3 +24,4 @@ export {ThemedTextarea};
 export {ThemedTitle};
 export {Buttongroup};
 export {LecturePlayer};
+export {SignInUpBar};
