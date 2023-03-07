@@ -20,6 +20,8 @@ import { MypageText } from "styles/styled-components/MypageText.style";
 import {MypageTitle} from "styles/styled-components/MypageTitle.style";
 import {MypageName} from "styles/styled-components/MypageName.style";
 import {MypageGrade} from "styles/styled-components/MypageGrade.style";
+import { ModalTitle } from "styles/styled-components/ModalTitle";
+import { ModalText } from "styles/styled-components/Modaltext";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -41,3 +43,5 @@ export {MypageText};
 export {MypageTitle};
 export {MypageName};
 export {MypageGrade};
+export {ModalTitle};
+export {ModalText};

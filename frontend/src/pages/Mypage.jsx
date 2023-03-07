@@ -5,8 +5,16 @@ import gohome from "img/gohome.png";
 import changeLang from "img/changeLang.png";
 import cartificate from "img/cartificateImg.png";
 import white from "img/white.png";
+import ModalPortal from "util/modalPortal";
+import Modal from "styles/styled-components/Modal";
+import { useEffect, useState } from "react";
 
 function Mypage(props){
+  const [modalOn, setModalOn] = useState(false);
+
+  const handleModal = () => {
+    setModalOn(!modalOn);
+  };
     return (<>
         <Component.Topbar />
         <Styled.MainBodyFrame bgcolor="var(--gray4)">
@@ -26,10 +34,21 @@ function Mypage(props){
                 <img src={gohome} alt="gohome"></img>
                 <Styled.MypageText>Home</Styled.MypageText>
               </Styled.MypageButton>
-              <Styled.MypageButton>
+
+
+              <Styled.MypageButton  onClick={handleModal}>
                 <img src={cartificate} alt="cartificate"></img>
-                <Styled.MypageText>Certificate</Styled.MypageText>
+                <Styled.MypageText>
+                  Certificate
+                  </Styled.MypageText>
+                  
+                  <ModalPortal>
+                     {modalOn && <Modal onClose={handleModal} />}
+                  </ModalPortal>
               </Styled.MypageButton>
+
+
+
               <Styled.MypageButton>
                 <img src={changeLang} alt="changeLang"></img>
                 <Styled.MypageText>Language</Styled.MypageText>
