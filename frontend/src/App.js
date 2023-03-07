@@ -15,7 +15,8 @@ function App() {
 					<Route path="/certificate" element={<Pages.CertificatePage />}></Route>
 					<Route path="/lecture/upload" element={<Pages.LectureUploadPage />}></Route>
 					<Route path="/lecture/view" element={<Pages.LectureViewPage/>}></Route>
-					<Route path="/lecture/list" element={<Pages.LectureRoomPage/>}></Route>
+          <Route path="/lecture/list" element={<Pages.LectureRoomPage/>}></Route>
+          <Route path="/mypage" element={<Pages.Mypage/>}></Route>
 					<Route path="/" element={<TestPage />}></Route>
 				</Routes>
 			</BrowserRouter>
