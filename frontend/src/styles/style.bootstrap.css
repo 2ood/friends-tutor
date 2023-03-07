@@ -15,6 +15,7 @@
     --font-size-h1 : 20px;
     --font-size-h2 : 17px;
     --font-size-h3 : 15px;
+    --font-size-p : 12px;
 
     --button-background-primary-color : var(--primary-color);
     --button-background-secondary-color : var(--secondary-color);

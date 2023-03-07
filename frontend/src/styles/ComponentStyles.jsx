@@ -12,7 +12,8 @@ import {ThemedTitle} from "styles/styled-components/ThemedTitle.style";
 import { Buttongroup } from "styles/styled-components/ButtonGroup.style";
 import { LecturePlayer } from "styles/styled-components/LecturePlayer.style";
 import { CertificateFrame } from "styles/styled-components/CertificateFrame.style";
-
+import { LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer } from "styles/styled-components/LectureBoxComponents.style";
+import { LectureGroupScrollWrapper, LectureGroup } from "styles/styled-components/Lecturegroup.style";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -26,3 +27,5 @@ export {ThemedTitle};
 export {Buttongroup};
 export {LecturePlayer};
 export {CertificateFrame};
+export {LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer};
+export {LectureGroupScrollWrapper, LectureGroup};
