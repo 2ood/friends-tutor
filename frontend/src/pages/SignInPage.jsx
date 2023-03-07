@@ -26,13 +26,13 @@ function SignInPage() {
             <img style={{width:'50px'}} src={clear}/>
             </Styled.SignInUpBar>
 
-            <div style={{marginTop: '80px',marginBottom: "20px",}}>
+            <div style={{marginTop: '80px',marginBottom: "20px",marginRight: "130px"}}>
                 <label
                 style={{
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
                     marginBottom: "20px",
                     
                 }}> ID </label>
@@ -43,7 +43,8 @@ function SignInPage() {
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "14px", 
+                    fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  
@@ -55,14 +56,14 @@ function SignInPage() {
                 /> 
                 <HorizonLine/>
             </div>
-            <div style={{marginTop: '50px',marginBottom: "20px",}}>
+            <div style={{marginTop: '50px',marginBottom: "20px",marginRight: "70px"}}>
                 <label
                 style={{
                     outline: "none",
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
                 }}> Password </label>
             </div>
             <div>
@@ -71,7 +72,8 @@ function SignInPage() {
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "14px", 
+                    fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  

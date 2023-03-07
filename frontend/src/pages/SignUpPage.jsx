@@ -26,13 +26,13 @@ function SignUpPage() {
             <img style={{width:'50px'}} src={clear}/>
             </Styled.SignInUpBar>
 
-            <div style={{marginTop:'60px', marginBottom:"20px", alignItems:"start"}}>
+            <div style={{marginTop:'60px', marginBottom:"20px",marginRight: "130px"}}>
                 <label
                 style={{
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
   
                 }}> ID </label>
             </div>
@@ -43,6 +43,7 @@ function SignUpPage() {
                     outline: "none",
                     paddingLeft: "15px", 
                     fontSize: "15px", 
+                    fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  
@@ -54,14 +55,14 @@ function SignUpPage() {
                 /> 
                 <HorizonLine/>
             </div>
-            <div style={{marginTop: '50px',marginBottom: "20px",}}>
+            <div style={{marginTop: '50px',marginBottom: "20px",marginRight: "70px"}}>
                 <label
                 style={{
                     outline: "none",
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
                 }}> Password </label>
             </div>
             <div>
@@ -70,7 +71,8 @@ function SignUpPage() {
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "15px",
+                    fontFamily: "Gulim", 
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  
@@ -82,13 +84,14 @@ function SignUpPage() {
                 /> 
                 <HorizonLine/>
             </div>
-            <div style={{marginTop: '50px',marginBottom: "20px",}}>
+            <div style={{marginTop: '50px',marginBottom: "20px",marginRight: "105px"}}>
                 <label
                 style={{
                     fontSize: "18px",
+                    alignItems: "left",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
                     
                 }}> Name </label>
             </div>
@@ -98,7 +101,8 @@ function SignUpPage() {
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "15px",
+                    fontFamily: "Gulim", 
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  
@@ -110,13 +114,14 @@ function SignUpPage() {
                 /> 
                 <HorizonLine/>
             </div>
-            <div style={{marginTop: '50px',marginBottom: "20px",}}>
+            <div style={{marginTop: '50px',marginBottom: "20px",marginRight: "108px"}}>
                 <label
                 style={{
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
+                    fontFamily: "Gulim",
                     textAlign: "left",
                 }}> Grade </label>
             </div>
@@ -128,6 +133,8 @@ function SignUpPage() {
                         outline: "none",
                         borderRadius: "20px",
                         paddingLeft: "15px",
+                        fontFamily: "Gulim",
+                        color: "#787878",
                         fontSize: "15px",
                         border: "0px",
                         width:'200px',  
@@ -147,13 +154,13 @@ function SignUpPage() {
                     </select>
                 <HorizonLine/>
             </div>
-            <div style={{marginTop: '50px',marginBottom: "20px",}}>
+            <div style={{marginTop: '50px',marginBottom: "20px",marginRight: "75px"}}>
                 <label
                 style={{
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
                     
                 }}> Nickname </label>
             </div>
@@ -164,6 +171,7 @@ function SignUpPage() {
                     outline: "none",
                     paddingLeft: "15px", 
                     fontSize: "15px", 
+                    fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  
@@ -175,13 +183,13 @@ function SignUpPage() {
                 /> 
                 <HorizonLine/>
             </div>
-            <div style={{marginTop: '50px',marginBottom: "20px",}}>
+            <div style={{marginTop: '50px',marginBottom: "20px",marginRight: "110px"}}>
                 <label
                 style={{
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
-                    color: "#787878",
+                    color: "#595959",
                     
                 }}> Email </label>
             </div>
@@ -192,6 +200,7 @@ function SignUpPage() {
                     outline: "none",
                     paddingLeft: "15px", 
                     fontSize: "15px", 
+                    fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
                     width:'180px',  
