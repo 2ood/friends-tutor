@@ -52,7 +52,7 @@ function MainPage() {
                 fontFamily: "Gulim",
                 fontWeight: "bold",
                 color: "#787878"
-                }}>Meet my friends mentors!</p>
+                }}>Meet my friends tutors!</p>
             </div>
             <HorizonLine/>
             <div>

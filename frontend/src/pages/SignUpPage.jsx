@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import back from "img/back.png";
 import clear from "img/clear.png";
 import * as Styled from "styles/ComponentStyles";
@@ -8,10 +8,20 @@ import HorizonLine from "util/HorizontalLine";
 
 function SignUpPage() {
     const navigate = useNavigate();
- 
+    const [id, setId] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [grade, setGrade] = useState("");
+    const [nickname, setNickname] = useState("");
+    const [email, setEmail] = useState("");
+
     const navigateToMain = () => {
     navigate("/");
     };
+    const navigateToSignIn = () => {
+        navigate("/sign-in");
+        };
+
     return (  
         <div classname="SignIn"
         style={{
@@ -39,6 +49,7 @@ function SignUpPage() {
             <div>
             <input id = "id"
                 placeholder="Enter your id"
+                value={id}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -51,6 +62,7 @@ function SignUpPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setId(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -68,6 +80,7 @@ function SignUpPage() {
             <div>
             <input id = "pwd" 
                 placeholder="Enter your password"
+                value={password}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -80,6 +93,7 @@ function SignUpPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setPassword(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -98,6 +112,7 @@ function SignUpPage() {
             <div>
             <input id = "name"
                 placeholder="Enter your name"
+                value={name}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -110,6 +125,7 @@ function SignUpPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setName(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -127,7 +143,9 @@ function SignUpPage() {
             </div>
             <div>
             <select name="choice" 
+                    value={grade}
                     onChange={(e)=>{
+                        setGrade(e.target.value);
                     }}
                     style={{
                         outline: "none",
@@ -167,6 +185,7 @@ function SignUpPage() {
             <div>
             <input id = "nickname"
                 placeholder="Enter your nickname"
+                value={nickname}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -179,6 +198,7 @@ function SignUpPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setNickname(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -196,6 +216,7 @@ function SignUpPage() {
             <div>
             <input id = "email"
                 placeholder="Enter your email"
+                value={email}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -208,12 +229,14 @@ function SignUpPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setEmail(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
             </div>
             <div>
-                <button           
+                <button 
+                onClick={navigateToSignIn}          
                 style={{
                     border: "2px solid white",
                     width: "250px",

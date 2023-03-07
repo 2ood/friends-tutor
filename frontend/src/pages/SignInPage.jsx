@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import back from "img/back.png";
 import clear from "img/clear.png";
 import * as Styled from "styles/ComponentStyles";
@@ -8,6 +8,8 @@ import HorizonLine from "util/HorizontalLine";
 
 function SignInPage() {
     const navigate = useNavigate();
+    const [id, setId] = useState("");
+    const [password, setPassword] = useState("");
  
     const navigateToMain = () => {
     navigate("/");
@@ -29,6 +31,7 @@ function SignInPage() {
             <div style={{marginTop: '80px',marginBottom: "20px",marginRight: "130px"}}>
                 <label
                 style={{
+                    outline: "none",
                     fontSize: "18px",
                     fontWeight: "normal",
                     fontFamily : "Gulim",
@@ -40,6 +43,7 @@ function SignInPage() {
             <div>
             <input id = "id"
                 placeholder="Enter your id"
+                value={id}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -52,6 +56,7 @@ function SignInPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setId(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -69,6 +74,8 @@ function SignInPage() {
             <div>
             <input id = "pwd" 
                 placeholder="Enter your password"
+                value={password}
+                type='password'
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -81,12 +88,13 @@ function SignInPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
+                    setPassword(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
             </div>
             <div>
-                <button           
+                <button      
                 style={{
                     border: "2px solid white",
                     width: "250px",
