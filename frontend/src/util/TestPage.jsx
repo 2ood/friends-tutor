@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function TestPage(){
     const navigate = useNavigate();
 
-    return (<>
+    return (<div>
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
             <Styled.UnderlinedTitle size="100%" fontSize="h1" align="center">Page Overview</Styled.UnderlinedTitle>
@@ -19,7 +19,7 @@ function TestPage(){
             <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/lecture/list")}}>Lecture Rooms Page</Styled.ThemedButton>
             <Styled.ThemedButton size="100%" theme="secondary" onClick={()=>{navigate("/mypage")}}>Mypage</Styled.ThemedButton>
         </Styled.MainBodyFrame>
-    </>);
+    </div>);
 }
 
 export default TestPage;
