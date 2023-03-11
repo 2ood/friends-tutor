@@ -5,17 +5,38 @@ import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
 import HorizonLine from "util/HorizontalLine";
 
-
 function SignInPage() {
     const navigate = useNavigate();
-    const [id, setId] = useState("");
+    const [username, setuserName] = useState("");
     const [password, setPassword] = useState("");
+    
  
+    const onSignIn = () => {
+        fetch('http://34.29.162.137:8080/user/login', {
+          method: 'POST',
+          headers:{
+            "Content-Type": 'application/json;charset=UTF-8',
+          },
+          body: JSON.stringify({
+            "username": username,
+            "password": password,
+          }),
+        })
+          .then(response => response.json())
+          .then(res => {
+            console.log(res);
+            res.message === 'User logic 관련 예외가 발생했습니다.'
+              ? alert('다시 시도해주세요')
+              : navigate('/sign-in');
+          });
+      };
+
     const navigateToMain = () => {
-    navigate("/");
+        navigate("/");
     };
+
     return (  
-        <div classname="SignIn"
+        <div className="SignIn"
         style={{
             display: "flex",
             flexDirection: "column",
@@ -43,7 +64,7 @@ function SignInPage() {
             <div>
             <input id = "id"
                 placeholder="Enter your id"
-                value={id}
+                value={username}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
@@ -56,7 +77,7 @@ function SignInPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
-                    setId(e.target.value);
+                    setuserName(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -94,7 +115,8 @@ function SignInPage() {
                 <HorizonLine/>
             </div>
             <div>
-                <button      
+                <button  
+                onClick={onSignIn}  
                 style={{
                     border: "2px solid white",
                     width: "250px",

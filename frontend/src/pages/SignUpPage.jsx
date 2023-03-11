@@ -8,18 +8,41 @@ import HorizonLine from "util/HorizontalLine";
 
 function SignUpPage() {
     const navigate = useNavigate();
-    const [id, setId] = useState("");
+    const [username, setuserName] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [grade, setGrade] = useState("");
-    const [nickname, setNickname] = useState("");
+    const [nickName, setNickname] = useState("");
     const [email, setEmail] = useState("");
 
     const navigateToMain = () => {
     navigate("/");
     };
+    const onSignUp = () => {
+        fetch('http://34.29.162.137:8080/user/signup', {
+          method: 'POST',
+          headers:{
+            "Content-Type": 'application/json;charset=UTF-8',
+          },
+          body: JSON.stringify({
+            "username": username,
+            "password": password,
+            "name" : name,
+            "nickName" : nickName,
+            "grade" : 0,
+            "email" : email
+          }),
+        })
+          .then(response => response.json())
+          .then(res => {
+            console.log(res);
+          });
+      };
+
     const navigateToSignIn = () => {
-        navigate("/sign-in");
+        if(username != "" && password != "" && name != "" && nickName != "" && grade != "" && email!= ""){
+            navigate("/sign-in");
+        }
         };
 
     return (  
@@ -47,13 +70,13 @@ function SignUpPage() {
                 }}> ID </label>
             </div>
             <div>
-            <input id = "id"
+            <input
                 placeholder="Enter your id"
-                value={id}
+                value={username}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "14px", 
                     fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
@@ -62,7 +85,7 @@ function SignUpPage() {
                     paddingBottom: '8px',
                     paddingTop: '8px', }}
                 onChange={(e)=>{
-                    setId(e.target.value);
+                    setuserName(e.target.value);
                 }}
                 /> 
                 <HorizonLine/>
@@ -78,13 +101,14 @@ function SignUpPage() {
                 }}> Password </label>
             </div>
             <div>
-            <input id = "pwd" 
+            <input
                 placeholder="Enter your password"
+                type='password'
                 value={password}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontFamily: "Gulim", 
                     border: "0px",
                     borderRadius: "20px", 
@@ -116,7 +140,7 @@ function SignUpPage() {
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px",
+                    fontSize: "14px",
                     fontFamily: "Gulim", 
                     border: "0px",
                     borderRadius: "20px", 
@@ -153,13 +177,13 @@ function SignUpPage() {
                         paddingLeft: "15px",
                         fontFamily: "Gulim",
                         color: "#787878",
-                        fontSize: "15px",
+                        fontSize: "14px",
                         border: "0px",
-                        width:'200px',  
+                        width:'190px',  
                         paddingTop: '7px', 
                         paddingBottom: '7px', }}>
 
-                    <option value="las" disabled selected> Enter your grade </option>
+                    <option selected default value="" disabled > Enter your grade </option>
                     <option value="e4">🖼️초등학교 4학년</option>
                     <option value="e5">🖼️초등학교 5학년</option>
                     <option value="e6">🖼️초등학교 6학년</option>
@@ -185,11 +209,11 @@ function SignUpPage() {
             <div>
             <input id = "nickname"
                 placeholder="Enter your nickname"
-                value={nickname}
+                value={nickName}
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "14px", 
                     fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
@@ -220,7 +244,7 @@ function SignUpPage() {
                 style={{
                     outline: "none",
                     paddingLeft: "15px", 
-                    fontSize: "15px", 
+                    fontSize: "14px", 
                     fontFamily: "Gulim",
                     border: "0px",
                     borderRadius: "20px", 
@@ -236,7 +260,7 @@ function SignUpPage() {
             </div>
             <div>
                 <button 
-                onClick={navigateToSignIn}          
+                onClick={onSignUp}          
                 style={{
                     border: "2px solid white",
                     width: "250px",
