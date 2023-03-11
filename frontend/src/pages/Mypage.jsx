@@ -10,8 +10,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import {ModalMessageAtom,ModalDetailsAtom} from "util/atom";
-
+import { useNavigate } from "react-router-dom";
 function Mypage(props){
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [ModalMessage] = useAtom(ModalMessageAtom);
   const [ModalDetails] = useAtom(ModalDetailsAtom);
@@ -61,7 +62,7 @@ function Mypage(props){
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
-              <Styled.MypageButton onClick={"/lecture/list"}>
+              <Styled.MypageButton onClick={()=>{navigate("/lecture/list")}}>
                 <img src={gohome} alt="gohome"></img>
                 <Styled.MypageText>Home</Styled.MypageText>
               </Styled.MypageButton>
