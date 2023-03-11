@@ -22,9 +22,6 @@ import {MypageName} from "styles/styled-components/MypageName.style";
 import {MypageGrade} from "styles/styled-components/MypageGrade.style";
 import { ModalTitle } from "styles/styled-components/ModalTitle";
 import { ModalText } from "styles/styled-components/Modaltext";
-import { LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer } from "styles/styled-components/LectureBoxComponents.style";
-import { LectureGroupScrollWrapper, LectureGroup } from "styles/styled-components/Lecturegroup.style";
-
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -48,5 +45,3 @@ export {MypageName};
 export {MypageGrade};
 export {ModalTitle};
 export {ModalText};
-export {LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer};
-export {LectureGroupScrollWrapper, LectureGroup};

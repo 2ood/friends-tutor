@@ -61,7 +61,7 @@ function Mypage(props){
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
-              <Styled.MypageButton >
+              <Styled.MypageButton onClick={"/lecture/list"}>
                 <img src={gohome} alt="gohome"></img>
                 <Styled.MypageText>Home</Styled.MypageText>
               </Styled.MypageButton>
