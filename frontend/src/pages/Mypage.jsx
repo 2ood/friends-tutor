@@ -5,8 +5,10 @@ import gohome from "img/gohome.png";
 import changeLang from "img/changeLang.png";
 import cartificate from "img/cartificateImg.png";
 import white from "img/white.png";
+import { useNavigate } from "react-router-dom";
 
 function Mypage(props){
+  const navigate = useNavigate();
     return (<>
         <Component.Topbar />
         <Styled.MainBodyFrame bgcolor="var(--gray4)">
@@ -22,7 +24,7 @@ function Mypage(props){
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
-              <Styled.MypageButton >
+              <Styled.MypageButton onClick={()=>{navigate("/lecture/list")}}>
                 <img src={gohome} alt="gohome"></img>
                 <Styled.MypageText>Home</Styled.MypageText>
               </Styled.MypageButton>

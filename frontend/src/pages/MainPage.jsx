@@ -16,7 +16,7 @@ function MainPage() {
         };
 
     return (
-        <div classname="Main"
+        <div className="Main"
         style={{
             display: "flex",
             flexDirection: "column",
