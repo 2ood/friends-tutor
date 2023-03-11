@@ -11,18 +11,18 @@ function App() {
 
   return (
       <div className="App">
-				<BrowserRouter>
-					<Routes>
-						<Route path="/axios-test" element={<AxiosTest />}></Route>
-						<Route path="/login-test" element={<LoginTest />}></Route>
-						<Route path="/certificate" element={<Pages.CertificatePage />}></Route>
-						<Route path="/lecture/upload" element={<Pages.LectureUploadPage />}></Route>
-						<Route path="/lecture/view" element={<Pages.LectureViewPage/>}></Route>
-						<Route path="/lecture/list" element={<Pages.LectureRoomPage/>}></Route>
-						<Route path="/mypage" element={<Pages.Mypage/>}></Route>
-						<Route path="/" element={<TestPage />}></Route>
-					</Routes>
-				</BrowserRouter>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/axios-test" element={<AxiosTest />}></Route>
+					<Route path="/login-test" element={<LoginTest />}></Route>
+					<Route path="/certificate" element={<Pages.CertificatePage />}></Route>
+					<Route path="/lecture/upload" element={<Pages.LectureUploadPage />}></Route>
+					<Route path="/lecture/view" element={<Pages.LectureViewPage/>}></Route>
+					<Route path="/lecture/list" element={<Pages.LectureRoomPage/>}></Route>
+					<Route path="/mypage" element={<Pages.Mypage/>}></Route>
+					<Route path="/" element={<TestPage />}></Route>
+				</Routes>
+			</BrowserRouter>
 		</div>
   );
 }
