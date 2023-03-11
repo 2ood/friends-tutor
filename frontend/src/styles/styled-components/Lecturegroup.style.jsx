@@ -7,7 +7,7 @@ const LectureGroup = styled.div`
     flex-flow : column wrap;
     overflow-x : show;
     grid-template-columns : 1fr 1fr;
-    transform : translateX(calc((40vw + 5px) * ${(props)=>(props.offset)}));
+    transform : translateX(calc((40vw + 5px) * 2* ${(props)=>(props.offset)}));
     transition : all .5s ease-in-out;
     gap : 10px;
     `;

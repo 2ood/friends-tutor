@@ -8,15 +8,26 @@ import left from "img/left.png";
 
 function LectureRoomPage(props){
     let [offset, setOffset] = useState(0);
+    
+    //const recentLectureData = props.data;
+    const recentLectureData = Array(17).fill("");
+    const length = recentLectureData.length;
 
+        
     function handlePageShiftClick(toLeft){
+        //offset is the number of offset that is needed to move to page {offset}.
+        //there are 4 lectures each in a page, 
+        //so there are ({length}/4 + 1) when length%4!=0, or ({length}/4) pages in total.
+        //in page 1, offset is 0
+        //in page 2, offset is -1 = -{page}+1 
         if(toLeft){
             if(offset<0) setOffset(++offset);
         }
         else {
-            if(offset>-2) setOffset(--offset);
+            if(offset>-((length-1)/4)+((length%4 ===0)?1:0)) setOffset(--offset);
         }
     }
+
 
     return (<>
         <Component.Topbar />
@@ -26,14 +37,7 @@ function LectureRoomPage(props){
             <Styled.UnderlinedTitle>Recent Videos</Styled.UnderlinedTitle>
             <Styled.LectureGroupScrollWrapper>
                 <Styled.LectureGroup offset={offset}>
-                    <Component.LectureBox data={props.data1} width="calc(40vw - 5px)"></Component.LectureBox>
-                    <Component.LectureBox data={props.data2} width="calc(40vw - 5px)"></Component.LectureBox>
-                    <Component.LectureBox data={props.data3} width="calc(40vw - 5px)" ></Component.LectureBox>
-                    <Component.LectureBox data={props.data4} width="calc(40vw - 5px)"></Component.LectureBox>
-                    <Component.LectureBox data={props.data3} width="calc(40vw - 5px)" ></Component.LectureBox>
-                    <Component.LectureBox data={props.data4} width="calc(40vw - 5px)"></Component.LectureBox>
-                    <Component.LectureBox data={props.data3} width="calc(40vw - 5px)" ></Component.LectureBox>
-                    <Component.LectureBox data={props.data4} width="calc(40vw - 5px)"></Component.LectureBox>
+                    {recentLectureData.map((dat)=><Component.LectureBox data={dat} width="calc(40vw - 5px)"></Component.LectureBox>)}
                 </Styled.LectureGroup>
             </Styled.LectureGroupScrollWrapper>
             <Styled.Buttongroup>
