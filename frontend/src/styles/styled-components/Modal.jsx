@@ -8,21 +8,46 @@ import { ThemedButton } from "./ThemedButton.style";
 import { ModalText } from "./Modaltext";
 import ModalPortal from "util/modalPortal";
 import { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import {ModalMessageAtom,ModalDetailsAtom} from "util/atom";
+
 
 
 const Modal = ({ onClose}) => {
+  const [ModalDetails] = useAtom(ModalDetailsAtom);
+  const [ModalMessage] = useAtom(ModalMessageAtom);
+  const Details = ModalDetails;
+  const Message = ModalMessage;
+  var TitleText="";
+  var ModalText1="";
+  var ModalText2="";
   const handleClose = () => {
     onClose?.();
   };
+  var MessageText=0;
+  
+  
+  if (Details===0 && Message===0){
+    TitleText="🎉Succesfull🎉";
+    ModalText1="Check your";
+    ModalText2="Certificate!";
+    console.log(TitleText);
+  }
+  else if (Details!==0 && Message===1){
+    TitleText="⚠Failed⚠"
+    ModalText1=`You need ${Details}pts more!`;
+    ModalText2="Give it a try!";
+    console.log(TitleText);
+  }
   return (
 <Background>
           <Content>
           <ModalTitle>
-        ⚠인증서 발급 오류⚠
+          {TitleText}
         </ModalTitle>
-        <ModalText>아직 10점이 부족해요!</ModalText>
-        <ModalText>조금만 더 힘을 내볼까요?</ModalText>
-            <ThemedButton onClick={handleClose}>확인</ThemedButton>
+        <ModalText>{ModalText1}</ModalText>
+        <ModalText>{ModalText2}</ModalText>
+            <ThemedButton onClick={handleClose}>check</ThemedButton>
           </Content>
 </Background>
   );

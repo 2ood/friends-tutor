@@ -27,9 +27,13 @@ function SignInPage() {
             console.log(res);
             if (res.accessToken) {
                 localStorage.setItem('login-token', res.accessToken);
+                navigate('/lecture/list');
+                console.log("성공access");
             }
             if (res.refreshToken) {
                 localStorage.setItem('refresh-token', res.refreshToken);
+                navigate('/lecture/list');
+                console.log("성공refersh");
             }
             res.message === 'User logic 관련 예외가 발생했습니다.'
               ? alert("로그인 정보가 맞지 않습니다.")

@@ -9,42 +9,57 @@ import Modal from "styles/styled-components/Modal";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
+
 import {ModalMessageAtom,ModalDetailsAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
+var Message = 0;var Details=0;
 function Mypage(props){
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [ModalMessage] = useAtom(ModalMessageAtom);
-  const [ModalDetails] = useAtom(ModalDetailsAtom);
+  const [ModalMessage, setModalMessage] = useAtom(ModalMessageAtom);
+  const [ModalDetails, setModalDetails] = useAtom(ModalDetailsAtom);
+  const [data, setData] = useState(null);
+
   const getCheckCertificate = async() => {
-    const response = await axios.get(
-      `http://34.29.162.137:8080/certificate/check`
-    );
-  return(response);
-  };
+    
+    const accessToken = localStorage.getItem('login-token');
+    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{
+    headers : {Authorization: `Bearer ${accessToken}`
+        }
+      })
+      .then(response => {
+        setData(response.data.message);
+        console.log(response.data.message);
+        console.log(response.data.details);
+        Message = response.data.message;
+        Details = response.data.details;
+        setModalMessage(Message);
+        setModalDetails(Details);
+
+      });
+      
+
+
+  }; 
+
   const onClickButton = () => {
-    setIsOpen(true);
+    
 
     getCheckCertificate().then((result)=>{
-      if (result.data.meesage === "1"){
-        ModalMessage=1;
+      console.log(result);
+      if (Message===0 && Details === 0){
+        setIsOpen(true);
       }
-      else if (result.data.meesage==="2"){
-        ModalMessage=2;
+      else if (Message===1 && Details === 0){
+        console.log("0&1");
       }
-      else if (result.data.meesage==="0"){
-        ModalMessage=0;
+      else if (Message === 1 && Details !==0){
+        setIsOpen(true);
       }
-
-      if (result.data.details === "0"){
-          ModalDetails=0;
-      } 
-      else if (result.data.details === "2"){
-        ModalDetails=-1;
+      else if (Message===2 || Details ===2){
+        console.log("error");
       }
-      else{
-        ModalDetails = result.data.details;
-      }
+      
     })   
   };
     return (<>
@@ -78,12 +93,13 @@ function Mypage(props){
               open={isOpen}
               onClose={() => {
                 setIsOpen(false);
+                console.log(Message);
+                console.log(Details);
+                if (Message===0 && Details===0) {
+                navigate('/certificate');
+              }
                     }}
                   />)}
-              
-
-
-
               <Styled.MypageButton>
                 <img src={changeLang} alt="changeLang"></img>
                 <Styled.MypageText>Language</Styled.MypageText>

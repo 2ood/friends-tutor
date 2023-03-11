@@ -1,10 +1,11 @@
 import React from "react";
 import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
-
+import { useNavigate } from "react-router-dom";
 
 
 function CertificatePage(){
+    const navigate = useNavigate();
     const content ={
         "name" : "James",
         "title" : "Peer Mentoring",
@@ -21,7 +22,7 @@ function CertificatePage(){
             <Component.CertificateFrame dat={content}></Component.CertificateFrame>
             <Styled.Buttongroup>
                     <Styled.ThemedButton theme="primary">save</Styled.ThemedButton>
-                    <Styled.ThemedButton theme="accent">close</Styled.ThemedButton>
+                    <Styled.ThemedButton onClick={()=>{navigate("/mypage")}} theme="accent">close</Styled.ThemedButton>
             </Styled.Buttongroup>
         </Styled.MainBodyFrame>
         
