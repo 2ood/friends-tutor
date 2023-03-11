@@ -17,6 +17,7 @@
     --font-size-h1 : 20px;
     --font-size-h2 : 17px;
     --font-size-h3 : 15px;
+    --font-size-p : 12px;
 
     --button-background-primary-color : var(--primary-color);
     --button-background-secondary-color : var(--secondary-color);
@@ -33,10 +34,10 @@
     --full-height : 100vh;
     --top-bar-height : 75px;
     --input-height : 30px;
-    --body-padding : 10vw;
+    --body-padding : min(37px, 10vw);
     --body-padding-top : 20px;
 
-    --outmost-padding : min(5vw,30px);
+    --outmost-padding : min(5vw,10px);
     --default-border-size : 2px;
     --default-border-radius : 15px;
     --round-border-padding : 5px;
