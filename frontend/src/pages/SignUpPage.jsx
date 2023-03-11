@@ -16,7 +16,7 @@ function SignUpPage() {
     const [email, setEmail] = useState("");
 
     const navigateToMain = () => {
-    navigate("/");
+        navigate("/");
     };
     const onSignUp = () => {
         fetch('http://34.29.162.137:8080/user/signup', {
@@ -29,13 +29,19 @@ function SignUpPage() {
             "password": password,
             "name" : name,
             "nickName" : nickName,
-            "grade" : 0,
+            "grade" : grade,
             "email" : email
           }),
         })
           .then(response => response.json())
           .then(res => {
             console.log(res);
+            if(res.message === 'User logic 관련 예외가 발생했습니다.'){
+                alert(res.details)
+            }
+            else {
+                navigateToSignIn();
+            }
           });
       };
 
@@ -184,15 +190,15 @@ function SignUpPage() {
                         paddingBottom: '7px', }}>
 
                     <option selected default value="" disabled > Enter your grade </option>
-                    <option value="e4">🖼️초등학교 4학년</option>
-                    <option value="e5">🖼️초등학교 5학년</option>
-                    <option value="e6">🖼️초등학교 6학년</option>
-                    <option value="m1">📙중학교 1학년</option>
-                    <option value="m2">📙중학교 2학년</option>
-                    <option value="m3">📙중학교 3학년</option>
-                    <option value="h1">📚고등학교 1학년</option>
-                    <option value="h2">📚고등학교 2학년</option>
-                    <option value="h3">📚고등학교 3학년</option>
+                    <option value="1">🖼️초등학교 4학년</option>
+                    <option value="2">🖼️초등학교 5학년</option>
+                    <option value="3">🖼️초등학교 6학년</option>
+                    <option value="4">📙중학교 1학년</option>
+                    <option value="5">📙중학교 2학년</option>
+                    <option value="6">📙중학교 3학년</option>
+                    <option value="7">📚고등학교 1학년</option>
+                    <option value="8">📚고등학교 2학년</option>
+                    <option value="9">📚고등학교 3학년</option>
                     </select>
                 <HorizonLine/>
             </div>
@@ -260,7 +266,7 @@ function SignUpPage() {
             </div>
             <div>
                 <button 
-                onClick={onSignUp}          
+                onClick={onSignUp}       
                 style={{
                     border: "2px solid white",
                     width: "250px",

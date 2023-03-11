@@ -18,15 +18,21 @@ function SignInPage() {
             "Content-Type": 'application/json;charset=UTF-8',
           },
           body: JSON.stringify({
-            "username": username,
-            "password": password,
+            username: username,
+            password: password,
           }),
         })
           .then(response => response.json())
           .then(res => {
             console.log(res);
+            if (res.accessToken) {
+                localStorage.setItem('login-token', res.accessToken);
+            }
+            if (res.refreshToken) {
+                localStorage.setItem('refresh-token', res.refreshToken);
+            }
             res.message === 'User logic 관련 예외가 발생했습니다.'
-              ? alert('다시 시도해주세요')
+              ? alert("로그인 정보가 맞지 않습니다.")
               : navigate('/sign-in');
           });
       };
