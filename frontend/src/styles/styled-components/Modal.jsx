@@ -11,21 +11,20 @@ import { useEffect, useState } from "react";
 
 
 const Modal = ({ onClose}) => {
-
+  const handleClose = () => {
+    onClose?.();
+  };
   return (
-      <Background>
-        <Content>
-        <ModalTitle>
+<Background>
+          <Content>
+          <ModalTitle>
         ⚠인증서 발급 오류⚠
         </ModalTitle>
         <ModalText>아직 10점이 부족해요!</ModalText>
         <ModalText>조금만 더 힘을 내볼까요?</ModalText>
-
-        <ThemedButton >
-          확인
-        </ThemedButton>
-         </ Content>
-      </Background>
+            <ThemedButton onClick={handleClose}>확인</ThemedButton>
+          </Content>
+</Background>
   );
 };
 

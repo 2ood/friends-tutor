@@ -10,10 +10,10 @@ import Modal from "styles/styled-components/Modal";
 import { useEffect, useState } from "react";
 
 function Mypage(props){
-  const [modalOn, setModalOn] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleModal = () => {
-    setModalOn(!modalOn);
+  const onClickButton = () => {
+    setIsOpen(true);
   };
     return (<>
         <Component.Topbar />
@@ -36,16 +36,19 @@ function Mypage(props){
               </Styled.MypageButton>
 
 
-              <Styled.MypageButton  onClick={handleModal}>
+              <Styled.MypageButton  onClick={onClickButton}>
                 <img src={cartificate} alt="cartificate"></img>
                 <Styled.MypageText>
                   Certificate
-                  </Styled.MypageText>
-                  
-                  <ModalPortal>
-                     {modalOn && <Modal onClose={handleModal} />}
-                  </ModalPortal>
+                </Styled.MypageText>
               </Styled.MypageButton>
+                    {isOpen && (<Modal
+              open={isOpen}
+              onClose={() => {
+                setIsOpen(false);
+                    }}
+                  />)}
+              
 
 
 
