@@ -7,11 +7,12 @@ import left from "img/left.png";
 
 
 function LectureRoomPage(props){
-    let [offset, setOffset] = useState(0);
+    let [page, setPage] = useState(1);
     
     //const recentLectureData = props.data;
     const recentLectureData = Array(17).fill("");
     const length = recentLectureData.length;
+    const total = (Math.floor((length-1)/4)+1);
 
         
     function handlePageShiftClick(toLeft){
@@ -21,10 +22,10 @@ function LectureRoomPage(props){
         //in page 1, offset is 0
         //in page 2, offset is -1 = -{page}+1 
         if(toLeft){
-            if(offset<0) setOffset(++offset);
+            if(page>1) setPage(--page);
         }
         else {
-            if(offset>-((length-1)/4)+((length%4 ===0)?1:0)) setOffset(--offset);
+            if(page<total) setPage(++page);
         }
     }
 
@@ -36,12 +37,13 @@ function LectureRoomPage(props){
             <Component.LectureBox src={props.src??"https://www.youtube.com/embed/P1ww1IXRfTA"}></Component.LectureBox>
             <Styled.UnderlinedTitle>Recent Videos</Styled.UnderlinedTitle>
             <Styled.LectureGroupScrollWrapper>
-                <Styled.LectureGroup offset={offset}>
+                <Styled.LectureGroup offset={-page+1}>
                     {recentLectureData.map((dat)=><Component.LectureBox data={dat} width="calc(40vw - 5px)"></Component.LectureBox>)}
                 </Styled.LectureGroup>
             </Styled.LectureGroupScrollWrapper>
             <Styled.Buttongroup>
                 <img alt="left" src={left} onClick={()=>{handlePageShiftClick(true);}}/>
+                <span>{page}/{total}</span>
                 <img alt="right" src={right} onClick={()=>{handlePageShiftClick(false);}}/>
             </Styled.Buttongroup>
             <Styled.ThemedButton size="50px">Upload Lecture</Styled.ThemedButton>
