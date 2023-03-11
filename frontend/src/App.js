@@ -13,6 +13,9 @@ function App() {
       <div className="App">
 			<BrowserRouter>
 				<Routes>
+					<Route path="/" element={<Pages.MainPage />}></Route>
+					<Route path="/sign-in" element={<Pages.SignInPage />}></Route>
+					<Route path="/sign-up" element={<Pages.SignUpPage />}></Route>
 					<Route path="/axios-test" element={<AxiosTest />}></Route>
 					<Route path="/login-test" element={<LoginTest />}></Route>
 					<Route path="/certificate" element={<Pages.CertificatePage />}></Route>

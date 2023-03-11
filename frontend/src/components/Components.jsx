@@ -5,7 +5,6 @@ import LecturePlayer from "components/LecturePlayer";
 import CertificateFrame from "components/CertificateFrame";
 import LectureBox from "components/LectureBox";
 
-
 export {Topbar};
 export {VerticalInput};
 export {HorizontalInput};
