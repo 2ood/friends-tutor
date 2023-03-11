@@ -5,15 +5,46 @@ import gohome from "img/gohome.png";
 import changeLang from "img/changeLang.png";
 import cartificate from "img/cartificateImg.png";
 import white from "img/white.png";
-import ModalPortal from "util/modalPortal";
 import Modal from "styles/styled-components/Modal";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { useAtom } from "jotai";
+import {ModalMessageAtom,ModalDetailsAtom} from "util/atom";
 
 function Mypage(props){
   const [isOpen, setIsOpen] = useState(false);
-
+  const [ModalMessage] = useAtom(ModalMessageAtom);
+  const [ModalDetails] = useAtom(ModalDetailsAtom);
+  const getCheckCertificate = async() => {
+    const response = await axios.get(
+      `http://34.29.162.137:8080/certificate/check`
+    );
+  return(response);
+  };
   const onClickButton = () => {
     setIsOpen(true);
+
+    getCheckCertificate().then((result)=>{
+      if (result.data.meesage === "1"){
+        ModalMessage=1;
+      }
+      else if (result.data.meesage==="2"){
+        ModalMessage=2;
+      }
+      else if (result.data.meesage==="0"){
+        ModalMessage=0;
+      }
+
+      if (result.data.details === "0"){
+          ModalDetails=0;
+      } 
+      else if (result.data.details === "2"){
+        ModalDetails=-1;
+      }
+      else{
+        ModalDetails = result.data.details;
+      }
+    })   
   };
     return (<>
         <Component.Topbar />
