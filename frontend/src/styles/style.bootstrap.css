@@ -29,14 +29,14 @@
     --button-border-accent-color : var(--accent-color);
     --button-font-size : var(--font-size-h3);
 
-    --full-width : min(100vw, 375px);
-    --full-height : min(100vh, 812px);
+    --full-width : 100vw;
+    --full-height : 100vh;
     --top-bar-height : 75px;
     --input-height : 30px;
     --body-padding : min(37px, 10vw);
     --body-padding-top : 20px;
 
-    --outmost-padding : min(5vw,30px);
+    --outmost-padding : min(5vw,10px);
     --default-border-size : 2px;
     --default-border-radius : 15px;
     --round-border-padding : 5px;
