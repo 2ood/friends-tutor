@@ -9,6 +9,7 @@
     --gray3 : #595959;
     --gray4: #EBEBEB;
     --yellow : #FFD145;
+    --orange: #FF8F6C;
     --font-primary-color : black;
     --font-placeholder-color : var(--gray2);
     --font-color-over-primary : var(--secondary-color);
@@ -33,10 +34,10 @@
     --full-height : 100vh;
     --top-bar-height : 75px;
     --input-height : 30px;
-    --body-padding : 10vw;
+    --body-padding : min(37px, 10vw);
     --body-padding-top : 20px;
 
-    --outmost-padding : min(5vw,30px);
+    --outmost-padding : min(5vw,10px);
     --default-border-size : 2px;
     --default-border-radius : 15px;
     --round-border-padding : 5px;
