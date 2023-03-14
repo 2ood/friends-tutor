@@ -80,9 +80,6 @@ function LectureUploadPage(){
         
     }
 
-    function handleCancel(){
-        navigate(-1);
-    }
 
     return (<>
         <ToastContainer
@@ -102,13 +99,13 @@ function LectureUploadPage(){
             <Styled.ThemedTitle>Upload Lecture</Styled.ThemedTitle>
             <Component.HorizontalInput type="text" placeholder="Enter your title" label="Title" contents={titleState}></Component.HorizontalInput>
             <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
-            <Component.HorizontalInput type="url" placeholder="Enter a subject" label="subject" contents={subjectState}></Component.HorizontalInput>
-            <Component.HorizontalInput type="url" placeholder="Enter a google drive link" label="Note" contents={driveState}></Component.HorizontalInput>
+            <Component.HorizontalInput type="text" placeholder="Enter a subject" label="subject" contents={subjectState}></Component.HorizontalInput>
+            <Component.HorizontalInput type="url" placeholder="Enter a google drive link" label="Docs" contents={driveState}></Component.HorizontalInput>
             <Component.HorizontalInput type="url" placeholder="Enter a youtube link" label="Video" contents={videoState}></Component.HorizontalInput>
             <Styled.ThemedTextarea size="100%" placeholder="Enter an explanation" defaultvalue="" value={desc} onChange={e=>{setDesc(e.target.value)}}></Styled.ThemedTextarea>
             <Styled.Buttongroup>
                 <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>submit</Styled.ThemedButton>
-                <Styled.ThemedButton size="10px" theme="accent" onClick={handleCancel}>cancel</Styled.ThemedButton>
+                <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>cancel</Styled.ThemedButton>
                 
             </Styled.Buttongroup>
             <Styled.ThemedButton size="50px" theme="secondary">Check the video subtitles here! 🔽</Styled.ThemedButton>
