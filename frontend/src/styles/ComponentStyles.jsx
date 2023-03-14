@@ -26,6 +26,7 @@ import { ModalText } from "styles/styled-components/Modaltext";
 import { LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer } from "styles/styled-components/LectureBoxComponents.style";
 import { LectureGroupScrollWrapper, LectureGroup } from "styles/styled-components/Lecturegroup.style";
 import {GradeSelect} from "styles/styled-components/GradeSelect.style";
+import { ThemedTextBlock } from "styles/styled-components/ThemedTextBlock.style";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -53,3 +54,4 @@ export {ModalText};
 export {LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer};
 export {LectureGroupScrollWrapper, LectureGroup};
 export {GradeSelect};
+export {ThemedTextBlock};

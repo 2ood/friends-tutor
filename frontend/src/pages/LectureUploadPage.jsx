@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 import * as Component from "components/Components";
 import { useNavigate } from 'react-router-dom';
 import * as Styled from "styles/ComponentStyles";
@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function LectureUploadPage(){
     const [title, setTitle] = useState("sample title");
-    const [drive, setDrive] = useState("https://docs.google.com/document/d/1FDiOtarp23gDd8WCT_BvjiY31Jj3DqVkg1lQvE768-A/edit");
-    const [video, setVideo] = useState("v=123456789012");
+    const [drive, setDrive] = useState("https://docs.google.com/document/d/113TSOJ5RnzI1FkYgXfhmsLWqUgTIBKcRdUTCohXTYLM/edit?usp=sharing");
+    const [video, setVideo] = useState("https://www.youtube.com/watch?v=3XAhnv1FPqg");
     const [desc, setDesc] = useState("sample description");
     const [grade, setGrade] = useState(6);
     const [subject, setSubject] = useState("math");

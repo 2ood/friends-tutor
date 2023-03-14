@@ -1,10 +1,9 @@
 import * as Styled from "styles/ComponentStyles";
 
 function LecturePlayer(props){
-    const title = props.title;
-    const src = props.src;
+    const src = `https://www.youtube.com/embed/${props.video_id}`;
     return (
-        <Styled.LecturePlayer src={src} title={title} allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></Styled.LecturePlayer>
+        <Styled.LecturePlayer src={src} title="Youtube Video Player" allow="accelerometer; autoplay; fullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></Styled.LecturePlayer>
     )
 }
 
