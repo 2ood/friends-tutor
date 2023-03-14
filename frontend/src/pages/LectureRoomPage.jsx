@@ -63,7 +63,7 @@ function LectureRoomPage(props){
             }
         }
         readContents();
-    },[])
+    },[grade])
     
         
     function handlePageShiftClick(toLeft){
