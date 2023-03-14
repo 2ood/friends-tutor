@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from "react-router-dom";
+import blackboard from "img/blackboard-compressed.jpg";
 
 function LectureBox(props){
     const navigate = useNavigate();
-    const videoId = props.src.video_id??"P1ww1IXRfTA";
-    const imgUrl = `http://img.youtube.com/vi/${videoId}/0.jpg`;
+    const videoId = props.src.video_id;
+    const imgUrl = props.src.video_id?`http://img.youtube.com/vi/${videoId}/0.jpg`:blackboard;
 
     useEffect(()=>{
         
@@ -18,9 +19,9 @@ function LectureBox(props){
     return (
         <Styled.LectureBoxFrame width={props.width} onClick={handleLectureClick}>
             <img alt="lecture-thumb" src={imgUrl}/>
-            <Styled.LectureTitle>{props.src.title??"Lecture Title"}</Styled.LectureTitle>
+            <Styled.LectureTitle>{props.src.title}</Styled.LectureTitle>
             <Styled.LectureDescBox>
-                <Styled.Lecturer>{props.src.writer??"Lecturer name"}</Styled.Lecturer>
+                <Styled.Lecturer>{props.src.writer??"unknown lecturer"}</Styled.Lecturer>
                 <Styled.LectureLikes>Likes {props.src.likes??"0"}</Styled.LectureLikes>
             </Styled.LectureDescBox>
         </Styled.LectureBoxFrame>

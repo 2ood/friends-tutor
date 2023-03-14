@@ -61,7 +61,7 @@ function CertificatePage(){
             <Component.CertificateFrame dat={certificateData}></Component.CertificateFrame>
             <Styled.Buttongroup>
                     <Styled.ThemedButton theme="primary">save</Styled.ThemedButton>
-                    <Styled.ThemedButton onClick={()=>{navigate("/mypage")}} theme="accent">close</Styled.ThemedButton>
+                    <Styled.ThemedButton onClick={()=>{navigate(-1)}} theme="accent">close</Styled.ThemedButton>
             </Styled.Buttongroup>
         </Styled.MainBodyFrame>
         

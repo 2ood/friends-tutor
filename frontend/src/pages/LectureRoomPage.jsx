@@ -6,9 +6,11 @@ import left from "img/left.png";
 import ModularRequest from "util/ModularRequest";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 function LectureRoomPage(props){
     let [page, setPage] = useState(1);
+    const navigate = useNavigate();
     
     //const recentLectureData = props.data;
     
@@ -108,7 +110,7 @@ function LectureRoomPage(props){
                 <span>{page}/{total}</span>
                 <img alt="right" src={right} onClick={()=>{handlePageShiftClick(false);}}/>
             </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px">Upload Lecture</Styled.ThemedButton>
+            <Styled.ThemedButton size="50px" onClick={()=>{navigate("/course/upload")}}>Upload Lecture</Styled.ThemedButton>
         </Styled.MainBodyFrame>
         
     </>);
