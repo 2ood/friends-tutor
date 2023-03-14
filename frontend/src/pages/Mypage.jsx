@@ -10,38 +10,51 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 
-import {ModalMessageAtom,ModalDetailsAtom} from "util/atom";
+import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
-var Message = 0;var Details=0;
+var Message=0;var Details=0;
 function Mypage(props){
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const [ModalMessage, setModalMessage] = useAtom(ModalMessageAtom);
   const [ModalDetails, setModalDetails] = useAtom(ModalDetailsAtom);
   const [data, setData] = useState(null);
-
+  const [MypageUserName, setMypageUserName] = useAtom(MypageUserNameAtom);
+  const [MypageUserGrade, setMypageUserGrade] = useAtom(MypageUserGradeAtom);
+  const accessToken = localStorage.getItem('login-token');
+  
   const getCheckCertificate = async() => {
-    
-    const accessToken = localStorage.getItem('login-token');
     const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
       .then(response => {
         setData(response.data.message);
-        console.log(response.data.message);
-        console.log(response.data.details);
+        //console.log(response.data.message);
+        //console.log(response.data.details);
         Message = response.data.message;
         Details = response.data.details;
         setModalMessage(Message);
         setModalDetails(Details);
 
       });
-      
-
-
   }; 
 
+  const userinfo = async() => {
+    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{
+    headers : {Authorization: `Bearer ${accessToken}`
+        }
+      })
+      .then(response => {
+        setMypageUserName(response.data.details.name);
+        setMypageUserGrade(response.data.details.grade);
+
+      });
+  };
+  userinfo();
+  //console.log(MypageUserName);
+  //console.log(MypageUserGrade);
   const onClickButton = () => {
     
 
@@ -70,10 +83,10 @@ function Mypage(props){
             </Styled.ThemedBox>
             <Styled.ThemedBoxUnder>
                 <Styled.MypageName>
-                    김산님
+                    {MypageUserName}
                 </Styled.MypageName>
                 <Styled.MypageGrade>
-                    중학교 3학년
+                    {MypageUserGrade}th grade
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
@@ -89,6 +102,7 @@ function Mypage(props){
                   Certificate
                 </Styled.MypageText>
               </Styled.MypageButton>
+
                     {isOpen && (<Modal
               open={isOpen}
               onClose={() => {
@@ -100,10 +114,16 @@ function Mypage(props){
               }
                     }}
                   />)}
+
               <Styled.MypageButton>
                 <img src={changeLang} alt="changeLang"></img>
                 <Styled.MypageText>Language</Styled.MypageText>
               </Styled.MypageButton>
+
+
+
+
+
 
 
 
