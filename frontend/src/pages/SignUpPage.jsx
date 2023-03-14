@@ -52,7 +52,7 @@ function SignUpPage() {
         };
 
     return (  
-        <div classname="SignIn"
+        <div className="SignIn"
         style={{
             display: "flex",
             flexDirection: "column",
