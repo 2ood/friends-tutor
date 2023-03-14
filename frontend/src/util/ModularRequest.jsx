@@ -9,7 +9,8 @@ class ModularRequest extends React.Component{
     	super(props);
       
       	this.state = {
-            host : props.host?props.host:HOST.address,
+            host : HOST.address,
+            port : HOST.port,
             path : props.path,
           	method : props.method,
             headers : props.headers,
@@ -19,16 +20,17 @@ class ModularRequest extends React.Component{
 
     async send(){
         try {
-            const url = `${this.props.address?this.props.address:HOST.address}/${this.props.path}`;
+            const url = `${this.state.host}:${this.state.port}/${this.state.path}`;
             //const url = `${HOST.address}:${HOTS.port}/${this.props.path}`;
             let response = await axios({
-                method : this.props.method,
+                method : this.state.method,
                 url : url,
-                headers : this.props.headers,
-                data : this.props.body
-            });
-            
-            return response.data; 
+                headers : this.state.headers,
+                data : JSON.stringify(this.state.body)
+            })
+
+            return response;
+
         } catch (e) {
             console.error("error occured in modularRequest"); 
             console.error(e.name);

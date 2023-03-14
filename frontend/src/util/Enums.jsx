@@ -6,8 +6,8 @@ const METHOD = {
 };
 
 const HOST = {
-    "address" : "https://jsonplaceholder.typicode.com",
-    "port" : 80
+    "address" : "http://34.29.162.137",
+    "port" : 8080
 }
 
 
