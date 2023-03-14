@@ -81,6 +81,18 @@ function LectureRoomPage(props){
     }
 
     return (<>
+        <ToastContainer
+                position="bottom-center"
+                autoClose={1500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+        />  
         <Component.Topbar />
         <Styled.MainBodyFrame gap="10px">
             <Styled.UnderlinedTitle align="center">Best Lecture</Styled.UnderlinedTitle>
