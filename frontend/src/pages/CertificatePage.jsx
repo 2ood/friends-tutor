@@ -3,8 +3,9 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from "react-router-dom";
 import ModularRequest from "util/ModularRequest";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function CertificatePage(){
@@ -43,18 +44,7 @@ function CertificatePage(){
     },[])
 
     return (<>
-        <ToastContainer
-                position="bottom-center"
-                autoClose={1500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-        />  
+        <Component.ThemedToast/>
         <Component.Topbar />
         <Styled.MainBodyFrame>
             <Styled.ThemedTitle>Certificate Issuance</Styled.ThemedTitle>
