@@ -13,7 +13,7 @@ function LectureBox(props){
     },[]);
 
     function handleLectureClick(){
-        navigate(`/lecture/view/${props.src.course_id}`);
+        navigate(`/course/view/${props.src.course_id}`);
     };
 
     return (

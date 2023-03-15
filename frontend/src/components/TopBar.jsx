@@ -10,9 +10,9 @@ function Topbar(){
     
     return (
         <Styled.Topbar>
-            <div id="logo" onClick={()=>{navigate("/")}}>FriendsMentor</div>
+            <div id="logo" onClick={()=>{navigate("/course/list")}}>FriendsMentor</div>
             <div id="navgroup">
-                <Styled.NavButton id="nav-home" onClick={()=>{navigate("/")}}>
+                <Styled.NavButton id="nav-home" onClick={()=>{navigate("/course/list")}}>
                     <img src={home} alt="home"></img>
                 </Styled.NavButton>
                 <Styled.NavButton id="nav-profile">
