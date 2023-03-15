@@ -20,7 +20,7 @@ function App() {
 					<Route path="/course/upload" element={<Pages.LectureUploadPage />}></Route>
 					<Route path="/course/view/:id" element={<Pages.LectureViewPage/>}></Route>
 					<Route path="/course/list" element={<Pages.LectureRoomPage/>}></Route>
-					<Route path="/mypage" element={<Pages.MyPage/>}></Route>
+					<Route path="/mypage" element={<Pages.Mypage/>}></Route>
 					<Route path="/overview" element={<TestPage />}></Route>
 					<Route path="/axios-test" element={<AxiosTest />}></Route>
 					<Route path="/login-test" element={<LoginTest />}></Route>
