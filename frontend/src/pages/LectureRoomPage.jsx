@@ -4,7 +4,7 @@ import * as Styled from "styles/ComponentStyles";
 import right from "img/right.png";
 import left from "img/left.png";
 import ModularRequest from "util/ModularRequest";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +19,14 @@ function LectureRoomPage(props){
     const total = (Math.floor((recentLectures.length-1)/4)+1);
     const [grade, setGrade] = useState(6);
     const notify = (content)=> toast(content);
+
+    const gradeState = {
+        target : grade,
+        set : (newInput)=>{
+            setPage(1);
+            setGrade(newInput);
+        }
+    };
 
     useEffect(()=>{
         function readContents(){
@@ -83,20 +91,10 @@ function LectureRoomPage(props){
     }
 
     return (<>
-        <ToastContainer
-                position="bottom-center"
-                autoClose={1500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-        />  
+        <Component.ThemedToast/>   
         <Component.Topbar />
         <Styled.MainBodyFrame gap="10px">
+            <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
             <Styled.UnderlinedTitle align="center">Best Lecture</Styled.UnderlinedTitle>
             <Component.LectureBox src={trending}></Component.LectureBox>
             <Styled.UnderlinedTitle>Recent Videos</Styled.UnderlinedTitle>
