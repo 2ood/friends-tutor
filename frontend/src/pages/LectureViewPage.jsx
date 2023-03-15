@@ -39,7 +39,7 @@ function LectureViewPage(props){
             }
         }
         readContents();
-    },[param])
+    },[id])
 
     function handleLikeClick() {
 
