@@ -11,7 +11,7 @@ const HOST = {
 }
 
 const FE_PATH = {
-    main : "",
+    main : "/",
     auth : {
         signin : "/sign-in",
         signup : "/sign-up"

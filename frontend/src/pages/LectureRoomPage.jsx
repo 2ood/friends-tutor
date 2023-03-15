@@ -7,6 +7,7 @@ import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import { BE_PATH,FE_PATH } from "util/Enums";
 
 function LectureRoomPage(props){
     let [page, setPage] = useState(1);
@@ -108,7 +109,7 @@ function LectureRoomPage(props){
                 <span>{page}/{total}</span>
                 <img alt="right" src={right} onClick={()=>{handlePageShiftClick(false);}}/>
             </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px" onClick={()=>{navigate("/course/upload")}}>Upload Lecture</Styled.ThemedButton>
+            <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>Upload Lecture</Styled.ThemedButton>
         </Styled.MainBodyFrame>
         
     </>);
