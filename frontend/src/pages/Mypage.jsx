@@ -3,12 +3,13 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import gohome from "img/gohome.png";
 import changeLang from "img/changeLang.png";
-import cartificate from "img/cartificateImg.png";
+import certificate from "img/certificateImg.png";
 import white from "img/white.png";
 import Modal from "styles/styled-components/Modal";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
+import {FE_PATH} from "util/Enums";
 
 import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
@@ -90,14 +91,14 @@ function Mypage(props){
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
-              <Styled.MypageButton onClick={()=>{navigate("/lecture/list")}}>
+              <Styled.MypageButton onClick={()=>{navigate(FE_PATH.course.list)}}>
                 <img src={gohome} alt="gohome"></img>
                 <Styled.MypageText>Home</Styled.MypageText>
               </Styled.MypageButton>
 
 
               <Styled.MypageButton  onClick={onClickButton}>
-                <img src={cartificate} alt="cartificate"></img>
+                <img src={certificate} alt="certificate"></img>
                 <Styled.MypageText>
                   Certificate
                 </Styled.MypageText>
@@ -110,7 +111,7 @@ function Mypage(props){
                 console.log(Message);
                 console.log(Details);
                 if (Message===0 && Details===0) {
-                navigate('/certificate');
+                navigate(FE_PATH.mypage.certificate);
               }
                     }}
                   />)}

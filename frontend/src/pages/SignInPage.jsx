@@ -1,14 +1,20 @@
 import React, {useState} from "react";
 import back from "img/back.png";
 import clear from "img/clear.png";
+import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
-import HorizonLine from "util/HorizontalLine";
+import HorizonLine from "styles/styled-components/HorizontalLine";
+import {FE_PATH} from "util/Enums";
+import { toast } from 'react-toastify';
 
 function SignInPage() {
-    const navigate = useNavigate();
+    
     const [username, setuserName] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+    const notify = (content)=> toast(content);
     
  
     const onSignIn = () => {
@@ -25,25 +31,19 @@ function SignInPage() {
           .then(response => response.json())
           .then(res => {
             console.log(res);
-            if (res.accessToken) {
+            if (res.accessToken && res.refreshToken) {
                 localStorage.setItem('login-token', res.accessToken);
-                navigate('/lecture/list');
-                console.log("성공access");
-            }
-            if (res.refreshToken) {
                 localStorage.setItem('refresh-token', res.refreshToken);
-                navigate('/lecture/list');
-                console.log("성공refersh");
+                navigate(FE_PATH.course.list);
             }
-            res.message === 'User logic 관련 예외가 발생했습니다.'
-              ? alert("로그인 정보가 맞지 않습니다.")
-              : navigate('/sign-in');
+            else {
+                res.message === 'User logic 관련 예외가 발생했습니다.'
+              ? notify("로그인 정보가 맞지 않습니다.")
+              : navigate(FE_PATH.auth.signin);
+            }
           });
       };
 
-    const navigateToMain = () => {
-        navigate("/");
-    };
 
     return (  
         <div className="SignIn"
@@ -53,10 +53,11 @@ function SignInPage() {
             justifyContent: "center",
             alignItems: "center",
           }}>
+            <Component.ThemedToast/>
             <Styled.SignInUpBar>
-            <img style={{width:'50px'}} src={back} onClick={navigateToMain}/>
+            <img style={{width:'50px'}} src={back} onClick={()=>{navigate("/");}} alt="back"/>
             <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>Sign in</div>
-            <img style={{width:'50px'}} src={clear}/>
+            <img style={{width:'50px'}} src={clear} alt="clear"/>
             </Styled.SignInUpBar>
 
             <div style={{marginTop: '80px',marginBottom: "20px",marginRight: "130px"}}>
@@ -85,7 +86,7 @@ function SignInPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                    }}
                 onChange={(e)=>{
                     setuserName(e.target.value);
                 }}
@@ -117,7 +118,7 @@ function SignInPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                     }}
                 onChange={(e)=>{
                     setPassword(e.target.value);
                 }}

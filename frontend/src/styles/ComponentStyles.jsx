@@ -16,11 +16,7 @@ import { CertificateFrame } from "styles/styled-components/CertificateFrame.styl
 import { ThemedBox } from "styles/styled-components/ThemedBox.style";
 import {ThemedBoxUnder} from "styles/styled-components/ThemedBoxUnder.style";
 import {ThemedBoxRound} from "styles/styled-components/ThemedBoxRound.style";
-import {MypageButton} from "styles/styled-components/MypageButton.style";
-import { MypageText } from "styles/styled-components/MypageText.style";
-import {MypageTitle} from "styles/styled-components/MypageTitle.style";
-import {MypageName} from "styles/styled-components/MypageName.style";
-import {MypageGrade} from "styles/styled-components/MypageGrade.style";
+import {MypageTitle, MypageText, MypageGrade, MypageName, MypageButton} from "styles/styled-components/MyPageComponents.style";
 import { ModalTitle } from "styles/styled-components/ModalTitle";
 import { ModalText } from "styles/styled-components/Modaltext";
 import { LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer } from "styles/styled-components/LectureBoxComponents.style";
@@ -44,11 +40,7 @@ export {CertificateFrame};
 export {ThemedBox};
 export {ThemedBoxUnder};
 export {ThemedBoxRound};
-export {MypageButton};
-export {MypageText};
-export {MypageTitle};
-export {MypageName};
-export {MypageGrade};
+export {MypageTitle, MypageText, MypageGrade, MypageName, MypageButton}
 export {ModalTitle};
 export {ModalText};
 export {LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer};

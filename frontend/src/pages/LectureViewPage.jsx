@@ -3,8 +3,7 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import { useParams } from 'react-router-dom';
 import ModularRequest from "util/ModularRequest";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 
@@ -29,13 +28,13 @@ function LectureViewPage(props){
                     if(res.status=== 200) {
                         setLectureData(res.data.details);
                     } else {
-                        notify("there was an error in reading certificate data!");
+                        notify("there was an error in reading lecture data!");
                     }
                   }
                 );
             
             } catch (e) {
-                console.log("error in reading certificate data");
+                console.log("error in reading lecture data");
                 console.error(e.message);
             }
         }
@@ -52,18 +51,7 @@ function LectureViewPage(props){
     }
 
     return (<>
-        <ToastContainer
-                position="bottom-center"
-                autoClose={1500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-        />  
+        <Component.ThemedToast/>  
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
             <Styled.ThemedTitle>{lectureData.title}</Styled.ThemedTitle>
