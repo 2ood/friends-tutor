@@ -3,8 +3,7 @@ import * as Component from "components/Components";
 import { useNavigate } from 'react-router-dom';
 import * as Styled from "styles/ComponentStyles";
 import ModularRequest from "util/ModularRequest";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 
@@ -15,36 +14,23 @@ function LectureUploadPage(){
     const [desc, setDesc] = useState("sample description");
     const [grade, setGrade] = useState(6);
     const [subject, setSubject] = useState("math");
+    
     const notify = (content)=> toast(content);
-
-    let titleState = {
-        target : title,
-        set : (newInput)=>{setTitle(newInput)}
-    };
-
-    let gradeState = {
-        target : grade,
-        set : (newInput)=>{setGrade(newInput)}
-    };
-
-    let driveState = {
-        target : drive,
-        set : (newInput)=>{setDrive(newInput)}
-    }
-
-    let videoState = {
-        target : video,
-        set : (newInput)=>{setVideo(newInput)}
-    };
-
-
-    let subjectState = {
-        target : subject,
-        set : (newInput)=>{setSubject(newInput)}
-    };
-
     const navigate = useNavigate();
 
+    let titleState = _state(title,setTitle);
+    let gradeState = _state(grade,setGrade);
+    let driveState = _state(drive,setDrive);
+    let videoState = _state(video,setVideo);
+    let subjectState = _state(subject,setSubject);
+
+    function _state(target,set){
+        return {
+            target : target,
+            set : (newInput)=>{set(newInput)}
+        };
+    }
+   
     async function handleSubmit(){
         let json = {
             "grade" : grade,
@@ -82,18 +68,7 @@ function LectureUploadPage(){
 
 
     return (<>
-        <ToastContainer
-                position="bottom-center"
-                autoClose={1500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-        />  
+        <Component.ThemedToast/>  
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
             <Styled.ThemedTitle>Upload Lecture</Styled.ThemedTitle>
