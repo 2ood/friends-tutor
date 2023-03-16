@@ -79,3 +79,4 @@ const Content = styled.div`
   border : 2px var(--primary-color) solid;
   border-radius: 10%;
 `;
+

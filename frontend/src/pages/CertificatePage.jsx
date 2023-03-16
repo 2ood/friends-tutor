@@ -4,7 +4,6 @@ import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from "react-router-dom";
 import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 

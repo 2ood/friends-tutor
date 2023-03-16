@@ -6,27 +6,32 @@ import changeLang from "img/changeLang.png";
 import certificate from "img/certificateImg.png";
 import white from "img/white.png";
 import Modal from "styles/styled-components/Modal";
-import { useEffect, useState } from "react";
+import Modal2 from "styles/styled-components/Modal2";
+import { useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import {FE_PATH} from "util/Enums";
-
+import { LanguageChangeAtom } from "util/atom";
 import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
+
+
+
 var Message=0;var Details=0;
 function Mypage(props){
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [ModalMessage, setModalMessage] = useAtom(ModalMessageAtom);
-  const [ModalDetails, setModalDetails] = useAtom(ModalDetailsAtom);
-  const [data, setData] = useState(null);
+  const [ModalMessage, setModalMessage] = useAtom(ModalMessageAtom); //eslint-disable-line no-unused-vars
+  const [ModalDetails, setModalDetails] = useAtom(ModalDetailsAtom); //eslint-disable-line no-unused-vars
+  const [data, setData] = useState(null); //eslint-disable-line no-unused-vars
   const [MypageUserName, setMypageUserName] = useAtom(MypageUserNameAtom);
   const [MypageUserGrade, setMypageUserGrade] = useAtom(MypageUserGradeAtom);
   const accessToken = localStorage.getItem('login-token');
-  
+  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
+
   const getCheckCertificate = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{
+    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
@@ -43,7 +48,7 @@ function Mypage(props){
   }; 
 
   const userinfo = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{
+    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
@@ -74,13 +79,45 @@ function Mypage(props){
         console.log("error");
       }
       
+      
     })   
+  };
+  const onClickButton2 = () => {
+    setIsOpen2(true);
+
+  };
+  var userinformation="USER INFORMATION";
+  var home="Home";
+  var Language="Language";
+  var Certificate="Certificate";
+  var Grade=`${MypageUserGrade}th grade`;
+  if (LanguageChange===0){
+    userinformation="USER INFORMATION";
+    home="Home";
+    Language="Language";
+    Certificate="Certificate";
+    Grade=`${MypageUserGrade}th grade`;
+  }
+  else if(LanguageChange===1){
+    userinformation="사용자정보";
+    home="홈";
+    Language="언어설정";
+    Certificate="인증서발급";
+    if (MypageUserGrade>=1 && MypageUserGrade<=6){
+      Grade=`초등학교 ${MypageUserGrade}학년`;
+    }
+    else if (MypageUserGrade>=7 && MypageUserGrade<=9){
+      Grade=`중학교 ${MypageUserGrade-6}학년`;
+    }
+    else if (MypageUserGrade>=10 &&MypageUserGrade<=12){
+      Grade=`고등학교 ${MypageUserGrade-9}학년`;
+    };
   };
     return (<>
         <Component.Topbar />
         <Styled.MainBodyFrame bgcolor="var(--gray4)">
             <Styled.ThemedBox>
-                <Styled.MypageTitle>USER INFORMATION</Styled.MypageTitle>
+                <Styled.MypageTitle>{userinformation}</Styled.MypageTitle>
             </Styled.ThemedBox>
             <Styled.ThemedBoxUnder>
                 <Styled.MypageName>
@@ -93,14 +130,14 @@ function Mypage(props){
             <Styled.ThemedBoxRound>
               <Styled.MypageButton onClick={()=>{navigate(FE_PATH.course.list)}}>
                 <img src={gohome} alt="gohome"></img>
-                <Styled.MypageText>Home</Styled.MypageText>
+                <Styled.MypageText>{home}</Styled.MypageText>
               </Styled.MypageButton>
 
 
               <Styled.MypageButton  onClick={onClickButton}>
                 <img src={certificate} alt="certificate"></img>
                 <Styled.MypageText>
-                  Certificate
+                  {Certificate}
                 </Styled.MypageText>
               </Styled.MypageButton>
 
@@ -116,17 +153,17 @@ function Mypage(props){
                     }}
                   />)}
 
-              <Styled.MypageButton>
+              <Styled.MypageButton onClick={onClickButton2}>
                 <img src={changeLang} alt="changeLang"></img>
-                <Styled.MypageText>Language</Styled.MypageText>
+                <Styled.MypageText>{Language}</Styled.MypageText>
               </Styled.MypageButton>
 
-
-
-
-
-
-
+              {isOpen2 && (<Modal2
+              open={isOpen2}
+              onClose={() => {
+                setIsOpen2(false);
+                    }}
+                  />)}
 
               <Styled.MypageButton> <img src={white} alt="white"></img><Styled.MypageText> </Styled.MypageText></Styled.MypageButton>
               <Styled.MypageButton><img src={white} alt="white"></img><Styled.MypageText> </Styled.MypageText></Styled.MypageButton>

@@ -4,11 +4,20 @@ import home from "img/home.png";
 import profile from "img/profile.png";
 import {FE_PATH} from "util/Enums";
 
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 
 
 function Topbar(){
     const navigate = useNavigate();
-    
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    var FriendsMentor="FriendsMentor";
+    if (LanguageChange==0){
+        FriendsMentor="FriendsMentor";
+    }
+    else if(LanguageChange==1){
+        FriendsMentor="또래멘토";
+    }
     return (
         <Styled.Topbar>
             <div id="logo" onClick={()=>{navigate(FE_PATH.course.list)}}>FriendsMentor</div>

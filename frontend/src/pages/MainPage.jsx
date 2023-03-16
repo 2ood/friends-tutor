@@ -3,9 +3,12 @@ import React from "react";
 import HorizonLine from "styles/styled-components/HorizontalLine";
 import { useNavigate } from 'react-router';
 import {FE_PATH} from "util/Enums";
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 
 function MainPage() {
-
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    //console.log(LanguageChange);
     const navigate = useNavigate();
  
     const navigateToSignIn = () => {
@@ -15,6 +18,27 @@ function MainPage() {
     const navigateToSignUp = () => {
         navigate(FE_PATH.auth.signup);
         };
+
+    var Friends="Friends";
+    var Tutor="Tutor";
+    var Meet="Meet my friends tutors!";
+    var Signin="Sign in";
+    var Signup="Sign up";
+    if (LanguageChange==0){
+
+     Friends="Friends";
+     Tutor="Tutor";
+     Meet="Meet my friends tutors!";
+     Signin="Sign in";
+     Signup="Sign up";
+    }
+    else if(LanguageChange==1){
+        Friends="또래";
+        Tutor="멘토";
+        Meet="나의 또래 멘토를 만나보세요";
+        Signin="아이디로 로그인";
+        Signup="회원가입";
+    };
 
     return (
         <div className="Main"
@@ -35,7 +59,7 @@ function MainPage() {
                 fontWeight: "bold",
                 fontFamily: "Neverland",
                 color: "#787878"
-                }}>Friends</p>
+                }}>{Friends}</p>
                 <p
                 style={{
                 margin: "31px 0px 50px 0px",
@@ -44,7 +68,7 @@ function MainPage() {
                 fontFamily: "Neverland",
                 fontWeight: "bold",
                 color: "#40A7D7"
-                }}>Tutor</p>
+                }}>{Tutor}</p>
                 <p
                 style={{
                 margin: "31px 0px 50px 0px",
@@ -53,7 +77,7 @@ function MainPage() {
                 fontFamily: "Gulim",
                 fontWeight: "bold",
                 color: "#787878"
-                }}>Meet my friends tutors!</p>
+                }}>{Meet}</p>
             </div>
             <HorizonLine/>
             <div>
@@ -69,7 +93,7 @@ function MainPage() {
                     fontSize: "16px",
                     fontFamily: "Gulim",
                     fontWeight: "bold",
-                }}> Sign in </button>
+                }}> {Signin} </button>
             </div>
             <div>
                 <button onClick={navigateToSignUp}           
@@ -85,7 +109,7 @@ function MainPage() {
                     fontSize: "16px",
                     fontFamily: "Gulim",
                     fontWeight: "bold",
-                }}> Sign up </button>
+                }}> {Signup} </button>
             </div>
         </div>
     );
