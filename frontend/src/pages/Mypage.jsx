@@ -7,28 +7,31 @@ import certificate from "img/certificateImg.png";
 import white from "img/white.png";
 import Modal from "styles/styled-components/Modal";
 import Modal2 from "styles/styled-components/Modal2";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
 import {FE_PATH} from "util/Enums";
 import { LanguageChangeAtom } from "util/atom";
 import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
+
+
+
 var Message=0;var Details=0;
 function Mypage(props){
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [ModalMessage, setModalMessage] = useAtom(ModalMessageAtom);
-  const [ModalDetails, setModalDetails] = useAtom(ModalDetailsAtom);
-  const [data, setData] = useState(null);
+  const [ModalMessage, setModalMessage] = useAtom(ModalMessageAtom); //eslint-disable-line no-unused-vars
+  const [ModalDetails, setModalDetails] = useAtom(ModalDetailsAtom); //eslint-disable-line no-unused-vars
+  const [data, setData] = useState(null); //eslint-disable-line no-unused-vars
   const [MypageUserName, setMypageUserName] = useAtom(MypageUserNameAtom);
   const [MypageUserGrade, setMypageUserGrade] = useAtom(MypageUserGradeAtom);
   const accessToken = localStorage.getItem('login-token');
-  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
 
   const getCheckCertificate = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{
+    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
@@ -45,7 +48,7 @@ function Mypage(props){
   }; 
 
   const userinfo = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{
+    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
@@ -88,14 +91,14 @@ function Mypage(props){
   var Language="Language";
   var Certificate="Certificate";
   var Grade=`${MypageUserGrade}th grade`;
-  if (LanguageChange==0){
+  if (LanguageChange===0){
     userinformation="USER INFORMATION";
     home="Home";
     Language="Language";
     Certificate="Certificate";
     Grade=`${MypageUserGrade}th grade`;
   }
-  else if(LanguageChange==1){
+  else if(LanguageChange===1){
     userinformation="사용자정보";
     home="홈";
     Language="언어설정";

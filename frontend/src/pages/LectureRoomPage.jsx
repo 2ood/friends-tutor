@@ -5,9 +5,11 @@ import right from "img/right.png";
 import left from "img/left.png";
 import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
-import { BE_PATH,FE_PATH } from "util/Enums";
+import { FE_PATH } from "util/Enums";
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
+
 
 function LectureRoomPage(props){
     let [page, setPage] = useState(1);
@@ -77,6 +79,8 @@ function LectureRoomPage(props){
     },[grade])
     
         
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+   
     function handlePageShiftClick(toLeft){
         //offset is the number of offset that is needed to move to page {offset}.
         //there are 4 lectures each in a page, 
@@ -90,15 +94,30 @@ function LectureRoomPage(props){
             if(page<total) setPage(++page);
         }
     }
+    var BestLecture="Best Lecture";
+    var RecentVideos="Recent Videos";
+    var UploadLecture="UploadLecture";
+
+    if (LanguageChange==0){
+        BestLecture="Best Lecture";
+        RecentVideos="Recent Videos";
+        UploadLecture="UploadLecture";
+
+    }
+    else if(LanguageChange==1){
+        BestLecture="추천수 높은 강의";
+        RecentVideos="최근 올라온 강의";
+        UploadLecture="강의 게시하기";
+    };
 
     return (<>
         <Component.ThemedToast/>   
         <Component.Topbar />
         <Styled.MainBodyFrame gap="10px">
             <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
-            <Styled.UnderlinedTitle align="center">Best Lecture</Styled.UnderlinedTitle>
+            <Styled.UnderlinedTitle align="center">{BestLecture}</Styled.UnderlinedTitle>
             <Component.LectureBox src={trending}></Component.LectureBox>
-            <Styled.UnderlinedTitle>Recent Videos</Styled.UnderlinedTitle>
+            <Styled.UnderlinedTitle>{RecentVideos}</Styled.UnderlinedTitle>
             <Styled.LectureGroupScrollWrapper>
                 <Styled.LectureGroup offset={-page+1}>
                     {recentLectures.map((dat)=><Component.LectureBox src={dat} width="calc(40vw - 5px)"></Component.LectureBox>)}
@@ -109,7 +128,7 @@ function LectureRoomPage(props){
                 <span>{page}/{total}</span>
                 <img alt="right" src={right} onClick={()=>{handlePageShiftClick(false);}}/>
             </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>Upload Lecture</Styled.ThemedButton>
+            <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>{UploadLecture}</Styled.ThemedButton>
         </Styled.MainBodyFrame>
         
     </>);

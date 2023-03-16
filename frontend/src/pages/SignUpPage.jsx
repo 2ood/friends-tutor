@@ -4,7 +4,8 @@ import clear from "img/clear.png";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
 import HorizonLine from "styles/styled-components/HorizontalLine";
-
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 
 function SignUpPage() {
     const navigate = useNavigate();
@@ -14,6 +15,8 @@ function SignUpPage() {
     const [grade, setGrade] = useState("");
     const [nickName, setNickname] = useState("");
     const [email, setEmail] = useState("");
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+
 
     const navigateToMain = () => {
         navigate("/");
@@ -50,7 +53,39 @@ function SignUpPage() {
             navigate("/sign-in");
         }
         };
-
+    var Signup="Sign up";
+    var ID = "ID";
+    var Password="Password";
+    var Name="Name";
+    var Grade="Grade";
+    var Enteryourgrade="Enter your Grade";
+    var Nickname="Nickname";
+    var Email="Email";
+    var Submit="Submit";
+    if (LanguageChange===0){
+        Signup="Sign up";
+        ID = "ID";
+        Password="Password";
+        Name="Name";
+        Grade="Grade";
+        Enteryourgrade="Enter your Grade";
+        Nickname="Nickname";
+        Email="Email";
+        Submit="Submit";
+    }
+    /*
+    else if (LanguageChange===1){
+        Signup="회원 가입";
+        ID = "아이디";
+        Password="비밀번호";
+        Name="이름";
+        Grade="학년";
+        Enteryourgrade="학년을 선택하세요";
+        Nickname="별명을 입력하세요";
+        Email="이메일";
+        Submit="확인";
+    }
+    */
     return (  
         <div className="SignIn"
         style={{
@@ -73,7 +108,7 @@ function SignUpPage() {
                     fontFamily : "Gulim",
                     color: "#595959",
   
-                }}> ID </label>
+                }}> {ID} </label>
             </div>
             <div>
             <input
@@ -104,7 +139,7 @@ function SignUpPage() {
                     fontWeight: "normal",
                     fontFamily : "Gulim",
                     color: "#595959",
-                }}> Password </label>
+                }}> {Password} </label>
             </div>
             <div>
             <input
@@ -137,7 +172,7 @@ function SignUpPage() {
                     fontFamily : "Gulim",
                     color: "#595959",
                     
-                }}> Name </label>
+                }}> {Name} </label>
             </div>
             <div>
             <input id = "name"
@@ -168,7 +203,7 @@ function SignUpPage() {
                     fontFamily : "Gulim",
                     color: "#595959",
                     textAlign: "left",
-                }}> Grade </label>
+                }}> {Grade} </label>
             </div>
             <div>
             <select name="choice" 
@@ -188,7 +223,7 @@ function SignUpPage() {
                         paddingTop: '7px', 
                         paddingBottom: '7px', }}>
 
-                    <option selected default value="" disabled > Enter your grade </option>
+                    <option selected default value="" disabled > {Enteryourgrade}</option>
                     <option value="1">🖼️초등학교 4학년</option>
                     <option value="2">🖼️초등학교 5학년</option>
                     <option value="3">🖼️초등학교 6학년</option>
@@ -209,7 +244,7 @@ function SignUpPage() {
                     fontFamily : "Gulim",
                     color: "#595959",
                     
-                }}> Nickname </label>
+                }}> {Nickname} </label>
             </div>
             <div>
             <input id = "nickname"
@@ -240,7 +275,7 @@ function SignUpPage() {
                     fontFamily : "Gulim",
                     color: "#595959",
                     
-                }}> Email </label>
+                }}> {Email} </label>
             </div>
             <div>
             <input id = "email"
@@ -278,7 +313,7 @@ function SignUpPage() {
                     fontFamily : "Gulim",
                     fontWeight: "bold",
                     marginTop: '80px',
-                }}> Submit </button>
+                }}> {Submit} </button>
             </div>
         </div>
     );

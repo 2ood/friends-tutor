@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router';
 import HorizonLine from "styles/styled-components/HorizontalLine";
 import {FE_PATH} from "util/Enums";
 import { toast } from 'react-toastify';
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 
 function SignInPage() {
     
@@ -16,6 +18,8 @@ function SignInPage() {
     const navigate = useNavigate();
     const notify = (content)=> toast(content);
     
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+
  
     const onSignIn = () => {
         fetch('http://34.29.162.137:8080/user/login', {
@@ -44,7 +48,24 @@ function SignInPage() {
           });
       };
 
+    const navigateToMain = () => {
+        navigate("/");
+    };
+    var signin="Sign in";
+    var ID="ID";
+    var Password="Password";
+    if (LanguageChange==0){
 
+        signin="Sign in";
+        ID="ID";
+        Password="Password";
+       }
+       /*
+       else if(LanguageChange==1){
+        signin="로그인";
+        ID="   아이디";
+        Password="비밀번호";
+       };*/
     return (  
         <div className="SignIn"
         style={{
@@ -55,8 +76,8 @@ function SignInPage() {
           }}>
             <Component.ThemedToast/>
             <Styled.SignInUpBar>
-            <img style={{width:'50px'}} src={back} onClick={()=>{navigate("/");}} alt="back"/>
-            <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>Sign in</div>
+            <img style={{width:'50px'}} src={back} onClick={navigateToMain} alt="back"/>
+            <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>{signin}</div>
             <img style={{width:'50px'}} src={clear} alt="clear"/>
             </Styled.SignInUpBar>
 
@@ -70,7 +91,7 @@ function SignInPage() {
                     color: "#595959",
                     marginBottom: "20px",
                     
-                }}> ID </label>
+                }}> { ID } </label>
             </div>
             <div>
             <input id = "id"
@@ -101,7 +122,7 @@ function SignInPage() {
                     fontWeight: "normal",
                     fontFamily : "Gulim",
                     color: "#595959",
-                }}> Password </label>
+                }}> {Password} </label>
             </div>
             <div>
             <input id = "pwd" 
@@ -140,7 +161,7 @@ function SignInPage() {
                     fontFamily : "Gulim",
                     fontWeight: "bold",
                     marginTop: '80px',
-                }}> Sign in </button>
+                }}> {signin} </button>
             </div>
         </div>
     );
