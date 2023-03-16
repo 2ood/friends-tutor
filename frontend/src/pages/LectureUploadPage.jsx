@@ -5,7 +5,8 @@ import * as Styled from "styles/ComponentStyles";
 import ModularRequest from "util/ModularRequest";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 
 
 function LectureUploadPage(){
@@ -16,6 +17,9 @@ function LectureUploadPage(){
     const [grade, setGrade] = useState(6);
     const [subject, setSubject] = useState("math");
     const notify = (content)=> toast(content);
+
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+
 
     let titleState = {
         target : title,

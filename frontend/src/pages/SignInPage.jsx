@@ -4,12 +4,14 @@ import clear from "img/clear.png";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
 import HorizonLine from "util/HorizontalLine";
-
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 function SignInPage() {
     const navigate = useNavigate();
     const [username, setuserName] = useState("");
     const [password, setPassword] = useState("");
-    
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+
  
     const onSignIn = () => {
         fetch('http://34.29.162.137:8080/user/login', {
@@ -44,7 +46,20 @@ function SignInPage() {
     const navigateToMain = () => {
         navigate("/");
     };
+    var signin="Sign in";
+    var ID="ID";
+    var Password="Password";
+    if (LanguageChange==0){
 
+        signin="Sign in";
+        ID="ID";
+        Password="Password";
+       }
+       else if(LanguageChange==1){
+        signin="로그인";
+        ID="   아이디";
+        Password="비밀번호";
+       };
     return (  
         <div className="SignIn"
         style={{
@@ -55,7 +70,7 @@ function SignInPage() {
           }}>
             <Styled.SignInUpBar>
             <img style={{width:'50px'}} src={back} onClick={navigateToMain}/>
-            <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>Sign in</div>
+            <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>{signin}</div>
             <img style={{width:'50px'}} src={clear}/>
             </Styled.SignInUpBar>
 
@@ -69,7 +84,7 @@ function SignInPage() {
                     color: "#595959",
                     marginBottom: "20px",
                     
-                }}> ID </label>
+                }}> { ID } </label>
             </div>
             <div>
             <input id = "id"
@@ -100,7 +115,7 @@ function SignInPage() {
                     fontWeight: "normal",
                     fontFamily : "Gulim",
                     color: "#595959",
-                }}> Password </label>
+                }}> {Password} </label>
             </div>
             <div>
             <input id = "pwd" 
@@ -139,7 +154,7 @@ function SignInPage() {
                     fontFamily : "Gulim",
                     fontWeight: "bold",
                     marginTop: '80px',
-                }}> Sign in </button>
+                }}> {signin} </button>
             </div>
         </div>
     );

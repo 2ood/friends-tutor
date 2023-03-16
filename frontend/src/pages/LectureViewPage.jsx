@@ -1,10 +1,13 @@
 import React from "react";
 import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
-
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
 
 
 function LectureViewPage(props){
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+   
     return (<>
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
