@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import "styles/style.bootstrap.css";
 
+
 const CertificateFrame = styled.div`
     display : inline-flex;
     flex-direction : column;
@@ -9,15 +10,15 @@ const CertificateFrame = styled.div`
     padding : 10px;
     width : 100%;
     aspect-ratio : 3 / 4;
-    border : 2px var(--yellow) solid;
+    border : 2px var(--certificate-${(props)=>{return props.rank??"Black"}}) solid;
     margin-bottom : 30px;
 
     .center {
         text-align : center;
     }
 
-    .yellow {
-        color : var(--yellow);
+    .themed-text {
+        color : var(--certificate-${(props)=>{return props.rank??"Black"}});
     }
 
     #publisher {

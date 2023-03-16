@@ -1,19 +1,19 @@
 import mainlogo from "img/mainlogo.png";
 import React from "react";
-import HorizonLine from "util/HorizontalLine";
+import HorizonLine from "styles/styled-components/HorizontalLine";
 import { useNavigate } from 'react-router';
-
+import {FE_PATH} from "util/Enums";
 
 function MainPage() {
 
     const navigate = useNavigate();
  
     const navigateToSignIn = () => {
-    navigate("/sign-in");
+    navigate(FE_PATH.auth.signin);
     };
 
     const navigateToSignUp = () => {
-        navigate("/sign-up");
+        navigate(FE_PATH.auth.signup);
         };
 
     return (

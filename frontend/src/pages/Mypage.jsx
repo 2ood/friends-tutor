@@ -3,13 +3,14 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import gohome from "img/gohome.png";
 import changeLang from "img/changeLang.png";
-import cartificate from "img/cartificateImg.png";
+import certificate from "img/certificateImg.png";
 import white from "img/white.png";
 import Modal from "styles/styled-components/Modal";
 import Modal2 from "styles/styled-components/Modal2";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
+import {FE_PATH} from "util/Enums";
 import { LanguageChangeAtom } from "util/atom";
 import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
@@ -58,7 +59,8 @@ function Mypage(props){
   //console.log(MypageUserName);
   //console.log(MypageUserGrade);
   const onClickButton = () => {
-  
+    
+
     getCheckCertificate().then((result)=>{
       console.log(result);
       if (Message===0 && Details === 0){
@@ -73,6 +75,7 @@ function Mypage(props){
       else if (Message===2 || Details ===2){
         console.log("error");
       }
+      
       
     })   
   };
@@ -118,22 +121,23 @@ function Mypage(props){
                     {MypageUserName}
                 </Styled.MypageName>
                 <Styled.MypageGrade>
-                    {Grade}
+                    {MypageUserGrade}th grade
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
-              <Styled.MypageButton onClick={()=>{navigate("/lecture/list")}}>
+              <Styled.MypageButton onClick={()=>{navigate(FE_PATH.course.list)}}>
                 <img src={gohome} alt="gohome"></img>
                 <Styled.MypageText>{home}</Styled.MypageText>
               </Styled.MypageButton>
 
 
               <Styled.MypageButton  onClick={onClickButton}>
-                <img src={cartificate} alt="cartificate"></img>
+                <img src={certificate} alt="certificate"></img>
                 <Styled.MypageText>
                   {Certificate}
                 </Styled.MypageText>
               </Styled.MypageButton>
+
                     {isOpen && (<Modal
               open={isOpen}
               onClose={() => {
@@ -141,7 +145,7 @@ function Mypage(props){
                 console.log(Message);
                 console.log(Details);
                 if (Message===0 && Details===0) {
-                navigate('/certificate');
+                navigate(FE_PATH.mypage.certificate);
               }
                     }}
                   />)}

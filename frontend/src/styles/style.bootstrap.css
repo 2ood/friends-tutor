@@ -13,6 +13,10 @@
     --font-primary-color : black;
     --font-placeholder-color : var(--gray2);
     --font-color-over-primary : var(--secondary-color);
+    --certificate-Bronze : #A0522D;
+    --certificate-Silver : #A6A6A6;
+    --certificate-Gold : #FFD145;
+    --certificate-Black : black;
 
     --font-size-h1 : 20px;
     --font-size-h2 : 17px;

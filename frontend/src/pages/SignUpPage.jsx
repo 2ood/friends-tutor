@@ -3,7 +3,7 @@ import back from "img/back.png";
 import clear from "img/clear.png";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
-import HorizonLine from "util/HorizontalLine";
+import HorizonLine from "styles/styled-components/HorizontalLine";
 
 
 function SignUpPage() {
@@ -46,7 +46,7 @@ function SignUpPage() {
       };
 
     const navigateToSignIn = () => {
-        if(username != "" && password != "" && name != "" && nickName != "" && grade != "" && email!= ""){
+        if(username !== "" && password !== "" && name !== "" && nickName !== "" && grade !== "" && email!== ""){
             navigate("/sign-in");
         }
         };
@@ -60,9 +60,9 @@ function SignUpPage() {
             alignItems: "center",
           }}>
             <Styled.SignInUpBar>
-            <img style={{width:'50px'}} src={back} onClick={navigateToMain}/>
+            <img style={{width:'50px'}} src={back} onClick={navigateToMain} alt="back"/>
             <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>Sign up</div>
-            <img style={{width:'50px'}} src={clear}/>
+            <img style={{width:'50px'}} src={clear} alt="clear"/>
             </Styled.SignInUpBar>
 
             <div style={{marginTop:'60px', marginBottom:"20px",marginRight: "130px"}}>
@@ -89,7 +89,7 @@ function SignUpPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                    }}
                 onChange={(e)=>{
                     setuserName(e.target.value);
                 }}
@@ -121,7 +121,7 @@ function SignUpPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                    }}
                 onChange={(e)=>{
                     setPassword(e.target.value);
                 }}
@@ -153,7 +153,7 @@ function SignUpPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                    }}
                 onChange={(e)=>{
                     setName(e.target.value);
                 }}
@@ -167,7 +167,6 @@ function SignUpPage() {
                     fontWeight: "normal",
                     fontFamily : "Gulim",
                     color: "#595959",
-                    fontFamily: "Gulim",
                     textAlign: "left",
                 }}> Grade </label>
             </div>
@@ -226,7 +225,7 @@ function SignUpPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                    }}
                 onChange={(e)=>{
                     setNickname(e.target.value);
                 }}
@@ -257,7 +256,7 @@ function SignUpPage() {
                     width:'180px',  
                     paddingTop: '8px', 
                     paddingBottom: '8px',
-                    paddingTop: '8px', }}
+                    }}
                 onChange={(e)=>{
                     setEmail(e.target.value);
                 }}

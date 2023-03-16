@@ -1,50 +1,36 @@
-import React, {useState, useRef} from "react";
+import React, {useState} from "react";
 import * as Component from "components/Components";
 import { useNavigate } from 'react-router-dom';
 import * as Styled from "styles/ComponentStyles";
 import ModularRequest from "util/ModularRequest";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 
 function LectureUploadPage(){
     const [title, setTitle] = useState("sample title");
-    const [drive, setDrive] = useState("https://docs.google.com/document/d/1FDiOtarp23gDd8WCT_BvjiY31Jj3DqVkg1lQvE768-A/edit");
-    const [video, setVideo] = useState("v=123456789012");
+    const [drive, setDrive] = useState("https://docs.google.com/document/d/113TSOJ5RnzI1FkYgXfhmsLWqUgTIBKcRdUTCohXTYLM/edit?usp=sharing");
+    const [video, setVideo] = useState("https://www.youtube.com/watch?v=3XAhnv1FPqg");
     const [desc, setDesc] = useState("sample description");
     const [grade, setGrade] = useState(6);
     const [subject, setSubject] = useState("math");
+    
     const notify = (content)=> toast(content);
-
-    let titleState = {
-        target : title,
-        set : (newInput)=>{setTitle(newInput)}
-    };
-
-    let gradeState = {
-        target : grade,
-        set : (newInput)=>{setGrade(newInput)}
-    };
-
-    let driveState = {
-        target : drive,
-        set : (newInput)=>{setDrive(newInput)}
-    }
-
-    let videoState = {
-        target : video,
-        set : (newInput)=>{setVideo(newInput)}
-    };
-
-
-    let subjectState = {
-        target : subject,
-        set : (newInput)=>{setSubject(newInput)}
-    };
-
     const navigate = useNavigate();
 
+    let titleState = _state(title,setTitle);
+    let gradeState = _state(grade,setGrade);
+    let driveState = _state(drive,setDrive);
+    let videoState = _state(video,setVideo);
+    let subjectState = _state(subject,setSubject);
+
+    function _state(target,set){
+        return {
+            target : target,
+            set : (newInput)=>{set(newInput)}
+        };
+    }
+   
     async function handleSubmit(){
         let json = {
             "grade" : grade,
@@ -80,35 +66,21 @@ function LectureUploadPage(){
         
     }
 
-    function handleCancel(){
-        navigate(-1);
-    }
 
     return (<>
-        <ToastContainer
-                position="bottom-center"
-                autoClose={1500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-        />  
+        <Component.ThemedToast/>  
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
             <Styled.ThemedTitle>Upload Lecture</Styled.ThemedTitle>
             <Component.HorizontalInput type="text" placeholder="Enter your title" label="Title" contents={titleState}></Component.HorizontalInput>
             <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
-            <Component.HorizontalInput type="url" placeholder="Enter a subject" label="subject" contents={subjectState}></Component.HorizontalInput>
-            <Component.HorizontalInput type="url" placeholder="Enter a google drive link" label="Note" contents={driveState}></Component.HorizontalInput>
+            <Component.HorizontalInput type="text" placeholder="Enter a subject" label="subject" contents={subjectState}></Component.HorizontalInput>
+            <Component.HorizontalInput type="url" placeholder="Enter a google drive link" label="Docs" contents={driveState}></Component.HorizontalInput>
             <Component.HorizontalInput type="url" placeholder="Enter a youtube link" label="Video" contents={videoState}></Component.HorizontalInput>
             <Styled.ThemedTextarea size="100%" placeholder="Enter an explanation" defaultvalue="" value={desc} onChange={e=>{setDesc(e.target.value)}}></Styled.ThemedTextarea>
             <Styled.Buttongroup>
                 <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>submit</Styled.ThemedButton>
-                <Styled.ThemedButton size="10px" theme="accent" onClick={handleCancel}>cancel</Styled.ThemedButton>
+                <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>cancel</Styled.ThemedButton>
                 
             </Styled.Buttongroup>
             <Styled.ThemedButton size="50px" theme="secondary">Check the video subtitles here! 🔽</Styled.ThemedButton>
