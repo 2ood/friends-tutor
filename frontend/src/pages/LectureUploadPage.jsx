@@ -88,6 +88,22 @@ function LectureUploadPage(){
         navigate(-1);
     }
 
+    var UploadLecture = "UploadLecture";
+    var submit = "submit";
+    var cancel = "cancel";
+    var Check = "Check the video subtitles here! 🔽";
+    if (LanguageChange===0){
+        UploadLecture = "Upload Lecture";
+        submit = "submit";
+        cancel = "cancel";
+        Check = "Check the video subtitles here! 🔽";
+    }
+    else if (LanguageChange===1){
+        UploadLecture = "강의글 작성";
+        submit = "등록";
+        cancel="취소";
+        Check = "영상 자막 확인하기 🔽";
+    }
     return (<>
         <ToastContainer
                 position="bottom-center"
@@ -103,7 +119,7 @@ function LectureUploadPage(){
         />  
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
-            <Styled.ThemedTitle>Upload Lecture</Styled.ThemedTitle>
+            <Styled.ThemedTitle>{UploadLecture}</Styled.ThemedTitle>
             <Component.HorizontalInput type="text" placeholder="Enter your title" label="Title" contents={titleState}></Component.HorizontalInput>
             <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
             <Component.HorizontalInput type="url" placeholder="Enter a subject" label="subject" contents={subjectState}></Component.HorizontalInput>
@@ -111,11 +127,11 @@ function LectureUploadPage(){
             <Component.HorizontalInput type="url" placeholder="Enter a youtube link" label="Video" contents={videoState}></Component.HorizontalInput>
             <Styled.ThemedTextarea size="100%" placeholder="Enter an explanation" defaultvalue="" value={desc} onChange={e=>{setDesc(e.target.value)}}></Styled.ThemedTextarea>
             <Styled.Buttongroup>
-                <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>submit</Styled.ThemedButton>
-                <Styled.ThemedButton size="10px" theme="accent" onClick={handleCancel}>cancel</Styled.ThemedButton>
+                <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>{submit}</Styled.ThemedButton>
+                <Styled.ThemedButton size="10px" theme="accent" onClick={handleCancel}>{cancel}</Styled.ThemedButton>
                 
             </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px" theme="secondary">Check the video subtitles here! 🔽</Styled.ThemedButton>
+            <Styled.ThemedButton size="50px" theme="secondary">{Check}</Styled.ThemedButton>
         </Styled.MainBodyFrame>
     </>);
 }

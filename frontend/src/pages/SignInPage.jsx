@@ -55,11 +55,12 @@ function SignInPage() {
         ID="ID";
         Password="Password";
        }
+       /*
        else if(LanguageChange==1){
         signin="로그인";
         ID="   아이디";
         Password="비밀번호";
-       };
+       };*/
     return (  
         <div className="SignIn"
         style={{
