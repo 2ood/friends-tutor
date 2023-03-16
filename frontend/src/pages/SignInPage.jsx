@@ -17,7 +17,7 @@ function SignInPage() {
           headers:{
             "Content-Type": 'application/json;charset=UTF-8',
           },
-          body: JSON.stringify({
+          body: yJSON.stringify({
             username: username,
             password: password,
           }),
