@@ -96,15 +96,15 @@ function LectureRoomPage(props){
     }
     var BestLecture="Best Lecture";
     var RecentVideos="Recent Videos";
-    var UploadLecture="UploadLecture";
+    var UploadLecture="Upload Lecture";
 
-    if (LanguageChange==0){
+    if (LanguageChange===0){
         BestLecture="Best Lecture";
         RecentVideos="Recent Videos";
-        UploadLecture="UploadLecture";
+        UploadLecture="Upload Lecture";
 
     }
-    else if(LanguageChange==1){
+    else if(LanguageChange===1){
         BestLecture="추천수 높은 강의";
         RecentVideos="최근 올라온 강의";
         UploadLecture="강의 게시하기";

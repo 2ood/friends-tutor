@@ -12,15 +12,15 @@ function Topbar(){
     const navigate = useNavigate();
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
     var FriendsMentor="FriendsMentor";
-    if (LanguageChange==0){
+    if (LanguageChange===0){
         FriendsMentor="FriendsMentor";
     }
-    else if(LanguageChange==1){
+    else if(LanguageChange===1){
         FriendsMentor="또래멘토";
     }
     return (
         <Styled.Topbar>
-            <div id="logo" onClick={()=>{navigate(FE_PATH.course.list)}}>FriendsMentor</div>
+            <div id="logo" onClick={()=>{navigate(FE_PATH.course.list)}}>{FriendsMentor}</div>
             <div id="navgroup">
                 <Styled.NavButton id="nav-home" onClick={()=>{navigate(FE_PATH.course.list)}}>
                     <img src={home} alt="home"></img>

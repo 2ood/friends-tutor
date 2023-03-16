@@ -98,8 +98,8 @@ function LectureUploadPage(){
             <Component.HorizontalInput type="url" placeholder="Enter a youtube link" label="Video" contents={videoState}></Component.HorizontalInput>
             <Styled.ThemedTextarea size="100%" placeholder="Enter an explanation" defaultvalue="" value={desc} onChange={e=>{setDesc(e.target.value)}}></Styled.ThemedTextarea>
             <Styled.Buttongroup>
-                <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>submit</Styled.ThemedButton>
-                <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>cancel</Styled.ThemedButton>
+                <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>{submit}</Styled.ThemedButton>
+                <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>{cancel}</Styled.ThemedButton>
                 
             </Styled.Buttongroup>
             <Styled.ThemedButton size="50px" theme="secondary">{Check}</Styled.ThemedButton>

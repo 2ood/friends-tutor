@@ -24,7 +24,7 @@ function MainPage() {
     var Meet="Meet my friends tutors!";
     var Signin="Sign in";
     var Signup="Sign up";
-    if (LanguageChange==0){
+    if (LanguageChange===0){
 
      Friends="Friends";
      Tutor="Tutor";
@@ -32,7 +32,7 @@ function MainPage() {
      Signin="Sign in";
      Signup="Sign up";
     }
-    else if(LanguageChange==1){
+    else if(LanguageChange===1){
         Friends="또래";
         Tutor="멘토";
         Meet="나의 또래 멘토를 만나보세요";
