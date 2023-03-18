@@ -1,136 +1,86 @@
 import React , {useEffect, useState} from "react";
 import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
-import right from "img/right.png";
-import left from "img/left.png";
 import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { FE_PATH } from "util/Enums";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import PullToRefresh from 'react-simple-pull-to-refresh';
 
 
-function LectureRoomPage(props){
-    let [page, setPage] = useState(1);
+
+function LectureRoomPage(){
     const navigate = useNavigate();
-    
-    //const recentLectureData = props.data;
-    
-    const [trending, setTrending] = useState({}); 
-    const [recentLectures, setRecentLectures] = useState([]);
-    const total = (Math.floor((recentLectures.length-1)/4)+1);
-    const [grade, setGrade] = useState(6);
     const notify = (content)=> toast(content);
+    
+    const [grade, setGrade] = useState(6);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const gradeState = {
         target : grade,
         set : (newInput)=>{
-            setPage(1);
             setGrade(newInput);
         }
     };
-
-    useEffect(()=>{
-        function readContents(){
-            try {
-                let m1 = new ModularRequest({
-                    "path" : `course/trending?grade=${grade}`,
-                    "method" : "get",
-                    "headers" : {
-                        "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                        "Content-Type": 'application/json',
-                    }
-                });
-                  
-                m1.send().then((res)=>{
-                    if(res.status=== 200) {
-                       setTrending(res.data.details);
-                    } else {
-                        notify("there was an error in reading trendings!");
-                    }
-                  }
-                );
-            
-                let m2 = new ModularRequest({
-                    "path" : `course/recent?grade=${grade}&number=16`,
-                    "method" : "get",
-                    "headers" : {
-                        "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                        "Content-Type": 'application/json',
-                    }
-                });
-                  
-                m2.send().then((res)=>{
-                    if(res.status=== 200) {
-                       setRecentLectures(res.data.details)
-                       //console.log(recentLectures);
-                    } else {
-                        notify("there was an error in adding lecture!");
-                    }
-                  }
-                );
-            } catch (e) {
-                console.log("error in reading trendings");
-                console.error(e.message);
-            }
-        }
-        readContents();
-    },[grade])
-    
-        
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
-   
-    function handlePageShiftClick(toLeft){
-        //offset is the number of offset that is needed to move to page {offset}.
-        //there are 4 lectures each in a page, 
-        //so there are ({length}/4 + 1) when length%4!=0, or ({length}/4) pages in total.
-        //in page 1, offset is 0
-        //in page 2, offset is -1 = -{page}+1 
-        if(toLeft){
-            if(page>1) setPage(--page);
-        }
-        else {
-            if(page<total) setPage(++page);
-        }
-    }
-    var BestLecture="Best Lecture";
-    var RecentVideos="Recent Videos";
     var UploadLecture="Upload Lecture";
 
-    if (LanguageChange===0){
-        BestLecture="Best Lecture";
-        RecentVideos="Recent Videos";
-        UploadLecture="Upload Lecture";
+    if (LanguageChange===0){ UploadLecture="Upload Lecture";}
+    else if(LanguageChange===1){UploadLecture="강의 게시하기";};
 
+    function loadUserInfo(){
+        try{
+            let m2 = new ModularRequest({
+                "path" : `user/info`,
+                "method" : "get",
+                "headers" : {
+                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                    "Content-Type": 'application/json',
+                }
+            });
+            
+            m2.send().then((res)=>{
+                if(res.status=== 200) {
+                    setGrade(res.data.details.grade);
+                    setIsLoaded(true);
+                } else {
+                    notify("there was an error in reading user info!");
+                }
+            }
+            );
+        } catch (e) {
+            console.log("there was an error in reading user info");
+            console.error(e.message);
+        }
     }
-    else if(LanguageChange===1){
-        BestLecture="추천수 높은 강의";
-        RecentVideos="최근 올라온 강의";
-        UploadLecture="강의 게시하기";
-    };
+
+    useEffect(()=>{
+        loadUserInfo();
+    },[]);
+
+    function handleRefresh() {
+        
+        return new Promise(res => {
+            loadUserInfo();
+            res();
+          });
+    }
 
     return (<>
         <Component.ThemedToast/>   
         <Component.Topbar />
-        <Styled.MainBodyFrame gap="10px">
-            <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
-            <Styled.UnderlinedTitle align="center">{BestLecture}</Styled.UnderlinedTitle>
-            <Component.LectureBox src={trending}></Component.LectureBox>
-            <Styled.UnderlinedTitle>{RecentVideos}</Styled.UnderlinedTitle>
-            <Styled.LectureGroupScrollWrapper>
-                <Styled.LectureGroup offset={-page+1}>
-                    {recentLectures.map((dat)=><Component.LectureBox src={dat} width="calc(40vw - 5px)"></Component.LectureBox>)}
-                </Styled.LectureGroup>
-            </Styled.LectureGroupScrollWrapper>
-            <Styled.Buttongroup>
-                <img alt="left" src={left} onClick={()=>{handlePageShiftClick(true);}}/>
-                <span>{page}/{total}</span>
-                <img alt="right" src={right} onClick={()=>{handlePageShiftClick(false);}}/>
-            </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>{UploadLecture}</Styled.ThemedButton>
-        </Styled.MainBodyFrame>
-        
+        <PullToRefresh onRefresh={handleRefresh}>
+            <Styled.MainBodyFrame gap="10px" key={grade}>
+                {isLoaded && <>
+                    <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
+                    <Component.TrendingLecture  grade={grade}></Component.TrendingLecture>
+                    <Component.RecentLectures grade={grade}></Component.RecentLectures>
+                    <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>{UploadLecture}</Styled.ThemedButton>
+                </>}
+            </Styled.MainBodyFrame>
+        </PullToRefresh>
     </>);
 }
 

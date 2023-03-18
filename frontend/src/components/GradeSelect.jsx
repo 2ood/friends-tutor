@@ -4,7 +4,7 @@ import * as Styled from "styles/ComponentStyles";
 function GradeSelect(props){
     return (<>
     <Styled.GradeSelect name="choice" value={props.contents.target} onChange={(e)=>{props.contents.set(e.target.value);}}>
-            <option selected default value="" disabled > Enter your grade </option>
+            <option default value="" disabled > Enter your grade </option>
             <option value="4">🖼️초등학교 4학년</option>
             <option value="5">🖼️초등학교 5학년</option>
             <option value="6">🖼️초등학교 6학년</option>

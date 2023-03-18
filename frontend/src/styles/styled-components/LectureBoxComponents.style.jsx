@@ -18,6 +18,9 @@ const LectureBoxFrame = styled.div`
 
 const LectureTitle = styled.div`
     font-size : var(--font-size-h3);
+    overflow : hidden;
+    white-space :  nowrap;
+    text-overflow: ellipsis;
 `;
 const LectureDescBox = styled.div`
     display : flex;
