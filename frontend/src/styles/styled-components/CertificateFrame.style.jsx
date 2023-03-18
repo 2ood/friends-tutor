@@ -8,10 +8,10 @@ const CertificateFrame = styled.div`
     justify-content : center;
     gap : 25px;
     padding : 10px;
-    width : 100%;
+    width : calc(100% - 20px);
     aspect-ratio : 3 / 4;
     border : 2px var(--certificate-${(props)=>{return props.rank??"Black"}}) solid;
-    margin-bottom : 30px;
+    margin : 10px;
 
     .center {
         text-align : center;
