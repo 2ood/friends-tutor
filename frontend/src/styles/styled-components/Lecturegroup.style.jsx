@@ -14,6 +14,7 @@ const LectureGroup = styled.div`
 
 const LectureGroupScrollWrapper = styled.div`
     overflow-x : hidden;
+    overflow-y : hidden;
 `;
 
 export {LectureGroupScrollWrapper, LectureGroup};

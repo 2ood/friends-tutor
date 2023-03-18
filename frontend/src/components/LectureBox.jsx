@@ -1,4 +1,5 @@
 import * as Styled from "styles/ComponentStyles";
+import * as Component from "components/Components";
 import { useNavigate } from "react-router-dom";
 import blackboard from "img/blackboard-compressed.jpg";
 import { useAtom } from "jotai";
@@ -19,12 +20,11 @@ function LectureBox(props){
     var Likes="Likes";
     if (LanguageChange===0){
         Likes="Likes";
-     
     }
     else if(LanguageChange===1){
         Likes="추천";
-        
     };
+
     return (
         <Styled.LectureBoxFrame width={props.width} onClick={handleLectureClick}>
             <img alt="lecture-thumb" src={imgUrl}/>
