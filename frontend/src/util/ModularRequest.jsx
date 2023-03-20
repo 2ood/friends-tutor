@@ -28,11 +28,7 @@ class ModularRequest extends React.Component{
                 headers : this.state.headers,
                 data : JSON.stringify(this.state.body)
             }).catch(function (error) {
-                if(error.response) {
-                    if(error.response.status=="406") {
-                        return error.response;
-                    }
-                }
+                return error.response;
             });
             return response;
 
