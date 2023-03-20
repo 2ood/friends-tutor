@@ -8,7 +8,6 @@ import { FE_PATH } from "util/Enums";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
 import PullToRefresh from 'react-simple-pull-to-refresh';
-import { auth_headers } from "util/Enums";
 
 
 
@@ -36,7 +35,10 @@ function LectureRoomPage(){
             let m2 = new ModularRequest({
                 "path" : `user/info`,
                 "method" : "get",
-                "headers" : auth_headers
+                "headers" : {
+                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                    "Content-Type": 'application/json;charset=UTF-8;',
+                }
             });
             
             m2.send().then((res)=>{
