@@ -19,7 +19,7 @@ function LectureViewPage(props){
     const [isLoaded, setIsLoaded] = useState(false);
     const navigate = useNavigate();
 
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     var checknotes="🔗check notes!";
     var like="like ";
     var close="close";
@@ -53,8 +53,7 @@ function LectureViewPage(props){
                     } else {notify("there was an error in reading lecture data!");}
                   });
             } catch (e) {
-                console.log("error in reading lecture data");
-                console.error(e.message);
+                notify("error in reading lecture data");
             }
         }
         readContents();
@@ -79,10 +78,7 @@ function LectureViewPage(props){
                 } else { notify("there was an error in posting a like!");}
               });
         
-        } catch (e) {
-            console.log("error in posting a like");
-            console.error(e.message);
-        }
+        } catch (e) {notify("error in posting a like");}
     }
 
     function handleUrlButton(evt) {

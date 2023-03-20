@@ -124,7 +124,7 @@ function Mypage(props){
                     {MypageUserName}
                 </Styled.MypageName>
                 <Styled.MypageGrade>
-                    {MypageUserGrade}th grade
+                    {Grade}
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>

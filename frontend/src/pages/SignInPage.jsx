@@ -18,7 +18,7 @@ function SignInPage() {
     const navigate = useNavigate();
     const notify = (content)=> toast(content);
     
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
  
     const onSignIn = () => {
@@ -53,7 +53,7 @@ function SignInPage() {
     var signin="Sign in";
     var ID="ID";
     var Password="Password";
-    if (LanguageChange==0){
+    if (LanguageChange===0){
 
         signin="Sign in";
         ID="ID";

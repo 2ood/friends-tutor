@@ -7,7 +7,7 @@ import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
 
 function MainPage() {
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     //console.log(LanguageChange);
     const navigate = useNavigate();
  

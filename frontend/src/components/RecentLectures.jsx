@@ -13,7 +13,7 @@ import left from "img/left.png";
 
 
 function RecentLectures(props){
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     const notify = (content)=> toast(content);
 
     const grade = props.grade;
@@ -56,7 +56,7 @@ function RecentLectures(props){
             });
         } catch (e) {
             setRecentLectures([]);
-            console.log("error in reading trendings");
+            notify("error in reading trendings");
         }
     },[grade]);
 
