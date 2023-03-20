@@ -10,7 +10,7 @@ import { LanguageChangeAtom } from "util/atom";
 
 function Topbar(){
     const navigate = useNavigate();
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
     var FriendsMentor="FriendsMentor";
     if (LanguageChange===0){
         FriendsMentor="FriendsMentor";
