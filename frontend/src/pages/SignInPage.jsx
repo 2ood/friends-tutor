@@ -5,7 +5,7 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
 import HorizonLine from "styles/styled-components/HorizontalLine";
-import {FE_PATH} from "util/Enums";
+import {FE_PATH, HOST} from "util/Enums";
 import { toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
@@ -22,7 +22,7 @@ function SignInPage() {
 
  
     const onSignIn = () => {
-        fetch('http://34.29.162.137:8080/user/login', {
+        fetch(`${HOST.address}:${HOST.port}/user/login`, {
           method: 'POST',
           headers:{
             "Content-Type": 'application/json;charset=UTF-8',

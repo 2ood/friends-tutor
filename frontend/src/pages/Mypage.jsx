@@ -10,9 +10,8 @@ import Modal2 from "styles/styled-components/Modal2";
 import { useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
-import {FE_PATH} from "util/Enums";
-import { LanguageChangeAtom } from "util/atom";
-import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
+import {FE_PATH, HOST} from "util/Enums";
+import { LanguageChangeAtom, ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -31,7 +30,7 @@ function Mypage(props){
   const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
 
   const getCheckCertificate = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{ //eslint-disable-line no-unused-vars
+    const response = await axios.get(`${HOST.address}:${HOST.port}/certificate/check`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
@@ -48,14 +47,13 @@ function Mypage(props){
   }; 
 
   const userinfo = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{ //eslint-disable-line no-unused-vars
+    const response = await axios.get(`${HOST.address}:${HOST.port}/user/info`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
       .then(response => {
         setMypageUserName(response.data.details.name);
         setMypageUserGrade(response.data.details.grade);
-
       });
   };
   userinfo();
@@ -65,7 +63,6 @@ function Mypage(props){
     
 
     getCheckCertificate().then((result)=>{
-      console.log(result);
       if (Message===0 && Details === 0){
         setIsOpen(true);
       }
@@ -145,8 +142,6 @@ function Mypage(props){
               open={isOpen}
               onClose={() => {
                 setIsOpen(false);
-                console.log(Message);
-                console.log(Details);
                 if (Message===0 && Details===0) {
                 navigate(FE_PATH.mypage.certificate);
               }

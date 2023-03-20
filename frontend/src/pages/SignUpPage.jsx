@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import HorizonLine from "styles/styled-components/HorizontalLine";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import {HOST} from "util/Enums";
 
 function SignUpPage() {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ function SignUpPage() {
         navigate("/");
     };
     const onSignUp = () => {
-        fetch('http://34.29.162.137:8080/user/signup', {
+        fetch(`${HOST.address}:${HOST.port}/user/signup`, {
           method: 'POST',
           headers:{
             "Content-Type": 'application/json;charset=UTF-8',
