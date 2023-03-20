@@ -1,27 +1,72 @@
-import React from "react";
+import React , {useState,useEffect, useRef} from "react";
 import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
-
+import { useNavigate } from "react-router-dom";
+import ModularRequest from "util/ModularRequest";
+import { toast } from 'react-toastify';
+import html2canvas from 'html2canvas';
+import { jsPDF } from "jspdf";
+import { auth_headers } from "util/Enums";
 
 
 function CertificatePage(){
-    const content ={
-        "name" : "James",
-        "title" : "Peer Mentoring",
-        "from" : "2023.02.18",
-        "until" :"2024.01.01",
-        "number_of_lectures" : 10,
-        "number_of_referrals" : 30,
-        "issued_on" : "2024.01.01"
-    };
+    const navigate = useNavigate();
+    
+    const notify = (content)=> toast(content);
+    const [certificateData, setCertificateData] = useState({});
+    const certificateRef = useRef();
+
+    const handleDownloadImage = async () => {
+        const element = certificateRef.current;
+        const canvas = await html2canvas(element);
+        
+        const data = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+    
+        if (typeof link.download === 'string') {
+            const pdf = new jsPDF();
+            const imgProperties = pdf.getImageProperties(data);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight =
+              (imgProperties.height * pdfWidth) / imgProperties.width;
+        
+            pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save(`certificate_${certificateData.title}_${certificateData.name}_${certificateData.issue_date}.pdf`);
+        } else {
+          window.open(data);
+        }
+      };
+
+    useEffect(()=>{
+        function readContents(){
+            try {
+                let m1 = new ModularRequest({
+                    "path" : `certificate/issue`,
+                    "method" : "get",
+                    "headers" : auth_headers
+                });
+                  
+                m1.send().then((res)=>{
+                    if(res.status=== 200) {
+                        setCertificateData(res.data.details);
+                    } else {notify("there was an error in reading certificate data!");}
+                });
+            } catch (e) {notify("error in reading certificate data");}
+        }
+        readContents();
+    },[])
+
     return (<>
+        <Component.ThemedToast/>
         <Component.Topbar />
         <Styled.MainBodyFrame>
             <Styled.ThemedTitle>Certificate Issuance</Styled.ThemedTitle>
-            <Component.CertificateFrame dat={content}></Component.CertificateFrame>
+            <div ref={certificateRef}>
+                <Component.CertificateFrame dat={certificateData} ></Component.CertificateFrame>
+            </div>
             <Styled.Buttongroup>
-                    <Styled.ThemedButton theme="primary">save</Styled.ThemedButton>
-                    <Styled.ThemedButton theme="accent">close</Styled.ThemedButton>
+                    <Styled.ThemedButton theme="primary" onClick={handleDownloadImage}>save</Styled.ThemedButton>
+                    <Styled.ThemedButton onClick={()=>{navigate(-1)}} theme="accent">close</Styled.ThemedButton>
             </Styled.Buttongroup>
         </Styled.MainBodyFrame>
         

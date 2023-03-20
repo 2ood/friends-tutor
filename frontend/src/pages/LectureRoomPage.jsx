@@ -1,54 +1,79 @@
-import React , {useState} from "react";
+import React , {useEffect, useState} from "react";
 import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
-import right from "img/right.png";
-import left from "img/left.png";
+import ModularRequest from "util/ModularRequest";
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import { FE_PATH } from "util/Enums";
+import { useAtom } from "jotai";
+import { LanguageChangeAtom } from "util/atom";
+import PullToRefresh from 'react-simple-pull-to-refresh';
+import { auth_headers } from "util/Enums";
 
 
 
-function LectureRoomPage(props){
-    let [page, setPage] = useState(1);
+function LectureRoomPage(){
+    const navigate = useNavigate();
+    const notify = (content)=> toast(content);
     
-    //const recentLectureData = props.data;
-    const recentLectureData = Array(17).fill("");
-    const length = recentLectureData.length;
-    const total = (Math.floor((length-1)/4)+1);
+    const [grade, setGrade] = useState(6);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
+    const [isLoaded, setIsLoaded] = useState(false);
 
-        
-    function handlePageShiftClick(toLeft){
-        //offset is the number of offset that is needed to move to page {offset}.
-        //there are 4 lectures each in a page, 
-        //so there are ({length}/4 + 1) when length%4!=0, or ({length}/4) pages in total.
-        //in page 1, offset is 0
-        //in page 2, offset is -1 = -{page}+1 
-        if(toLeft){
-            if(page>1) setPage(--page);
+    const gradeState = {
+        target : grade,
+        set : (newInput)=>{
+            setGrade(newInput);
         }
-        else {
-            if(page<total) setPage(++page);
-        }
+    };
+    var UploadLecture="Upload Lecture";
+
+    if (LanguageChange===0){ UploadLecture="Upload Lecture";}
+    else if(LanguageChange===1){UploadLecture="강의 게시하기";};
+
+    function loadUserInfo(){
+        try{
+            let m2 = new ModularRequest({
+                "path" : `user/info`,
+                "method" : "get",
+                "headers" : auth_headers
+            });
+            
+            m2.send().then((res)=>{
+                if(res.status=== 200) {
+                    setGrade(res.data.details.grade);
+                    setIsLoaded(true);
+                } else { notify("there was an error in reading user info!");}
+            });
+        } catch (e) {notify("there was an error in reading user info");}
     }
 
+    
+    useEffect(()=>{
+        loadUserInfo(); // eslint-disable-next-line
+    },[]); 
+
+    function handleRefresh() {
+        
+        return new Promise(res => {
+            loadUserInfo();
+            res();
+          });
+    }
 
     return (<>
+        <Component.ThemedToast/>   
         <Component.Topbar />
-        <Styled.MainBodyFrame gap="10px">
-            <Styled.UnderlinedTitle align="center">Best Lecture</Styled.UnderlinedTitle>
-            <Component.LectureBox src={props.src??"https://www.youtube.com/embed/P1ww1IXRfTA"}></Component.LectureBox>
-            <Styled.UnderlinedTitle>Recent Videos</Styled.UnderlinedTitle>
-            <Styled.LectureGroupScrollWrapper>
-                <Styled.LectureGroup offset={-page+1}>
-                    {recentLectureData.map((dat)=><Component.LectureBox data={dat} width="calc(40vw - 5px)"></Component.LectureBox>)}
-                </Styled.LectureGroup>
-            </Styled.LectureGroupScrollWrapper>
-            <Styled.Buttongroup>
-                <img alt="left" src={left} onClick={()=>{handlePageShiftClick(true);}}/>
-                <span>{page}/{total}</span>
-                <img alt="right" src={right} onClick={()=>{handlePageShiftClick(false);}}/>
-            </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px">Upload Lecture</Styled.ThemedButton>
-        </Styled.MainBodyFrame>
-        
+        <PullToRefresh onRefresh={handleRefresh}>
+            <Styled.MainBodyFrame gap="10px" key={grade}>
+                {isLoaded && <>
+                    <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
+                    <Component.TrendingLecture  grade={grade}></Component.TrendingLecture>
+                    <Component.RecentLectures grade={grade}></Component.RecentLectures>
+                    <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>{UploadLecture}</Styled.ThemedButton>
+                </>}
+            </Styled.MainBodyFrame>
+        </PullToRefresh>
     </>);
 }
 

@@ -17,9 +17,8 @@ function AxiosTest(){
       m1.send().then((dat)=>{
       setLoaded(true);
       setData(dat);
-    }
-      );},[]
-  );
+    });
+  },[]);
   
   if(!isLoaded) return <h1>Loading..</h1>;
   return (
