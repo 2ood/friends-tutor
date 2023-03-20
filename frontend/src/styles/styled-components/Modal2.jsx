@@ -3,16 +3,12 @@
 import React from "react";
 import styled from "styled-components";
 import { ModalTitle } from "./ModalTitle";
-import { ThemedTitle } from "./ThemedTitle.style";
-import { ThemedButton } from "./ThemedButton.style";
-import { ModalText } from "./Modaltext";
-import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import * as Styled from "styles/ComponentStyles";
 import { LanguageChangeAtom } from "util/atom";
 
 const Modal2 = ({ onClose}) => {
-  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
   const handleClose2 = () => {
     onClose?.();
     //console.log("close");

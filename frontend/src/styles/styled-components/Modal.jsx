@@ -3,11 +3,8 @@
 import React from "react";
 import styled from "styled-components";
 import { ModalTitle } from "./ModalTitle";
-import { ThemedTitle } from "./ThemedTitle.style";
 import { ThemedButton } from "./ThemedButton.style";
 import { ModalText } from "./Modaltext";
-import ModalPortal from "util/modalPortal";
-import { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import {ModalMessageAtom,ModalDetailsAtom} from "util/atom";
 
@@ -24,7 +21,6 @@ const Modal = ({ onClose}) => {
   const handleClose = () => {
     onClose?.();
   };
-  var MessageText=0;
   
   
   if (Details===0 && Message===0){
