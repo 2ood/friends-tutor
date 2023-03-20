@@ -8,7 +8,7 @@ import { FE_PATH } from "util/Enums";
 function LectureBox(props){
     const navigate = useNavigate();
     const videoId = props.src.video_id;
-    const imgUrl = props.src.video_id?`http://img.youtube.com/vi/${videoId}/0.jpg`:blackboard;
+    const imgUrl = props.src.video_id?`https://img.youtube.com/vi/${videoId}/0.jpg`:blackboard;
 
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
