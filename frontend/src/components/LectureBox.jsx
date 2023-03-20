@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import blackboard from "img/blackboard-compressed.jpg";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import { FE_PATH } from "util/Enums";
 
 function LectureBox(props){
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ function LectureBox(props){
 
 
     function handleLectureClick(){
-        navigate(`/course/view/${props.src.course_id}`);
+        navigate(`${FE_PATH.course.view}/${props.src.course_id}`);
     };
 
     var Likes="Likes";

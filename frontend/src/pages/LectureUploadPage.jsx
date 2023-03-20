@@ -6,6 +6,7 @@ import ModularRequest from "util/ModularRequest";
 import {toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import { auth_headers } from "util/Enums";
 
 
 function LectureUploadPage(){
@@ -48,10 +49,7 @@ function LectureUploadPage(){
             let m1 = new ModularRequest({
                 "path" : "course",
                 "method" : "post",
-                "headers" : {
-                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                    "Content-Type": 'application/json',
-                },
+                "headers" : auth_headers,
                 "body" : json
             });
               
@@ -73,18 +71,15 @@ function LectureUploadPage(){
     var UploadLecture = "UploadLecture";
     var submit = "submit";
     var cancel = "cancel";
-    var Check = "Check the video subtitles here! 🔽";
     if (LanguageChange===0){
         UploadLecture = "Upload Lecture";
         submit = "submit";
         cancel = "cancel";
-        Check = "Check the video subtitles here! 🔽";
     }
     else if (LanguageChange===1){
         UploadLecture = "강의글 작성";
         submit = "등록";
         cancel="취소";
-        Check = "영상 자막 확인하기 🔽";
     }
     return (<>
         <Component.ThemedToast/>  
@@ -100,9 +95,7 @@ function LectureUploadPage(){
             <Styled.Buttongroup>
                 <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>{submit}</Styled.ThemedButton>
                 <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>{cancel}</Styled.ThemedButton>
-                
             </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px" theme="secondary">{Check}</Styled.ThemedButton>
         </Styled.MainBodyFrame>
     </>);
 }

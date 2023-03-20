@@ -6,9 +6,11 @@ import { toast } from 'react-toastify';
 import * as Styled from "styles/ComponentStyles";
 import * as Component from "components/Components";
 import ModularRequest from "util/ModularRequest";
+import { auth_headers } from "util/Enums";
 
 import right from "img/right.png";
 import left from "img/left.png";
+
 
 function RecentLectures(props){
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
@@ -23,10 +25,10 @@ function RecentLectures(props){
 
     const total = (Math.floor((recentLectures.length-1)/4)+1);
 
-    var RecentVideos="Recent Videos";
+    var RecentVideos="Recent Uploaded";
     var emptyRecent = "there is no empty lecture to show.";
     if (LanguageChange===0){
-        RecentVideos="Recent Videos";
+        RecentVideos="Recently Uploaded";
         emptyRecent = "there is no empty lecture to show.";
     } 
     else if(LanguageChange===1){
@@ -39,23 +41,19 @@ function RecentLectures(props){
             let m2 = new ModularRequest({
                 "path" : `course/recent?grade=${grade}&number=16`,
                 "method" : "get",
-                "headers" : {
-                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                    "Content-Type": 'application/json',
-                }
+                "headers" : auth_headers
             });
             
             m2.send().then((res)=>{
-                    if(res.status=== 200) {
-                        setRecentLectures(res.data.details);
-                        setIsLoaded(true);
-                        setIsEmpty(false);
-                    } else {
-                        setIsEmpty(true);
-                        setIsLoaded(true);
-                    }
+                if(res.status=== 200) {
+                    setRecentLectures(res.data.details);
+                    setIsLoaded(true);
+                    setIsEmpty(false);
+                } else {
+                    setIsEmpty(true);
+                    setIsLoaded(true);
                 }
-            );
+            });
         } catch (e) {
             setRecentLectures([]);
             console.log("error in reading trendings");
@@ -67,7 +65,6 @@ function RecentLectures(props){
         else { if(page<total) setPage(++page);}
     }
 
-    
 
     return (
         <>

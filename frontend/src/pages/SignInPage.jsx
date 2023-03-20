@@ -34,7 +34,6 @@ function SignInPage() {
         })
           .then(response => response.json())
           .then(res => {
-            console.log(res);
             if (res.accessToken && res.refreshToken) {
                 localStorage.setItem('login-token', res.accessToken);
                 localStorage.setItem('refresh-token', res.refreshToken);
