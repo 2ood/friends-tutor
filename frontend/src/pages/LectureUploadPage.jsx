@@ -25,7 +25,7 @@ function LectureUploadPage(){
     let driveState = _state(drive,setDrive);
     let videoState = _state(video,setVideo);
     let subjectState = _state(subject,setSubject);
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
 
     function _state(target,set){
@@ -44,7 +44,6 @@ function LectureUploadPage(){
             "drive_link" : drive,
             "video_link" : video
         };
-        console.log(json);
         try {
             let m1 = new ModularRequest({
                 "path" : "course",
@@ -62,7 +61,7 @@ function LectureUploadPage(){
               }
             );
         } catch(e) {
-            console.log(e.message);
+            notify("unknown error occured in uploading lecture");
         }
         
     }

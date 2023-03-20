@@ -8,6 +8,7 @@ import { FE_PATH } from "util/Enums";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
 import PullToRefresh from 'react-simple-pull-to-refresh';
+import { auth_headers } from "util/Enums";
 
 
 
@@ -16,7 +17,7 @@ function LectureRoomPage(){
     const notify = (content)=> toast(content);
     
     const [grade, setGrade] = useState(6);
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     const [isLoaded, setIsLoaded] = useState(false);
 
     const gradeState = {
@@ -35,30 +36,22 @@ function LectureRoomPage(){
             let m2 = new ModularRequest({
                 "path" : `user/info`,
                 "method" : "get",
-                "headers" : {
-                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                    "Content-Type": 'application/json',
-                }
+                "headers" : auth_headers
             });
             
             m2.send().then((res)=>{
                 if(res.status=== 200) {
                     setGrade(res.data.details.grade);
                     setIsLoaded(true);
-                } else {
-                    notify("there was an error in reading user info!");
-                }
-            }
-            );
-        } catch (e) {
-            console.log("there was an error in reading user info");
-            console.error(e.message);
-        }
+                } else { notify("there was an error in reading user info!");}
+            });
+        } catch (e) {notify("there was an error in reading user info");}
     }
 
+    
     useEffect(()=>{
-        loadUserInfo();
-    },[]);
+        loadUserInfo(); // eslint-disable-next-line
+    },[]); 
 
     function handleRefresh() {
         

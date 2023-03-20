@@ -6,6 +6,7 @@ import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
+import { auth_headers } from "util/Enums";
 
 
 function CertificatePage(){
@@ -42,25 +43,15 @@ function CertificatePage(){
                 let m1 = new ModularRequest({
                     "path" : `certificate/issue`,
                     "method" : "get",
-                    "headers" : {
-                        "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                        "Content-Type": 'application/json;charset=UTF-8;',
-                    }
+                    "headers" : auth_headers
                 });
                   
                 m1.send().then((res)=>{
                     if(res.status=== 200) {
                         setCertificateData(res.data.details);
-                    } else {
-                        notify("there was an error in reading certificate data!");
-                    }
-                  }
-                );
-            
-            } catch (e) {
-                console.log("error in reading certificate data");
-                console.error(e.message);
-            }
+                    } else {notify("there was an error in reading certificate data!");}
+                });
+            } catch (e) {notify("error in reading certificate data");}
         }
         readContents();
     },[])

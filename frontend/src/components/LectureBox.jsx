@@ -1,5 +1,4 @@
 import * as Styled from "styles/ComponentStyles";
-import * as Component from "components/Components";
 import { useNavigate } from "react-router-dom";
 import blackboard from "img/blackboard-compressed.jpg";
 import { useAtom } from "jotai";
@@ -11,7 +10,7 @@ function LectureBox(props){
     const videoId = props.src.video_id;
     const imgUrl = props.src.video_id?`http://img.youtube.com/vi/${videoId}/0.jpg`:blackboard;
 
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
 
     function handleLectureClick(){

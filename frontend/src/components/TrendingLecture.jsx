@@ -9,7 +9,7 @@ import ModularRequest from "util/ModularRequest";
 import { auth_headers } from "util/Enums";
 
 function TrendingLecture(props){
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     const [trending, setTrending] = useState({}); 
     const [isEmpty, setIsEmpty] = useState(true);
     const notify = (content)=> toast(content);
@@ -48,10 +48,9 @@ function TrendingLecture(props){
             
             } catch (e) {
                 setTrending({});
-                console.log("error in reading trendings");
-                console.error(e.message);
+                notify("error in reading trendings");
             }
-    },[]);
+    },[grade]);
 
 
 
