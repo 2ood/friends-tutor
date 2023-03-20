@@ -8,12 +8,6 @@
   justify-content: center;
   align-items: center;
 }
-
-.App {
-  display : inline-flex;
-  flex-direction: column;
-}
-
 /*
 
 #top_notch, #bottom_notch {

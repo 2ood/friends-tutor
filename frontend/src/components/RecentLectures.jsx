@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import * as Styled from "styles/ComponentStyles";
 import * as Component from "components/Components";
 import ModularRequest from "util/ModularRequest";
-import { auth_headers } from "util/Enums";
 
 import right from "img/right.png";
 import left from "img/left.png";
@@ -41,7 +40,10 @@ function RecentLectures(props){
             let m2 = new ModularRequest({
                 "path" : `course/recent?grade=${grade}&number=16`,
                 "method" : "get",
-                "headers" : auth_headers
+                "headers" : {
+                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                    "Content-Type": 'application/json;charset=UTF-8;',
+                }
             });
             
             m2.send().then((res)=>{

@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import * as Styled from "styles/ComponentStyles";
 import * as Component from "components/Components";
 import ModularRequest from "util/ModularRequest";
-import { auth_headers } from "util/Enums";
 
 function TrendingLecture(props){
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
@@ -35,7 +34,10 @@ function TrendingLecture(props){
                 let m1 = new ModularRequest({
                     "path" : `course/trending?grade=${grade}`,
                     "method" : "get",
-                    "headers" : auth_headers
+                    "headers" : {
+                        "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                        "Content-Type": 'application/json;charset=UTF-8;',
+                    }
                 });
                   
                 m1.send().then((res)=>{

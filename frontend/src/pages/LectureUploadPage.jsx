@@ -6,7 +6,6 @@ import ModularRequest from "util/ModularRequest";
 import {toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
-import { auth_headers } from "util/Enums";
 
 
 function LectureUploadPage(){
@@ -48,7 +47,10 @@ function LectureUploadPage(){
             let m1 = new ModularRequest({
                 "path" : "course",
                 "method" : "post",
-                "headers" : auth_headers,
+                "headers" : {
+                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                    "Content-Type": 'application/json;charset=UTF-8;',
+                },
                 "body" : json
             });
               

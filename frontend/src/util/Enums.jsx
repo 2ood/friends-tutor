@@ -10,11 +10,6 @@ const HOST = {
     "port" : 443
 }
 
-const auth_headers = {
-    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-    "Content-Type": 'application/json;charset=UTF-8;',
-}
-
 const FE_PATH = {
     main : "/",
     auth : {
@@ -38,4 +33,4 @@ const BE_PATH = {
 };
 
 
-export {METHOD, HOST, FE_PATH, BE_PATH, auth_headers};
+export {METHOD, HOST, FE_PATH, BE_PATH};

@@ -6,8 +6,6 @@ import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
-import { auth_headers } from "util/Enums";
-
 
 function CertificatePage(){
     const navigate = useNavigate();
@@ -43,7 +41,10 @@ function CertificatePage(){
                 let m1 = new ModularRequest({
                     "path" : `certificate/issue`,
                     "method" : "get",
-                    "headers" : auth_headers
+                    "headers" : {
+                        "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                        "Content-Type": 'application/json;charset=UTF-8;',
+                    }
                 });
                   
                 m1.send().then((res)=>{
