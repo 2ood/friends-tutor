@@ -27,13 +27,11 @@ const Modal = ({ onClose}) => {
     TitleText="🎉Succesfull🎉";
     ModalText1="Check your";
     ModalText2="Certificate!";
-    console.log(TitleText);
   }
   else if (Details!==0 && Message===1){
     TitleText="⚠Failed⚠"
     ModalText1=`You need ${Details}pts more!`;
     ModalText2="Give it a try!";
-    console.log(TitleText);
   }
   return (
 <Background>

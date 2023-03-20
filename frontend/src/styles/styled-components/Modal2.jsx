@@ -8,7 +8,7 @@ import * as Styled from "styles/ComponentStyles";
 import { LanguageChangeAtom } from "util/atom";
 
 const Modal2 = ({ onClose}) => {
-  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
+  const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars 
   const handleClose2 = () => {
     onClose?.();
     //console.log("close");
