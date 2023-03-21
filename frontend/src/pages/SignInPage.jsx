@@ -72,6 +72,8 @@ function SignInPage() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            minHeight:"100vh",
+            minWidth: "100vw"
           }}>
             <Component.ThemedToast/>
             <Styled.SignInUpBar>
