@@ -23,6 +23,7 @@ import { LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer }
 import { LectureGroupScrollWrapper, LectureGroup } from "styles/styled-components/Lecturegroup.style";
 import {GradeSelect} from "styles/styled-components/GradeSelect.style";
 import { ThemedTextBlock } from "styles/styled-components/ThemedTextBlock.style";
+import { EmptyBox } from "styles/styled-components/EmptyBox.style";
 
 export {MainBodyFrame};
 export {HorizontalInput, NoBorderInput};
@@ -47,3 +48,4 @@ export {LectureBoxFrame, LectureDescBox, LectureLikes, LectureTitle, Lecturer};
 export {LectureGroupScrollWrapper, LectureGroup};
 export {GradeSelect};
 export {ThemedTextBlock};
+export {EmptyBox};

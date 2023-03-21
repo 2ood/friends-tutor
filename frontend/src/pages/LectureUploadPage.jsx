@@ -24,7 +24,7 @@ function LectureUploadPage(){
     let driveState = _state(drive,setDrive);
     let videoState = _state(video,setVideo);
     let subjectState = _state(subject,setSubject);
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
 
     function _state(target,set){
@@ -43,14 +43,13 @@ function LectureUploadPage(){
             "drive_link" : drive,
             "video_link" : video
         };
-        console.log(json);
         try {
             let m1 = new ModularRequest({
                 "path" : "course",
                 "method" : "post",
                 "headers" : {
                     "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
-                    "Content-Type": 'application/json',
+                    "Content-Type": 'application/json;charset=UTF-8;',
                 },
                 "body" : json
             });
@@ -64,7 +63,7 @@ function LectureUploadPage(){
               }
             );
         } catch(e) {
-            console.log(e.message);
+            notify("unknown error occured in uploading lecture");
         }
         
     }
@@ -73,18 +72,15 @@ function LectureUploadPage(){
     var UploadLecture = "UploadLecture";
     var submit = "submit";
     var cancel = "cancel";
-    var Check = "Check the video subtitles here! 🔽";
     if (LanguageChange===0){
         UploadLecture = "Upload Lecture";
         submit = "submit";
         cancel = "cancel";
-        Check = "Check the video subtitles here! 🔽";
     }
     else if (LanguageChange===1){
         UploadLecture = "강의글 작성";
         submit = "등록";
         cancel="취소";
-        Check = "영상 자막 확인하기 🔽";
     }
     return (<>
         <Component.ThemedToast/>  
@@ -100,9 +96,7 @@ function LectureUploadPage(){
             <Styled.Buttongroup>
                 <Styled.ThemedButton size="10px" theme="primary" onClick={handleSubmit}>{submit}</Styled.ThemedButton>
                 <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>{cancel}</Styled.ThemedButton>
-                
             </Styled.Buttongroup>
-            <Styled.ThemedButton size="50px" theme="secondary">{Check}</Styled.ThemedButton>
         </Styled.MainBodyFrame>
     </>);
 }

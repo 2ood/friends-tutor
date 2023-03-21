@@ -10,9 +10,8 @@ import Modal2 from "styles/styled-components/Modal2";
 import { useState } from "react";
 import axios from "axios";
 import { useAtom } from "jotai";
-import {FE_PATH} from "util/Enums";
-import { LanguageChangeAtom } from "util/atom";
-import {ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
+import {FE_PATH, HOST} from "util/Enums";
+import { LanguageChangeAtom, ModalMessageAtom,ModalDetailsAtom, MypageUserNameAtom, MypageUserGradeAtom} from "util/atom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -55,7 +54,6 @@ function Mypage(props){
       .then(response => {
         setMypageUserName(response.data.details.name);
         setMypageUserGrade(response.data.details.grade);
-
       });
   };
   userinfo();
@@ -65,7 +63,6 @@ function Mypage(props){
     
 
     getCheckCertificate().then((result)=>{
-      console.log(result);
       if (Message===0 && Details === 0){
         setIsOpen(true);
       }
@@ -124,7 +121,7 @@ function Mypage(props){
                     {MypageUserName}
                 </Styled.MypageName>
                 <Styled.MypageGrade>
-                    {MypageUserGrade}th grade
+                    {Grade}
                 </Styled.MypageGrade>
             </Styled.ThemedBoxUnder>
             <Styled.ThemedBoxRound>
@@ -145,8 +142,6 @@ function Mypage(props){
               open={isOpen}
               onClose={() => {
                 setIsOpen(false);
-                console.log(Message);
-                console.log(Details);
                 if (Message===0 && Details===0) {
                 navigate(FE_PATH.mypage.certificate);
               }

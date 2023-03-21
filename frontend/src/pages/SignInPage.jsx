@@ -5,7 +5,7 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import { useNavigate } from 'react-router';
 import HorizonLine from "styles/styled-components/HorizontalLine";
-import {FE_PATH} from "util/Enums";
+import {FE_PATH, HOST} from "util/Enums";
 import { toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
@@ -18,7 +18,7 @@ function SignInPage() {
     const navigate = useNavigate();
     const notify = (content)=> toast(content);
     
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
  
     const onSignIn = () => {
@@ -34,7 +34,6 @@ function SignInPage() {
         })
           .then(response => response.json())
           .then(res => {
-            console.log(res);
             if (res.accessToken && res.refreshToken) {
                 localStorage.setItem('login-token', res.accessToken);
                 localStorage.setItem('refresh-token', res.refreshToken);
@@ -54,7 +53,7 @@ function SignInPage() {
     var signin="Sign in";
     var ID="ID";
     var Password="Password";
-    if (LanguageChange==0){
+    if (LanguageChange===0){
 
         signin="Sign in";
         ID="ID";

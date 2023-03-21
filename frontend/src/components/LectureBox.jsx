@@ -3,28 +3,28 @@ import { useNavigate } from "react-router-dom";
 import blackboard from "img/blackboard-compressed.jpg";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import { FE_PATH } from "util/Enums";
 
 function LectureBox(props){
     const navigate = useNavigate();
     const videoId = props.src.video_id;
-    const imgUrl = props.src.video_id?`http://img.youtube.com/vi/${videoId}/0.jpg`:blackboard;
+    const imgUrl = props.src.video_id?`https://img.youtube.com/vi/${videoId}/0.jpg`:blackboard;
 
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
 
     function handleLectureClick(){
-        navigate(`/course/view/${props.src.course_id}`);
+        navigate(`${FE_PATH.course.view}/${props.src.course_id}`);
     };
 
     var Likes="Likes";
     if (LanguageChange===0){
         Likes="Likes";
-     
     }
     else if(LanguageChange===1){
         Likes="추천";
-        
     };
+
     return (
         <Styled.LectureBoxFrame width={props.width} onClick={handleLectureClick}>
             <img alt="lecture-thumb" src={imgUrl}/>

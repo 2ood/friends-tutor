@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import HorizonLine from "styles/styled-components/HorizontalLine";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import {HOST} from "util/Enums";
 
 function SignUpPage() {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ function SignUpPage() {
     const [grade, setGrade] = useState("");
     const [nickName, setNickname] = useState("");
     const [email, setEmail] = useState("");
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
 
     const navigateToMain = () => {
@@ -96,7 +97,7 @@ function SignUpPage() {
           }}>
             <Styled.SignInUpBar>
             <img style={{width:'50px'}} src={back} onClick={navigateToMain} alt="back"/>
-            <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>Sign up</div>
+            <div style={{color:"#595959", fontSize:"18px", fontFamily:"Gulim", fontWeight:"bold"}}>{Signup}</div>
             <img style={{width:'50px'}} src={clear} alt="clear"/>
             </Styled.SignInUpBar>
 

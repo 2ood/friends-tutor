@@ -27,14 +27,13 @@ class ModularRequest extends React.Component{
                 url : url,
                 headers : this.state.headers,
                 data : JSON.stringify(this.state.body)
-            })
-
+            }).catch(function (error) {
+                return error.response;
+            });
             return response;
 
         } catch (e) {
-            console.error("error occured in modularRequest"); 
-            console.error(e.name);
-            console.error(e.message); 
+            console.error("Unknown error occurred in ModularRequest");
         } 
     }
     

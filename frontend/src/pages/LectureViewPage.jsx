@@ -1,19 +1,24 @@
 import React ,{useState, useEffect} from "react";
 import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
 
 
+
 function LectureViewPage(props){
     const { id } = useParams();
     const [lectureData, setLectureData] = useState({});
+    const [likeNum, setLikeNum] = useState(0);
     const notify = (content)=> toast(content);
+    const [isLiked, setIsLiked] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const navigate = useNavigate();
 
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     var checknotes="🔗check notes!";
     var like="like ";
     var close="close";
@@ -44,15 +49,13 @@ function LectureViewPage(props){
                 m1.send().then((res)=>{
                     if(res.status=== 200) {
                         setLectureData(res.data.details);
-                    } else {
-                        notify("there was an error in reading lecture data!");
-                    }
-                  }
-                );
-            
+                        setLikeNum(res.data.details.likes);
+                        setIsLiked(res.data.details.is_liked);
+                        setIsLoaded(true);
+                    } else {notify("there was an error in reading lecture data!");}
+                  });
             } catch (e) {
-                console.log("error in reading lecture data");
-                console.error(e.message);
+                notify("error in reading lecture data");
             }
         }
         readContents();
@@ -60,10 +63,30 @@ function LectureViewPage(props){
 
     function handleLikeClick() {
 
+        try {
+            let m1 = new ModularRequest({
+                "path" : `course/like/${id}`,
+                "method" : "get",
+                "headers" : {
+                    "Authorization" : `Bearer ${localStorage.getItem('login-token')}`,
+                    "Content-Type": 'application/json;charset=UTF-8;',
+                }
+            });
+              
+            m1.send().then((res)=>{
+                if(res.status=== 200) {
+                    if(res.data.details) setLikeNum(likeNum+1);
+                    else setLikeNum(likeNum-1);
+
+                    setIsLiked(res.data.details);
+                    setIsLoaded(true);
+                } else { notify("there was an error in posting a like!");}
+              });
+        
+        } catch (e) {notify("error in posting a like");}
     }
 
     function handleUrlButton(evt) {
-        console.log(evt.target.getAttribute("href"));
         window.location.href= evt.target.getAttribute("href");
     }
 
@@ -71,15 +94,17 @@ function LectureViewPage(props){
         <Component.ThemedToast/>  
         <Component.Topbar />
         <Styled.MainBodyFrame gap="30px">
-            <Styled.ThemedTitle>{lectureData.title}</Styled.ThemedTitle>
-            <Styled.ThemedButton size="100%" theme="secondary" href={lectureData.drive_link} onClick={handleUrlButton}>{checknotes}</Styled.ThemedButton>
-            <Component.LecturePlayer video_id={lectureData.video_id}></Component.LecturePlayer>
-            <Styled.ThemedTextBlock size="100%" placeholder="Enter an explanation">{lectureData.description}</Styled.ThemedTextBlock>
-            <Styled.ThemedButton size="100%" theme="secondary" href={lectureData.videoSubs??"video subs"}>{checksub}</Styled.ThemedButton>
-            <Styled.Buttongroup>
-                <Styled.ThemedButton size="10px" theme="primary" onClick={handleLikeClick}>{like} {lectureData.likes} 👍</Styled.ThemedButton>
-                <Styled.ThemedButton size="10px" theme="accent">{close}</Styled.ThemedButton>
-            </Styled.Buttongroup>
+            {isLoaded && <>
+                <Styled.ThemedTitle>{lectureData.title}</Styled.ThemedTitle>
+                <Component.LecturePlayer video_id={lectureData.video_id}></Component.LecturePlayer>
+                <Styled.ThemedTextBlock size="100%" placeholder="Enter an explanation">{lectureData.description}</Styled.ThemedTextBlock>
+                <Styled.ThemedButton size="100%" theme="secondary" href={lectureData.drive_link} onClick={handleUrlButton}>{checknotes}</Styled.ThemedButton>
+                <Styled.Buttongroup>
+                    <Styled.ThemedButton key={isLiked} size="10px" theme="primary" onClick={handleLikeClick}>{like} {likeNum} <Component.LikeEmoji isLiked={isLiked}/></Styled.ThemedButton>
+                    <Styled.ThemedButton size="10px" theme="accent" onClick={()=>{navigate(-1);}}>{close}</Styled.ThemedButton>
+                </Styled.Buttongroup>
+            </>
+            }
         </Styled.MainBodyFrame>
     </>);
 }
