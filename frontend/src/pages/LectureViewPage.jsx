@@ -26,7 +26,7 @@ function LectureViewPage(props){
         
         checknotes="🔗과제 자료 확인하기";
         like="추천";
-        close="닫기❌";
+        close="닫기";
     }
     
     useEffect(()=>{
