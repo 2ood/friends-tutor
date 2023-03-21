@@ -15,7 +15,6 @@ function LectureViewPage(props){
 
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
     var checknotes="🔗check notes!";
-    var checksub = "🔗Check video subtitles here!";
     var like="like ";
     var close="close";
     if(LanguageChange===0){
