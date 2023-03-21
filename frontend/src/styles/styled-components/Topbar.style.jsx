@@ -4,6 +4,7 @@ import "styles/style.bootstrap.css";
 //Topbar.jsx
 const Topbar = styled.div`
     display : inline-flex;
+    position: relative;
     height : var(--top-bar-height);
     width : var(--full-width);
     justify-content : space-between;
