@@ -67,13 +67,13 @@ function Mypage(props){
         setIsOpen(true);
       }
       else if (Message===1 && Details === 0){
-        console.log("0&1");
+        //console.log("0&1");
       }
       else if (Message === 1 && Details !==0){
         setIsOpen(true);
       }
       else if (Message===2 || Details ===2){
-        console.log("error");
+        //console.log("error");
       }
       
       
