@@ -94,6 +94,8 @@ function SignUpPage() {
             flexDirection: "column",
             justifyContent: "flex-start",
             alignItems: "center",
+            minHeight:"100vh",
+            minWidth: "100vw"
           }}>
             <Styled.SignInUpBar>
             <img style={{width:'50px'}} src={back} onClick={navigateToMain} alt="back"/>

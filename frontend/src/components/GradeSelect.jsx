@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
 
 function GradeSelect(props){
-    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
+    const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     var four = "🖼️4th grade";
     var five =  "🖼️5th grade";
     var six = "🖼️6th grade";
@@ -26,7 +26,7 @@ function GradeSelect(props){
         twelve = "📚12th grade";
 
     }
-    else if (LanguageChange==1){
+    else if (LanguageChange===1){
         four = "🖼️초등학교 4학년";
         five =  "🖼️초등학교 5학년";
         six = "🖼️초등학교 6학년";

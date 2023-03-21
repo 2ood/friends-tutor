@@ -48,6 +48,9 @@ function MainPage() {
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
+            minHeight:"100vh",
+            minWidth: "100vw",
+            padding:"0px 40px"
           }}>
             <div>
                 <img style={{ width:'300px'}} src={mainlogo} alt = "" />
