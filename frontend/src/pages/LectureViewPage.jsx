@@ -16,19 +16,19 @@ function LectureViewPage(props){
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom);
     var checknotes="🔗check notes!";
     var checksub = "🔗Check video subtitles here!";
-    var like="like 👍";
+    var like="like";
     var close="close";
     if(LanguageChange===0){
         checknotes="🔗check notes!";
         checksub = "🔗Check video subtitles here!";
-        like="like 👍";
+        like="like";
         close="close";
     }
     else if(LanguageChange===1){
         
         checknotes="🔗과제 자료 확인하기";
         checksub = "🔗영상 자막 확인하기";
-        like="추천👍";
+        like="추천";
         close="닫기❌";
     }
     

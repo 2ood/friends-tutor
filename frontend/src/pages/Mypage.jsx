@@ -31,7 +31,7 @@ function Mypage(props){
   const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
 
   const getCheckCertificate = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/certificate/check`,{ //eslint-disable-line no-unused-vars
+    const response = await axios.get(`https://www.gdsc-gist-lms.page/certificate/check`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })
@@ -48,7 +48,7 @@ function Mypage(props){
   }; 
 
   const userinfo = async() => {
-    const response = await axios.get(`http://34.29.162.137:8080/user/info`,{ //eslint-disable-line no-unused-vars
+    const response = await axios.get(`https://www.gdsc-gist-lms.page/user/info`,{ //eslint-disable-line no-unused-vars
     headers : {Authorization: `Bearer ${accessToken}`
         }
       })

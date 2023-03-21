@@ -28,7 +28,7 @@ const Modal = ({ onClose}) => {
   
   
   if (Details===0 && Message===0){
-    TitleText="🎉Succesfull🎉";
+    TitleText="🎉Successfull🎉";
     ModalText1="Check your";
     ModalText2="Certificate!";
     console.log(TitleText);
