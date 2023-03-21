@@ -22,7 +22,7 @@ function SignInPage() {
 
  
     const onSignIn = () => {
-        fetch('https://www.gdsc-gist-lms.page/user/login', {
+        fetch(`${HOST.address}:${HOST.port}/user/login`, {
           method: 'POST',
           headers:{
             "Content-Type": 'application/json;charset=UTF-8',

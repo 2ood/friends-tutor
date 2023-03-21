@@ -22,7 +22,7 @@ function SignUpPage() {
         navigate("/");
     };
     const onSignUp = () => {
-        fetch('https://www.gdsc-gist-lms.page /user/signup', {
+        fetch(`${HOST.address}:${HOST.port}/user/signup`, {
           method: 'POST',
           headers:{
             "Content-Type": 'application/json;charset=UTF-8',
