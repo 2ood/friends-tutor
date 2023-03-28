@@ -1,4 +1,4 @@
-# Friend Mentor
+# Friends Tutor
 
 
 <img
@@ -8,7 +8,7 @@
 
 > ## Learn from your friends. 
 
-Friend mentor is a lecture provider platform where lectures recorded by students are shared worldwide.
+Friends Tutor is a lecture provider platform where lectures recorded by students are shared worldwide.
 
 
 
@@ -46,7 +46,7 @@ Friend mentor is a lecture provider platform where lectures recorded by students
 
 &nbsp;&nbsp;&nbsp;&nbsp;[4.2) Techs Used](#4-2)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[4.3) Dependencies](#4-3)
+&nbsp;&nbsp;&nbsp;&nbsp;[4.3) Deployment](#4-3)
 
 
 [5. Contributors](#5)
@@ -65,7 +65,7 @@ As a student, our team understands how hard it is to learn a piece of knowledge 
 <a name="1-2"></a>
 ## 1.2) What is the solution?
 
-Project 'Friends Mentor' is motivated by one of Albert Einstein's quotes.
+Project 'Friends Tutor' is motivated by one of Albert Einstein's quotes.
 
 > If you can't explain it simply, you don't understand it enough.
 
@@ -73,13 +73,12 @@ This quote implies that once a student learned something thouroughly, one can al
 
  Our goal is to build a 'Stack overflow','Coursera', and 'Wikipedia' on school basic subjects. We dreamed an online website( or an app) where kids can freely access peer's explaination on things they didn't understand on school 
 
-Project 'Friends Mentor' tries to achieve the <u>4th goal of UN SDG sustainable Goals</u>, which is **Quality Education**. Specifically, this project aims to gain progress on **indicator 4.1.1. and 4.c.1.**
+Project 'Friends Tutor' tries to achieve the <u>4th goal of UN SDG sustainable Goals</u>, which is **Quality Education**. Specifically, this project aims to gain progress on **indicator 4.1.1. and 4.c.1.**
 
-> 4.1.1
+> 4.1.1<br/>
 Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex
 
-> 4.c.1
-Proportion of teachers with the minimum required qualifications, by education level
+> 4.c.1 <br/>Proportion of teachers with the minimum required qualifications, by education level
 
 
 <a name="1-3"></a>
@@ -126,8 +125,23 @@ Proportion of teachers with the minimum required qualifications, by education le
 <a name="3"></a>
 # 3. Setup & Requisites
 
+Minimum environment requirements are as follows.
+
+OS : (ubuntu) 20.04 LTS / (Window) Window 10
+
+Node.js : 18.15.0
+
+npm : 9.2.0
+
+First. clone files from git.
 ```bash
-npm build 
+git clone https://github.com/2ood/friends-tutor.git
+```
+
+```bash
+cd friends-tutor/friends-tutor
+npm install
+npm start
 ```
 
 <a name="4"></a>
@@ -139,11 +153,22 @@ npm build
 <img src="./readme-src/project-flow2.drawio.png" alt="project_structure"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 300px">
 
+The project is version-controlled by git. 
+
+Following is the git repository for web-backend.
+
+[https://github.com/kimtks456/friend-tutor-backend](https://github.com/kimtks456/friend-tutor-backend)
+
+
 <a name="4-2"></a>
 ## 4.2) Techs Used
 
 <a name="4-3"></a>
-## 4.3) Dependancies
+## 4.3) Deployment
+
+Demo of project 'Friends Tutor' is being deployed upon Netlify.
+
+[https://friends-tutor.netlify.app/](https://friends-tutor.netlify.app/)
 
 
 <a name="5"></a>
