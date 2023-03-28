@@ -125,19 +125,26 @@ Proportion of children and young people (a) in grades 2/3; (b) at the end of pri
 <a name="3"></a>
 # 3. Setup & Requisites
 
-Minimum environment requirements are as follows.
+Minimum environment requirements versions are as follows.
 
-OS : (ubuntu) 20.04 LTS / (Window) Window 10
 
-Node.js : 18.15.0
-
-npm : 9.2.0
+> OS : (ubuntu) 18.04 LTS <br>Node.js : 16.19.1 (Gallium) <br>npm : 9.6.2
 
 First. clone files from git.
 ```bash
-git clone https://github.com/2ood/friends-tutor.git
+git clone https://github.com/2ood/friends-tutor.git 
+# web communicates through demo backend domain.
+# (which is https://www.gdsc-gist-lms.page:443)
+```
+Currently, main branch is <u>connected to demo backend domain.</u> 
+If you want to run in the same local machine of backend, you should clone branch **'localhost-branch'**.
+
+```bash
+git clone -b localhost-branch https://github.com/2ood/friends-tutor.git
+# web communicates with http://localhost:8080.
 ```
 
+Then, install dependencies and run.
 ```bash
 cd friends-tutor/friends-tutor
 npm install
@@ -162,6 +169,7 @@ Following is the git repository for web-backend.
 
 <a name="4-2"></a>
 ## 4.2) Techs Used
+
 
 <a name="4-3"></a>
 ## 4.3) Deployment
