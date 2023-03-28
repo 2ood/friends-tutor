@@ -11,9 +11,9 @@ import { LanguageChangeAtom } from "util/atom";
 function Topbar(){
     const navigate = useNavigate();
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); //eslint-disable-line no-unused-vars
-    var FriendsMentor="FriendsMentor";
+    var FriendsMentor="Friends Tutor";
     if (LanguageChange===0){
-        FriendsMentor="FriendsMentor";
+        FriendsMentor="Friends Tutor";
     }
     else if(LanguageChange===1){
         FriendsMentor="또래멘토";

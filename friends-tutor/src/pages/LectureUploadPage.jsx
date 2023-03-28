@@ -6,13 +6,14 @@ import ModularRequest from "util/ModularRequest";
 import {toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import { FE_PATH } from "util/Enums";
 
 
 function LectureUploadPage(){
-    const [title, setTitle] = useState("sample title");
-    const [drive, setDrive] = useState("https://docs.google.com/document/d/113TSOJ5RnzI1FkYgXfhmsLWqUgTIBKcRdUTCohXTYLM/edit?usp=sharing");
-    const [video, setVideo] = useState("https://www.youtube.com/watch?v=3XAhnv1FPqg");
-    const [desc, setDesc] = useState("sample description");
+    const [title, setTitle] = useState("");
+    const [drive, setDrive] = useState("");
+    const [video, setVideo] = useState("");
+    const [desc, setDesc] = useState("");
     const [grade, setGrade] = useState(6);
     const [subject, setSubject] = useState("math");
     
@@ -57,6 +58,7 @@ function LectureUploadPage(){
             m1.send().then((res)=>{
                 if(res.status=== 200) {
                     notify("successfully added a lecture!");
+                    setTimeout(()=>{navigate(FE_PATH.course.list);},2000);
                 } else {
                     notify("there was an error in adding lecture!");
                 }

@@ -227,15 +227,15 @@ function SignUpPage() {
                         paddingBottom: '7px', }}>
 
                     <option selected default value="" disabled > {Enteryourgrade}</option>
-                    <option value="1">🖼️4th grade(초4)</option>
-                    <option value="2">🖼️5th grade(초5)</option>
-                    <option value="3">🖼️6th grade(초6)</option>
-                    <option value="4">📙7th grade(중1)</option>
-                    <option value="5">📙8th grade(중2)</option>
-                    <option value="6">📚9th grade(중3)</option>
-                    <option value="7">📚10th grade(고1)</option>
-                    <option value="8">📚11th grade(고2)</option>
-                    <option value="9">📚12th grade(고3)</option>
+                    <option value="4">🖼️4th grade(초4)</option>
+                    <option value="5">🖼️5th grade(초5)</option>
+                    <option value="6">🖼️6th grade(초6)</option>
+                    <option value="7">📙7th grade(중1)</option>
+                    <option value="8">📙8th grade(중2)</option>
+                    <option value="9">📚9th grade(중3)</option>
+                    <option value="10">📚10th grade(고1)</option>
+                    <option value="11">📚11th grade(고2)</option>
+                    <option value="12">📚12th grade(고3)</option>
                     </select>
                 <HorizonLine/>
             </div>
