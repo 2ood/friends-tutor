@@ -42,12 +42,16 @@ Friend mentor is a lecture provider platform where lectures recorded by students
 
 [4. Project Architecture](#4)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[4.1) Flowchart](#4-1)
+&nbsp;&nbsp;&nbsp;&nbsp;[4.1) Project structure](#4-1)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[4.2) Techs Used](#4-2)
 
+&nbsp;&nbsp;&nbsp;&nbsp;[4.3) Dependencies](#4-3)
+
 
 [5. Contributors](#5)
+
+
 
 <a name="1"></a>
 # 1. Backgrounds
@@ -137,6 +141,9 @@ npm build
 
 <a name="4-2"></a>
 ## 4.2) Techs Used
+
+<a name="4-3"></a>
+## 4.3) Dependancies
 
 
 <a name="5"></a>

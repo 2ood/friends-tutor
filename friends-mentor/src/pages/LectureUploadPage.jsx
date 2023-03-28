@@ -6,6 +6,7 @@ import ModularRequest from "util/ModularRequest";
 import {toast } from 'react-toastify';
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
+import { FE_PATH } from "util/Enums";
 
 
 function LectureUploadPage(){
@@ -57,6 +58,7 @@ function LectureUploadPage(){
             m1.send().then((res)=>{
                 if(res.status=== 200) {
                     notify("successfully added a lecture!");
+                    setTimeout(()=>{navigate(FE_PATH.course.list);},2000);
                 } else {
                     notify("there was an error in adding lecture!");
                 }
