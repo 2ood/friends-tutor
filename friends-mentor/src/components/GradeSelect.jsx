@@ -10,7 +10,7 @@ function GradeSelect(props){
     var six = "🖼️6th grade";
     var seven = "📙7th grade";
     var eight = "📙8th grade";
-    var nine = "📚9th grade";
+    var nine = "📙9th grade";
     var ten = "📚10th grade";
     var eleven = "📚11th grade";
     var twelve = "📚12th grade";
@@ -20,7 +20,7 @@ function GradeSelect(props){
         six = "🖼️6th grade";
         seven = "📙7th grade";
         eight = "📙8th grade";
-        nine = "📚9th grade";
+        nine = "📙9th grade";
         ten = "📚10th grade";
         eleven = "📚11th grade";
         twelve = "📚12th grade";
