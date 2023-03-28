@@ -8,12 +8,8 @@ import "styles/style.bootstrap.css";
 
 const LecturePlayer = styled.iframe`
     display : inline-block;
-    position : absolute;
-    top : 0;
-    bottom : 0;
-    left : 0;
-    right : 0;
-    
+    width : 100%;
+    aspect-ratio : 16/9;
     outline : none;
     border : none;
     border-radius : var(--default-border-radius);
