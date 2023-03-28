@@ -2,7 +2,7 @@
 
 
 <img
-  src="./demo/welcome.png"
+  src="./readme-src/welcome.png"
   alt="mainlogo"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 400px">
 
@@ -37,7 +37,7 @@ Friend mentor is a lecture provider platform where lectures recorded by students
 
 &nbsp;&nbsp;&nbsp;&nbsp;[2.4) Certificates](#2-4)
 
-[3. Setup](#3)
+[3. Setup & Requisites](#3)
 
 
 [4. Project Architecture](#4)
@@ -92,7 +92,7 @@ Proportion of teachers with the minimum required qualifications, by education le
 ## 2.1) Login & Sign up
 
 <img
-  src="./demo/login.png"
+  src="./readme-src/login.png"
   alt="mainlogo"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 400px">
 
@@ -101,7 +101,7 @@ Proportion of teachers with the minimum required qualifications, by education le
 ## 2.2) Browse Lectures & Give upvotes
 
 <img
-  src="./demo/watch_lectures_and_give_upvotes.png"
+  src="./readme-src/watch_lectures_and_give_upvotes.png"
   alt="mainlogo"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 400px">
 
@@ -109,7 +109,7 @@ Proportion of teachers with the minimum required qualifications, by education le
 ## 2.3) Upload my lectures
 
 <img
-  src="./demo/upload_lectures.png"
+  src="./readme-src/upload_lectures.png"
   alt="mainlogo"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 400px">
 
@@ -118,13 +118,13 @@ Proportion of teachers with the minimum required qualifications, by education le
 ## 2.4) Certificates
 
 <img
-  src="./demo/certificates.png"
+  src="./readme-src/certificates.png"
   alt="mainlogo"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 400px">
 
 
 <a name="3"></a>
-# 3. Setup
+# 3. Setup & Requisites
 
 ```bash
 npm build 
@@ -136,7 +136,7 @@ npm build
 <a name="4-1"></a>
 ## 4.1) Project structure
 
-<img src="./frontend/src/img/project-flow2.drawio.png" alt="project_structure"
+<img src="./readme-src/project-flow2.drawio.png" alt="project_structure"
   style="display: flex; margin: auto; align-items:center; justify-content : center; max-width: 300px">
 
 <a name="4-2"></a>

@@ -10,10 +10,10 @@ import { FE_PATH } from "util/Enums";
 
 
 function LectureUploadPage(){
-    const [title, setTitle] = useState("sample title");
-    const [drive, setDrive] = useState("https://docs.google.com/document/d/113TSOJ5RnzI1FkYgXfhmsLWqUgTIBKcRdUTCohXTYLM/edit?usp=sharing");
-    const [video, setVideo] = useState("https://www.youtube.com/watch?v=3XAhnv1FPqg");
-    const [desc, setDesc] = useState("sample description");
+    const [title, setTitle] = useState("");
+    const [drive, setDrive] = useState("");
+    const [video, setVideo] = useState("");
+    const [desc, setDesc] = useState("");
     const [grade, setGrade] = useState(6);
     const [subject, setSubject] = useState("math");
     
