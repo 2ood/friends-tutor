@@ -5,6 +5,7 @@ import gohome from "img/gohome.png";
 import changeLang from "img/changeLang.png";
 import certificate from "img/certificateImg.png";
 import white from "img/white.png";
+import logout from "img/logout.png";
 import Modal from "styles/styled-components/Modal";
 import Modal2 from "styles/styled-components/Modal2";
 import { useState } from "react";
@@ -83,23 +84,34 @@ function Mypage(props){
     setIsOpen2(true);
 
   };
+
+  const onClickLogout = () => {
+    localStorage.removeItem('login-token');
+    localStorage.removeItem('refresh-token');
+    navigate(FE_PATH.main);
+  }
+
   var userinformation="USER INFORMATION";
   var home="Home";
   var Language="Language";
   var Certificate="Certificate";
   var Grade=`${MypageUserGrade}th grade`;
+  var Logout = "Logout";
+
   if (LanguageChange===0){
     userinformation="USER INFORMATION";
     home="Home";
     Language="Language";
     Certificate="Certificate";
     Grade=`${MypageUserGrade}th grade`;
+    Logout = "Logout";
   }
   else if(LanguageChange===1){
     userinformation="사용자정보";
     home="홈";
     Language="언어설정";
     Certificate="인증서발급";
+    Logout = "로그아웃";
     if (MypageUserGrade>=1 && MypageUserGrade<=6){
       Grade=`초등학교 ${MypageUserGrade}학년`;
     }
@@ -160,7 +172,11 @@ function Mypage(props){
                     }}
                   />)}
 
-              <Styled.MypageButton> <img src={white} alt="white"></img><Styled.MypageText> </Styled.MypageText></Styled.MypageButton>
+              <Styled.MypageButton onClick={onClickLogout}>
+                <img src={logout} alt="logout"></img>
+                <Styled.MypageText>{Logout}</Styled.MypageText>
+              </Styled.MypageButton>
+
               <Styled.MypageButton><img src={white} alt="white"></img><Styled.MypageText> </Styled.MypageText></Styled.MypageButton>
               <Styled.MypageButton><img src={white} alt="white"></img><Styled.MypageText> </Styled.MypageText></Styled.MypageButton>
               <Styled.MypageButton><img src={white} alt="white"></img><Styled.MypageText> </Styled.MypageText></Styled.MypageButton>

@@ -10,6 +10,8 @@ function MainPage() {
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     //console.log(LanguageChange);
     const navigate = useNavigate();
+
+    
  
     const navigateToSignIn = () => {
     navigate(FE_PATH.auth.signin);
