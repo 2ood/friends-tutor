@@ -1,4 +1,4 @@
-# Friends Tutor
+# [Friends Tutor](https://friends-tutor.netlify.app/)
 
 
 <img
@@ -10,6 +10,7 @@
 
 Friends Tutor is a lecture provider platform where lectures recorded by students are shared worldwide.
 
+[Demo web available here](https://friends-tutor.netlify.app/)
 
 
 ![Netlify](https://img.shields.io/netlify/83f6fb77-5507-4db6-9adf-18b0a42229c1?style=for-the-badge) ![GitHub](https://img.shields.io/github/license/2ood/friend-mentor-frontend?style=for-the-badge) 
@@ -24,7 +25,6 @@ Friends Tutor is a lecture provider platform where lectures recorded by students
 
 &nbsp;&nbsp;&nbsp;&nbsp;[1.2) What is the solution?](#1-2)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[1.3) What software is needed?](#1-3)
 
 [2. Introducing Friend Mentor](#2)
 
@@ -32,7 +32,6 @@ Friends Tutor is a lecture provider platform where lectures recorded by students
 
 &nbsp;&nbsp;&nbsp;&nbsp;[2.2) Browse Lectures & Give upvotes](#2-2)
   
-
 &nbsp;&nbsp;&nbsp;&nbsp;[2.3) Upload my lectures](#2-3)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[2.4) Certificates](#2-4)
@@ -59,7 +58,11 @@ Friends Tutor is a lecture provider platform where lectures recorded by students
 <a name="1-1"></a>
 ## 1.1) What is the problem?
 
-As a student, our team understands how hard it is to learn a piece of knowledge by oneself. It is very hard to 
+Living in underdeveloped countries, especially in places without educational infrastructures like schools or libraries, it is very hard to learn a piece of knowledge by oneself. It is almost impossible to get access to quality education content. 
+
+Not only in those countries, there still are places in South Korea where general education is not in reach. For instance, one of our beta test user Jiwoo lives in an island where there are insufficient internet connection. 
+
+The problem doesn't end here. Even in places with those infrastructures, the education quality is not guaranteed. Some schools might lack in Science teachers, while others don't have appropriate learning materials. 
 
 
 <a name="1-2"></a>
@@ -71,18 +74,15 @@ Project 'Friends Tutor' is motivated by one of Albert Einstein's quotes.
 
 This quote implies that once a student learned something thouroughly, one can also explain it to others. Also, thinking backwards, if we evaluate whether students can explain well about a topic they learned, we can 'grade them' without exams.
 
- Our goal is to build a 'Stack overflow','Coursera', and 'Wikipedia' on school basic subjects. We dreamed an online website( or an app) where kids can freely access peer's explaination on things they didn't understand on school 
+ Our goal is to build a 'Stack overflow','Coursera', and 'Wikipedia' on school basic subjects. We dreamed an online website( or an app) where **kids can freely access peer's explaination on things they didn't understand in school.** 
 
-Project 'Friends Tutor' tries to achieve the <u>4th goal of UN SDG sustainable Goals</u>, which is **Quality Education**. Specifically, this project aims to gain progress on **indicator 4.1.1. and 4.c.1.**
+Project 'Friends Tutor' tries to achieve the <u>4th goal of UN SDG sustainable Goals</u>, which is **Quality Education**. Specifically, this project aims to gain progress on **indicator 4.1.1. and 4.5.1.**
 
 > 4.1.1<br/>
 Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex
 
-> 4.c.1 <br/>Proportion of teachers with the minimum required qualifications, by education level
+> 4.5.1 <br/>Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated
 
-
-<a name="1-3"></a>
-## 1.3) What software is needed?
 
 <a name="2"></a>
 # 2. Introducing Friend Mentor
@@ -174,13 +174,23 @@ Following is the git repository for web-backend.
 <a name="4-3"></a>
 ## 4.3) Deployment
 
-Demo of project 'Friends Tutor' is being deployed upon Netlify.
+Currrent Demo of project 'Friends Tutor' is being deployed upon Netlify.
 
 [https://friends-tutor.netlify.app/](https://friends-tutor.netlify.app/)
 
 
 <a name="5"></a>
 # 5. Contributors
+
+## FE
+* [Suyeon Shim](https://github.com/Shimsuyeon) : FE Design, FE Development (My page)
+* [Seungbin Shin](https://github.com/binnie723) : FE Design, FE Development (Main page, Login, Logout)
+* [Kyugnmin Choi](https://github.com/2ood) : FE Management, FE Development (Lecture Upload, browse, view)
+
+## BE
+* [San Kim](https://github.com/kimtks456) : PM, BE Development
+
+
 
 
 
