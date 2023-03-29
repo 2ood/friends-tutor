@@ -9,7 +9,7 @@ import { LanguageChangeAtom } from "util/atom";
 
 
 
-function LectureViewPage(props){
+function LectureViewPage(){
     const { id } = useParams();
     const [lectureData, setLectureData] = useState({});
     const [likeNum, setLikeNum] = useState(0);

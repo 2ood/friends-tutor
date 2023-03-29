@@ -3,7 +3,7 @@ import * as Component from "components/Components";
 import * as Styled from "styles/ComponentStyles";
 import ModularRequest from "util/ModularRequest";
 import { toast } from 'react-toastify';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { FE_PATH } from "util/Enums";
 import { useAtom } from "jotai";
 import { LanguageChangeAtom } from "util/atom";
@@ -12,10 +12,12 @@ import PullToRefresh from 'react-simple-pull-to-refresh';
 
 
 function LectureRoomPage(){
+    const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
+    const gradeQuery = searchParams.get("grade")
     const navigate = useNavigate();
     const notify = (content)=> toast(content);
     
-    const [grade, setGrade] = useState(6);
+    const [grade, setGrade] = useState(gradeQuery);
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
     const [isLoaded, setIsLoaded] = useState(false);
 
@@ -43,7 +45,7 @@ function LectureRoomPage(){
             
             m2.send().then((res)=>{
                 if(res.status=== 200) {
-                    setGrade(res.data.details.grade);
+                    if(!grade) setGrade(res.data.details.grade);
                     setIsLoaded(true);
                 } else { notify("there was an error in reading user info!");}
             });
@@ -72,7 +74,7 @@ function LectureRoomPage(){
                     <Component.GradeSelect contents={gradeState}></Component.GradeSelect>
                     <Component.TrendingLecture  grade={grade}></Component.TrendingLecture>
                     <Component.RecentLectures grade={grade}></Component.RecentLectures>
-                    <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload)}}>{UploadLecture}</Styled.ThemedButton>
+                    <Styled.ThemedButton size="50px" onClick={()=>{navigate(FE_PATH.course.upload,{ grade : grade })}}>{UploadLecture}</Styled.ThemedButton>
                 </>}
             </Styled.MainBodyFrame>
         </PullToRefresh>
