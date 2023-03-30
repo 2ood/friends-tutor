@@ -164,7 +164,7 @@ The project is version-controlled by git.
 
 Following is the git repository for web-backend.
 
-[https://github.com/kimtks456/friend-tutor-backend]https://github.com/kimtks456/friend-tutor-backend/tree/demo)
+[https://github.com/kimtks456/friend-tutor-backend](https://github.com/kimtks456/friend-tutor-backend/tree/demo)
 
 
 <a name="4-2"></a>
