@@ -1,4 +1,4 @@
-# [Friends Tutor](https://friends-tutor.netlify.app/)
+# 👫 [Friends Tutor](https://friends-tutor.netlify.app/)
 
 
 <img
@@ -53,7 +53,7 @@ Friends Tutor is a lecture provider platform where lectures recorded by students
 
 
 <a name="1"></a>
-# 1. Backgrounds
+# ✨ 1. Backgrounds 
 
 <a name="1-1"></a>
 ## 1.1) What is the problem?
@@ -85,7 +85,7 @@ Proportion of children and young people (a) in grades 2/3; (b) at the end of pri
 
 
 <a name="2"></a>
-# 2. Introducing Friend Mentor
+# 😎 2. Introducing Friend Mentor
 
 <a name="2-1"></a>
 ## 2.1) Login & Sign up
@@ -152,7 +152,7 @@ npm start
 ```
 
 <a name="4"></a>
-# 4. Project Architecture
+# 🖥️ 4. Project Architecture
 
 <a name="4-1"></a>
 ## 4.1) Project structure
@@ -171,6 +171,26 @@ Following is the git repository for web-backend.
 ## 4.2) Techs Used
 
 
+|**Frontend**|tech used|
+|---|---|
+|Design | Figma |
+|web-dev | React |
+|web-deploy | Netlify|
+
+
+|**Backend**|tech used|
+|---|---|
+|backend-dev | Spring |
+|backend-deploy | GCP|
+|DBMS | MySQL |
+
+|**Others**|tech used|
+|---|---|
+|version control | git, Github|
+|API documentation | Swagger|
+|Task organization | Notion |
+|Video edit | Adobe Premiere Pro |
+
 <a name="4-3"></a>
 ## 4.3) Deployment
 
@@ -180,7 +200,7 @@ Currrent Demo of project 'Friends Tutor' is being deployed upon Netlify.
 
 
 <a name="5"></a>
-# 5. Contributors
+# 👥 5. Contributors
 
 ## FE
 * [Suyeon Shim](https://github.com/Shimsuyeon) : FE Design, FE Development (My page)
