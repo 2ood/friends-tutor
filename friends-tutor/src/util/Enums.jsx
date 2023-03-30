@@ -6,8 +6,8 @@ const METHOD = {
 };
 
 const HOST = {
-    "address" : "http://localhost",
-    "port" : 8080
+    "address" : "https://www.gdsc-gist-lms.page",
+    "port" : 443
 }
 
 const FE_PATH = {
