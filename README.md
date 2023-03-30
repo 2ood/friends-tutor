@@ -153,6 +153,17 @@ npm install
 npm start
 ```
 
+Frontend setup is complete. If you want to test the features by running both the frontend and backend on your local machine, please proceed with the Backend Setup below.
+    
+
+### Backend Setup
+
+In fact, since the backend server is currently deployed, you can receive all API calls directly by running the code on the **'main branch'**. You don’t need to setup the backend environment.
+
+However, if you want to run both the frontend and backend locally using the **'localhost-branch'**, you can run the backend environment on your local machine by following the instructions in the below GitHub link which is the backend repository of our project.
+
+[https://github.com/kimtks456/friend-tutor-backend](https://github.com/kimtks456/friend-tutor-backend/tree/demo)
+
 <a name="4"></a>
 # 🖥️ 4. Project Architecture
 
