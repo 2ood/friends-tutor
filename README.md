@@ -10,7 +10,9 @@
 
 Friends Tutor is a lecture provider platform where lectures recorded by students are shared worldwide.
 
-[Demo web available here](https://friends-tutor.netlify.app/)
+<center>
+<a href="https://friends-tutor.netlify.app/"><img src='https://img.shields.io/badge/Demo web-blue?style=for-the-badge'></a> <a href="https://www.youtube.com/watch?v=v39WYfTsenQ"><img src='https://img.shields.io/badge/Introduction Video-red?style=for-the-badge'></a>
+</center>
 
 
 ![Netlify](https://img.shields.io/netlify/83f6fb77-5507-4db6-9adf-18b0a42229c1?style=for-the-badge) ![GitHub](https://img.shields.io/github/license/2ood/friend-mentor-frontend?style=for-the-badge) 
