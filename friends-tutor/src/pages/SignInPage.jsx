@@ -20,8 +20,8 @@ function SignInPage() {
     
     const [LanguageChange,setLanguageChange] = useAtom(LanguageChangeAtom); // eslint-disable-line no-unused-vars
 
-    const accessToken = localStorage.getItem('login-token');
-    if(accessToken) {navigate(FE_PATH.course.list)}
+    // const accessToken = localStorage.getItem('login-token');
+    // if(accessToken) {navigate(FE_PATH.course.list)}
 
     const onSignIn = () => {
         fetch(`${HOST.address}:${HOST.port}/user/login`, {
